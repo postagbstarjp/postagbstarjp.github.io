@@ -1,0 +1,22 @@
+/* This essay inherits the shared paper, Mincho type and article spacing. */
+.computing-page { --accent: #2e5355; }
+.computing-main { max-width: 880px; }
+.computing-page .home-link { font-family: var(--sans); font-size: .8rem; }
+.computing-page .article-header { max-width: 46rem; margin-inline: auto; }
+.computing-page .article-header h1 { text-wrap: balance; }
+.computing-page .article-date time { display: inline-block; }
+.computing-page :is(h1, h2, p, li, a, code) { overflow-wrap: anywhere; }
+.computing-page .scope-note { margin: 1.8rem 0 0; padding-left: 1rem; border-left: 2px solid var(--accent); color: #526160; font-size: .85rem; line-height: 1.95; }
+.computing-page .calculation-note { padding: 1.1rem 1.3rem; background: var(--paper-deep); border-left: 2px solid var(--accent); font-size: .85rem; }
+.computing-page code { font-size: .9em; letter-spacing: 0; }
+.computing-page .references { max-width: 43rem; margin-inline: auto; padding-top: 2rem; border-top: 1px solid var(--line); }
+.computing-page .reference-list { padding-left: 1.4rem; font-size: .88rem; line-height: 1.95; }
+.computing-page .reference-list li { margin-bottom: 1rem; }
+.computing-page .reference-date { color: var(--muted); font-size: .8rem; }
+.computing-page .article-return { display: flex; flex-wrap: wrap; gap: .7rem 1.8rem; }
+@media (max-width: 540px) {
+  .computing-page .article-nav { font-size: .7rem; }
+  .computing-page .article-header h1 { font-size: 1.7rem; }
+  .computing-page .article-subtitle { line-height: 1.95; }
+  .computing-page .calculation-note { padding: 1rem; }
+}

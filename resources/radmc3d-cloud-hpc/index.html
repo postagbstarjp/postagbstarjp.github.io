@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="手元のPCでは終わらない天文学の数値計算をどう進めるか。RADMC-3Dを例に、クラウドのLinux計算機、OpenMPと独立ジョブの違い、料金の条件、科学的再現性を考えます。">
+  <title>手元のパソコンでは終わらない計算を、どうするか｜中島淳一</title>
+  <link rel="canonical" href="https://postagbstarjp.github.io/resources/radmc3d-cloud-hpc/">
+  <link rel="stylesheet" href="../../styles.css?v=editorial-refined-20261018">
+  <link rel="stylesheet" href="./article.css?v=20261025">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+</head>
+<body class="computing-page">
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header class="site-header"><div class="header-inner"><a class="site-name" href="../../" aria-label="中島淳一 ホーム"><span lang="ja">中島淳一</span><span lang="en">Jun-ichi Nakashima</span></a><a class="home-link" href="../../">ホームへ戻る</a></div></header>
+  <main id="main" class="computing-main" tabindex="-1">
+    <nav class="article-nav" aria-label="現在の位置"><a href="../../">ホーム</a><span aria-hidden="true"> / </span><a href="../">研究情報源・公開データ</a><span aria-hidden="true"> / </span><span aria-current="page">研究の方法・計算環境</span></nav>
+    <article aria-labelledby="article-title">
+      <header class="article-header">
+        <p class="eyebrow" lang="en">Research methods / Computing</p>
+        <p class="article-date">研究の方法・計算環境についての覚え書き · <time datetime="2026-10-25">2026年10月25日</time></p>
+        <h1 id="article-title">手元のパソコンでは終わらない計算を、どうするか</h1>
+        <p class="article-subtitle">RADMC-3Dを例に考える、クラウド計算と研究の選択肢</p>
+        <p class="article-lead">研究室のパソコンで処理しきれない計算に、どのような選択肢があるのでしょうか。必要な時間だけ計算機を借りる方法を、並列処理、費用、結果の確かめ方から考えます。</p>
+        <p class="scope-note">本稿は研究方法と計算環境についての調査・検討です。クラウド上でRADMC-3Dの性能を実測した報告ではありません。</p>
+      </header>
+      <div class="article-body">
+        <section aria-labelledby="section-1">
+          <h2 id="section-1">計算機の性能が、研究の問いを制限するとき</h2>
+          <p>天文学では、観測データを解釈するために、物理モデルを使った数値計算が必要になることがあります。例えば、年老いた星から放出されたガスや塵がどのように分布し、中心星からの光をどのように吸収・放射するのか。こうした問題を調べるには、物質の構造を仮定し、放射輸送計算の結果を観測と比較する方法があります。</p>
+          <p>モデルが複雑になれば、計算に必要な時間も長くなります。さらに、密度分布や塵の性質などのパラメータを少しずつ変えて比較しようとすると、モデル一つの計算時間だけでなく、計算すべきモデルの数そのものが問題になります。</p>
+          <p>研究室のパソコンで処理しきれない規模になったら、どうすればよいのでしょうか。大学や研究機関の大型計算機の共同利用に申請するのは、もちろん有力な選択肢です。しかし、最近あらためて調べてみると、<strong>必要な時間だけ高性能な計算機を借りる</strong>という、もう一つの現実的な道があることがわかりました。</p>
+        </section>
+        <section aria-labelledby="section-2">
+          <h2 id="section-2">クラウドは、遠くにある自分のLinux計算機にもなる</h2>
+          <p>クラウドというと、オンラインストレージや生成AIを連想するかもしれません。しかし、Google Cloud、Alibaba Cloudなどのサービスでは、CPUやメモリの容量を選び、Linuxの仮想マシンを一定時間利用することもできます。一般に、商用サービスの利用には登録や決済設定、利用条件の確認が必要ですが、大型計算機の共同利用枠を得るための学術審査とは、仕組みが異なります。</p>
+          <p>私の手元には、Windows上のWSL2（Windows Subsystem for Linux）でUbuntuを動かし、RADMC-3D 2.0を利用する計算環境があります。RADMC-3Dは、天体を取り巻く塵などの放射輸送を扱うソフトウェアです。例えば、星の光を受ける塵の温度分布をMonte Carlo法で求め、その結果から観測される画像やスペクトルを計算できます。</p>
+          <p>基本的な考え方は単純です。クラウド上にLinuxの計算機を用意し、手元からSSHで接続する。対応する環境でRADMC-3Dをコンパイルし、入力モデルを転送して実行する。結果を手元へ回収したら、不要な計算資源を停止・削除する。最初から特殊なスーパーコンピュータ用プログラムを開発しなければならない、というわけではありません。</p>
+          <p>ただし、同じプログラムが動くことと、同じ科学的結果が得られることは別です。環境を移す際には、ソースコードの版、コンパイル条件、入力データ、計算結果を確認する必要があります。</p>
+        </section>
+        <section aria-labelledby="section-3">
+          <h2 id="section-3">「100個のCPU」は「100倍速い」ではない</h2>
+          <p>ここで区別したいのは、<strong>一つの計算を速くする</strong>ことと、<strong>多くの計算を同時に進める</strong>ことです。</p>
+          <p>RADMC-3Dの熱的Monte Carlo計算には、OpenMPによって一台の計算機の複数スレッドを使う仕組みがあります。利用には、OpenMPを有効にしたコンパイルが必要です。これは、一つのモデルの計算時間を短縮するための方法です。ただし、スレッド数を10倍にしても、実行時間が必ず10分の1になるわけではありません。処理の並列化できない部分や、メモリ帯域などが制約になるためです。また、ソフトウェアのあらゆる機能が同じように並列化されているわけでもありません。</p>
+          <p>一方、物理パラメータの異なる100個のモデルを計算するなら、各モデルを独立したジョブとして複数の計算機に割り当てる方法があります。一つずつ実行すれば長い時間が必要でも、多くのジョブを同時に処理すれば、すべての計算が終了するまでの経過時間を大幅に短縮できる可能性があります。ただし、消費する計算資源の総量や費用が同じ割合で減るとは限りません。</p>
+          <p>クラウドの仕様に書かれた「vCPU」は、通常、仮想マシンに割り当てられる論理的なCPU実行単位です。100 vCPUは「家庭用パソコン100台」と同じ意味ではなく、「一つのプログラムが100倍速くなる」という意味でもありません。どこを並列化できるかを先に考えることが大切です。</p>
+        </section>
+        <section aria-labelledby="section-4">
+          <h2 id="section-4">驚いたのは、大きな計算機を短時間だけ使えること</h2>
+          <p>料金を調べてみると、クラウド利用の魅力が、少し具体的に見えてきます。例えばGoogle Cloudの米国アイオワ地域（us-central1）について、<strong>2026年10月25日に参照した通常のオンデマンド料金表</strong>では、<code>c4-highcpu-16</code>（16 vCPU、32 GiBメモリ）が計算機本体で約0.68米ドル／時間、<code>c4-highcpu-96</code>（96 vCPU、192 GiBメモリ）が約4.08米ドル／時間となっています。後者を10時間使うと、仮想マシン本体の料金は約40.82米ドルという計算です。</p>
+          <p>もちろん、これは実際にその金額で研究計算が完了したという報告ではありません。CPUの能力と実効速度は別ですし、地域や契約によって料金も変わります。ストレージ、データ転送、ネットワーク、税金などの費用も別にかかり得ます。利用枠や在庫の制限で希望するマシンをすぐ借りられるとは限らず、予算アラートを設定しただけで課金が自動停止するとも限りません。</p>
+          <p class="calculation-note">料金例の条件：米国アイオワ（us-central1）、通常のオンデマンド利用、米ドル建て、VM本体のみ。Spot・確約利用割引は適用していません。公式表の単価は順に0.680416、4.082496米ドル／時間で、後者の10時間分は4.082496 × 10 = 40.82496米ドル（約40.82米ドル）です。追加ライセンス料のないLinuxを想定しています。停止後もディスクなどの料金が残る場合があります。参照日：2026年10月25日。利用時には<a href="https://cloud.google.com/products/compute/pricing/general-purpose">公式料金表</a>で再確認してください。</p>
+          <p>それでも、数十個から百個程度のvCPUを持つ計算機が、必要なときだけ利用できるという事実は、個人の研究環境を考えるうえで興味深いものです。大型計算機を自前で購入・保守することとは、まったく異なる選択肢だからです。</p>
+        </section>
+        <section aria-labelledby="section-5">
+          <h2 id="section-5">最初から大規模計算を始めない</h2>
+          <p>私が実際に試すなら、まずは手元のPCで、公開しても問題のないテストモデルを使って計算時間と最大メモリ使用量を測ります。次に、OpenMPのスレッド数を変え、どの程度速くなるかを調べます。そのうえで、16〜32 vCPU程度のクラウド計算機で同じモデルを動かして比較するのがよさそうです。</p>
+          <p>比較するのは速度だけではありません。Monte Carlo計算では乱数系列が変わると出力が完全に一致しないことがあります。重要なのは、塵の温度分布、スペクトルエネルギー分布（SED）、画像やスペクトルなどが、計算の統計誤差や収束性を考慮した範囲で整合するかどうかです。最後に、<strong>一つの妥当なモデルを完成させるための実時間と費用</strong>を評価します。</p>
+          <p>そこで有効性が確認できれば、独立したモデルを複数同時に実行するバッチ処理へ進めます。逆に、期待したほど速くならなければ、パソコンの数を増やす前に、計算方法やボトルネックを見直すべきでしょう。</p>
+          <p>なお、GPUを搭載したクラウド計算機もありますが、標準的なRADMC-3DをGPUサーバーに置くだけでGPUが計算を肩代わりするわけではありません。必要な計算に対応する実装を選ぶことが先決です。</p>
+        </section>
+        <section aria-labelledby="section-6">
+          <h2 id="section-6">AIは計算機を借りるだけでなく、使いこなす助けにもなる</h2>
+          <p>もう一つ面白いと感じたのは、こうした作業の多くをAIコーディング支援と組み合わせられることです。Linux環境の準備、コンパイル条件の確認、ジョブ実行スクリプトの作成、ログ整理、実行時間の比較、結果の再現性チェックなどには、AIが役立つ可能性があります。</p>
+          <p>もちろん、AIが自動的に研究計算の正しさを保証してくれるわけではありません。有料資源の起動・停止、未公開データの扱い、数値解の検証、物理的な解釈は、研究者自身が責任を持って判断しなければなりません。便利になるのは、科学的な判断を省略できるからではなく、計算環境を整える作業の負担を減らせるかもしれないからです。</p>
+        </section>
+        <section aria-labelledby="section-7">
+          <h2 id="section-7">計算機を持つことより、何を計算するか</h2>
+          <p>この時点で、私はまだRADMC-3Dをクラウドに移して性能を測定したわけではありません。上に挙げた料金も、調査時点の公開情報から考えた利用例です。どの程度の高速化が得られるか、どれほどの費用で済むかは、これから実測して初めて判断できます。</p>
+          <p>それでも、研究室のパソコンが限界に達したときの選択肢が、以前より広がっていることは確かです。共同利用の大型計算機、時間単位で借りるクラウドのLinuxマシン、一つの計算を分担する並列処理、多数のモデルを同時に実行する仕組み。それぞれの特徴を理解して使い分けることで、計算機の制約を少しずつ取り除けるかもしれません。</p>
+          <p>そして、計算が容易になるほど、最後に重要になるのは「どれだけ大量に計算できるか」よりも、<strong>「何を明らかにするために、その計算が必要なのか」</strong>という問いだと思います。</p>
+        </section>
+        <section class="references" aria-labelledby="references-title">
+          <h2 id="references-title">参考資料</h2>
+          <p class="reference-date">公式資料の確認日：2026年10月25日。</p>
+          <ul class="reference-list">
+            <li><a href="https://www.ita.uni-heidelberg.de/~dullemond/software/radmc-3d/manual_radmc3d/dustradtrans.html">RADMC-3D 2.0 公式ドキュメント：Dust continuum radiative transfer</a> — Monte Carloによる塵温度計算。</li>
+            <li><a href="https://www.ita.uni-heidelberg.de/~dullemond/software/radmc-3d/manual_radmc3d/clioptions.html">RADMC-3D 2.0 公式ドキュメント：Command-line options</a> — <code>mctherm</code>、<code>setthreads</code>など。</li>
+            <li><a href="https://github.com/dullemond/radmc3d-2.0">RADMC-3D 2.0 公式GitHub</a> — ソースコードと更新履歴。</li>
+            <li><a href="https://cloud.google.com/products/compute/pricing/general-purpose">Google Cloud：Compute Engine C4料金表</a> — 料金例の参照先。料金、地域、課金条件は利用時点で再確認が必要。</li>
+            <li><a href="https://docs.cloud.google.com/batch/docs/get-started">Google Cloud：Batchの概要</a> — 独立した計算タスクを分散実行する仕組み。</li>
+            <li><a href="https://docs.cloud.google.com/billing/docs/how-to/budgets">Google Cloud：予算アラート</a> — 予算通知と課金停止の違いについて。</li>
+          </ul>
+          <p class="reference-date"><em>注：本稿は2026年10月25日時点の調査と検討をまとめたものであり、クラウド上での性能実測や費用実績を報告する記事ではありません。</em></p>
+        </section>
+      </div>
+    </article>
+    <nav class="article-return" aria-label="記事を読んだ後に"><a href="../">研究情報源・公開データへ戻る →</a><a href="../ai-tools/#radmc-3d">RADMC-3Dの紹介 →</a><a href="../../">ホームへ戻る →</a></nav>
+  </main>
+  <footer class="site-footer"><div class="footer-inner"><a class="back-to-top" href="#main">ページの先頭へ ↑</a><p class="copyright">© Jun-ichi Nakashima</p></div></footer>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "af9dc6af89aa4a5196e4b3d14166c4e8"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
