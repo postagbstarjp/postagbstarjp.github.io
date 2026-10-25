@@ -979,7 +979,7 @@ h1 span[lang="en"] {
   .home-page .site-header, .home-page main, .home-page .footer-inner { width: calc(100% - 80px); }
   .home-page .intro { gap: 28px 44px; }
   .home-page .intro-body { column-gap: 24px; }
-  .home-page .about-site { grid-template-columns: 164px minmax(0, 1fr); gap: 32px; }
+  .home-page .about-site { grid-template-columns: minmax(0, 1fr); gap: 20px; }
   .home-page .research-entries, .home-page .education-entries { column-gap: 26px; }
   .home-page .links-section { gap: 40px; }
   .home-page .link-group + .link-group { padding-left: 30px; }
