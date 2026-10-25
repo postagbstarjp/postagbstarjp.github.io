@@ -531,6 +531,15 @@ h1 span[lang="en"] {
 .paper-name { font-size: 1.15rem; line-height: 1.75; letter-spacing: 0.015em; }
 .paper-authors { font-size: 0.85rem; }
 .paper-note { color: var(--muted); font-size: 0.75rem; }
+/* Quiet article-to-article reading paths. Links wrap naturally on small screens. */
+.related-articles {
+  margin: 1.6rem 0 1.3rem;
+  color: var(--muted);
+  font: .85rem/1.95 var(--sans);
+}
+.related-articles p { margin: 0; }
+.related-articles a { color: var(--accent); }
+
 .article-return { padding: 28px 0 70px; border-top: 1px solid var(--line); font-size: 0.85rem; }
 
 @media (max-width: 960px) {
