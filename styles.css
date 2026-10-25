@@ -1258,7 +1258,7 @@ h1 span[lang="en"] {
 }
 .home-page .ndo-review-read a:hover { border-bottom-width: 2px; }
 .home-page .ndo-review-figure { margin: 0; }
-.home-page .ndo-review-figure a { display: block; }
+.home-page .ndo-review-figure > a { display: block; }
 .home-page .ndo-review-figure img {
   display: block;
   width: 100%;
@@ -1267,12 +1267,17 @@ h1 span[lang="en"] {
   object-fit: cover;
 }
 .home-page .ndo-review-figure figcaption {
-  margin-top: 7px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.75rem;
+  margin-top: 10px;
   color: var(--muted);
   font-family: var(--sans);
-  font-size: 0.69rem;
-  line-height: 1.7;
+  font-size: 0.78rem;
+  line-height: 1.8;
 }
+.home-page .ndo-review-image-credit,
+.home-page .ndo-review-caption-links { white-space: nowrap; }
 @media (max-width: 760px) {
   .home-page .ndo-review-feature {
     grid-template-columns: minmax(0, 1fr);
@@ -1282,6 +1287,7 @@ h1 span[lang="en"] {
   }
 }
 @media (max-width: 430px) {
+  .home-page .ndo-review-figure figcaption { flex-direction: column; align-items: flex-start; }
   .home-page .ndo-review-feature { padding: 22px 20px; }
   .home-page .ndo-review-feature h2 { font-size: 1.38rem; }
   .home-page .ndo-review-summary { font-size: 0.96rem; }
