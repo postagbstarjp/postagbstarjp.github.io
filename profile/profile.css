@@ -21,6 +21,17 @@
 .profile-section h3 { margin: 0 0 0.8rem; font-size: 1.1rem; font-weight: 500; line-height: 1.85; }
 .profile-source { display: block; color: var(--muted); font-family: var(--sans); font-size: 0.75rem; line-height: 1.95; }
 .profile-related { margin-top: 2rem; font-size: 0.85rem; }
+/* The external papers index ends the bibliography; the press release is separate content. */
+.profile-section-body > p.profile-related { margin-bottom: 0; }
+.profile-press-release {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+.profile-press-release h3 { margin-bottom: 1.15rem; }
+@media (max-width: 540px) {
+  .profile-press-release { margin-top: 2.5rem; padding-top: 1.65rem; }
+}
 .profile-timeline { margin: 2rem 0 2.4rem; }
 .profile-timeline > div { display: grid; grid-template-columns: 135px minmax(0, 1fr); gap: 1rem; padding: 0.9rem 0; border-bottom: 1px solid var(--line); }
 .profile-timeline > div:first-child { border-top: 1px solid var(--line); }
