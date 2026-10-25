@@ -1,4 +1,4 @@
-/* This essay inherits the shared paper, Mincho type and article spacing. */
+/* Practical computing note; inherits the shared article typography. */
 .computing-page { --accent: #2e5355; }
 .computing-main { max-width: 880px; }
 .computing-page .home-link { font-family: var(--sans); font-size: .8rem; }
@@ -20,3 +20,7 @@
   .computing-page .article-subtitle { line-height: 1.95; }
   .computing-page .calculation-note { padding: 1rem; }
 }
+
+.computing-page .article-body h3 { max-width:43rem; margin:2rem auto 1rem; font-size:1.03rem; font-weight:600; line-height:1.8; }
+.computing-page .service-options, .computing-page .action-steps { max-width:43rem; margin:0 auto 1.8rem; padding-left:1.45rem; line-height:1.95; }
+.computing-page .service-options li, .computing-page .action-steps li { margin:0 0 1rem; }
