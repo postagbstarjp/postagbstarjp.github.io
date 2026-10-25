@@ -904,7 +904,9 @@ h1 span[lang="en"] {
 }
 .home-page .about-site .eyebrow { font-size: 0.65rem; }
 .home-page .about-site h2 { font-size: 1.22rem; }
-.home-page .resources-entry {
+/* Keep the resources panel in one column at tablet widths too.
+   The later .about-site breakpoint must not override this layout. */
+.home-page .about-site.resources-entry {
   grid-template-columns: minmax(0, 1fr);
   align-items: start;
   gap: 20px;
@@ -921,6 +923,41 @@ h1 span[lang="en"] {
 .home-page .resources-overview li { min-width: 0; padding: 18px 0; border-top: 1px solid var(--line); }
 .home-page .resources-overview h3 { margin: 0; font-size: 1.05rem; font-weight: 600; line-height: 1.7; overflow-wrap: anywhere; }
 .home-page .resources-overview p { margin: 10px 0 0; font-size: .9rem; line-height: 1.95; }
+
+.home-page .resources-note {
+  display: grid;
+  grid-template-columns: minmax(170px, .3fr) minmax(0, 1fr);
+  gap: 16px 36px;
+  border-top: 1px solid var(--line);
+  padding: 19px 0 4px;
+}
+.home-page .resources-note-label {
+  margin: 4px 0 0;
+  color: var(--accent);
+  font-family: var(--sans);
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .05em;
+}
+.home-page .resources-note h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.home-page .resources-note > div > p {
+  margin: 9px 0 0;
+  font-size: .9rem;
+  line-height: 1.95;
+}
+@media (max-width: 600px) {
+  .home-page .resources-note {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+}
+
 .home-page .about-body { max-width: 42rem; font-size: 0.94rem; line-height: 2; }
 .home-page .about-body p:last-child { margin-bottom: 0; }
 .home-page .footer-inner {
@@ -942,7 +979,7 @@ h1 span[lang="en"] {
   .home-page .site-header, .home-page main, .home-page .footer-inner { width: calc(100% - 80px); }
   .home-page .intro { gap: 28px 44px; }
   .home-page .intro-body { column-gap: 24px; }
-  .home-page .about-site { grid-template-columns: 164px minmax(0, 1fr); gap: 32px; }
+  .home-page .about-site { grid-template-columns: minmax(0, 1fr); gap: 20px; }
   .home-page .research-entries, .home-page .education-entries { column-gap: 26px; }
   .home-page .links-section { gap: 40px; }
   .home-page .link-group + .link-group { padding-left: 30px; }
