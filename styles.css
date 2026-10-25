@@ -958,8 +958,41 @@ h1 span[lang="en"] {
   }
 }
 
-.home-page .about-body { max-width: 42rem; font-size: 0.94rem; line-height: 2; }
-.home-page .about-body p:last-child { margin-bottom: 0; }
+/* Arrange the three about-site paragraphs across available width without
+   forcing excessively long text lines or leaving an empty right-hand column. */
+.home-page .about-site:not(.resources-entry) {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
+}
+.home-page .about-site:not(.resources-entry) .about-body {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px 32px;
+  max-width: none;
+  font-size: 0.94rem;
+  line-height: 2;
+}
+.home-page .about-site:not(.resources-entry) .about-body p {
+  min-width: 0;
+  margin: 0;
+}
+@media (max-width: 960px) {
+  .home-page .about-site:not(.resources-entry) .about-body {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .home-page .about-site:not(.resources-entry) .about-body p:first-child {
+    grid-column: 1 / -1;
+  }
+}
+@media (max-width: 680px) {
+  .home-page .about-site:not(.resources-entry) .about-body {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+  .home-page .about-site:not(.resources-entry) .about-body p:first-child {
+    grid-column: auto;
+  }
+}
 .home-page .footer-inner {
   display: flex;
   flex-direction: row-reverse;
