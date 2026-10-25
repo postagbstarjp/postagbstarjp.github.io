@@ -1,0 +1,70 @@
+/* Long-form reading styles, confined to the NDO review. */
+.ndo-review .research-main { max-width: 920px; }
+.ndo-review .article-header { padding-bottom: 2.7rem; }
+.ndo-review .article-header h1 { font-size: clamp(1.65rem, 3.2vw, 2.5rem); overflow-wrap: anywhere; }
+.ndo-review .article-subtitle { max-width: 43rem; line-height: 2; }
+.ndo-review .edition-note { max-width: 43rem; margin: 1.8rem 0 0; color: #566266; font-family: var(--sans); font-size: .82rem; line-height: 2; }
+.ndo-review .review-contents { padding: 2.7rem 0 2.2rem; border-bottom: 1px solid var(--line); font-family: var(--sans); font-size: .86rem; line-height: 1.9; }
+.ndo-review .review-contents h2 { margin: .2rem 0 1.2rem; font-family: var(--serif); font-size: 1.4rem; font-weight: 500; }
+.ndo-review .review-contents .eyebrow { margin: 0; }
+.ndo-review .review-contents ol { margin: 1.3rem 0; padding-left: 1.7rem; }
+.ndo-review .review-contents li { margin: .6rem 0; padding-left: .25rem; }
+.ndo-review .review-contents li::marker { color: var(--accent); font-size: .8rem; }
+.ndo-review .review-contents a { color: var(--accent); text-decoration: none; }
+.ndo-review .review-contents a:is(:hover, :focus-visible) { text-decoration: underline; }
+.ndo-review .contents-end { margin-bottom: 0; }
+.ndo-review :is(h2, h3, li[id], figure, #contents, #references) { scroll-margin-top: 2rem; }
+.ndo-review .article-body { padding-top: 3.5rem; }
+.ndo-review .article-body section { margin-bottom: 4rem; }
+.ndo-review .review-chapter { padding-top: 1.6rem; border-top: 1px solid var(--line); }
+.ndo-review .article-body :is(p, h2, .review-table, .math-display) { max-width: 43rem; margin-inline: auto; }
+.ndo-review .article-body h2 { margin-bottom: 1.6rem; color: #274c5f; }
+.ndo-review .article-body strong { font-weight: 600; }
+.ndo-review .citation { color: var(--accent); font-family: var(--sans); font-size: .76em; letter-spacing: 0; overflow-wrap: anywhere; }
+.ndo-review .citation a { display: inline; }
+.ndo-review .math-display { overflow-x: auto; overflow-y: hidden; padding: .65rem .2rem; margin-block: 1.5rem; }
+.ndo-review .math-display mjx-container[jax="CHTML"][display="true"] { margin: .35em 0; }
+.ndo-review .math-inline { font-size: .94em; overflow-wrap: anywhere; }
+.ndo-review .math-inline mjx-container { max-width: 100%; }
+.ndo-review .review-table { overflow-x: auto; margin-block: 2rem; }
+.ndo-review table { border-collapse: collapse; min-width: 34rem; width: 100%; font-family: var(--sans); font-size: .8rem; line-height: 1.9; letter-spacing: .015em; }
+.ndo-review th, .ndo-review td { padding: .85rem .75rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.ndo-review th { background: var(--paper-deep); color: var(--accent); font-weight: 500; }
+.ndo-review .research-figure { margin: 2.5rem 0; }
+.ndo-review .research-figure > a { background: transparent; }
+.ndo-review .contents-return { font-family: var(--sans); font-size: .75rem; margin-top: 2rem; }
+.ndo-review .contents-return a { color: var(--accent); }
+.ndo-review .observation-link { padding-left: 1rem; border-left: 2px solid var(--line); font-family: var(--sans); font-size: .81rem; color: #566266; }
+.ndo-review .review-references { padding: 2rem 0; border-top: 1px solid var(--line); }
+.ndo-review .review-references h2, .ndo-review .review-related h2 { font-size: 1.4rem; font-weight: 500; }
+.ndo-review .review-references h3 { margin-top: 2.5rem; font-size: 1rem; font-weight: 500; color: var(--accent); }
+.ndo-review .review-references > p { font-size: .88rem; }
+.ndo-review .reference-list { list-style: none; margin: 0; padding: 0; font-family: var(--sans); font-size: .8rem; letter-spacing: .01em; line-height: 1.95; }
+.ndo-review .reference-list li { padding: 1.15rem 0; border-bottom: 1px solid var(--line); overflow-wrap: anywhere; }
+.ndo-review .reference-id { color: var(--accent); font-weight: 600; }
+.ndo-review :target:not(body) { outline: 1px solid var(--accent); outline-offset: 5px; }
+.ndo-review .review-related { padding: 1.5rem 0 2rem; border-top: 1px solid var(--line); }
+.ndo-review .review-related ul { padding-left: 1.2rem; font-size: .87rem; }
+.ndo-review .review-related li { margin-bottom: .7rem; }
+.ndo-review .article-return { display: flex; justify-content: space-between; gap: 1.5rem; }
+@media (min-width: 961px) {
+  .ndo-review .review-contents ol { columns: 2; column-gap: 3rem; }
+  .ndo-review .review-contents li { break-inside: avoid; }
+}
+@media (max-width: 540px) {
+  .ndo-review .article-header h1 { letter-spacing: .015em; line-height: 1.7; }
+  .ndo-review .article-date { line-height: 2; }
+  .ndo-review .review-contents { padding-block: 2rem; }
+  .ndo-review .article-body { padding-top: 2.5rem; }
+  .ndo-review .article-body section { margin-bottom: 2.8rem; }
+  .ndo-review .review-chapter { padding-top: 1.3rem; }
+  .ndo-review .research-figure { margin-inline: -.35rem; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+@media print {
+  .ndo-review :is(.review-contents, .contents-return, .article-nav, .skip-link, .article-return, .site-footer) { display: none; }
+  .ndo-review .research-main { width: 100%; max-width: none; }
+  .ndo-review .review-table { overflow: visible; }
+  .ndo-review table { min-width: 0; }
+  .ndo-review figure { break-inside: avoid; }
+}
