@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="740" viewBox="0 0 800 740" role="img" aria-labelledby="title desc">
+<title id="title">AGB星の風を生む物理過程</title><desc id="desc">脈動と対流、衝撃波によるガスの持ち上げ、ダスト形成、放射からガスへの運動量移行を順に示す。全てのガスが脱出するわけではない。</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#386668"/></marker><radialGradient id="star"><stop stop-color="#fff2c9"/><stop offset="1" stop-color="#c17b49"/></radialGradient></defs>
+<rect width="800" height="740" rx="8" fill="#f0eee6"/>
+<g font-family="Yu Gothic, Meiryo, sans-serif" fill="#243c3e" font-size="23">
+<text x="42" y="55" font-size="27" font-weight="bold">大気を持ち上げ、光で加速する</text>
+<text x="42" y="92" font-size="19">AGB星のダスト駆動風の概念図・縮尺なし</text>
+<path d="M170 220V580" fill="none" stroke="#386668" stroke-width="3" marker-end="url(#arrow)"/>
+<circle cx="170" cy="182" r="55" fill="url(#star)"/>
+<path d="M109 192q61 -60 122 0M100 218q70 -60 140 0" fill="none" stroke="#c17b49" stroke-width="3"/>
+<text x="280" y="162" font-weight="bold">01　脈動・対流</text><text x="280" y="199">大気へ衝撃波を送り出す</text>
+<path d="M110 311q60 -55 120 0M110 340q60 -55 120 0" fill="none" stroke="#386668" stroke-width="3"/>
+<text x="280" y="294" font-weight="bold">02　ガスの持ち上げ</text><text x="280" y="331">低温の領域へ達したガスで</text><text x="280" y="363">ダストが成長し得る</text>
+<g fill="#a37551"><circle cx="123" cy="430" r="6"/><circle cx="170" cy="454" r="9"/><circle cx="213" cy="419" r="7"/><circle cx="222" cy="467" r="6"/></g>
+<path d="M65 408L121 430M68 456L166 453" stroke="#bd9250" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="280" y="427" font-weight="bold">03　光からダストへ</text><text x="280" y="464">吸収・散乱で運動量を受け取る</text>
+<g fill="#386668"><circle cx="120" cy="563" r="4"/><circle cx="205" cy="587" r="4"/><circle cx="230" cy="547" r="4"/></g>
+<text x="280" y="550" font-weight="bold">04　ダストからガスへ</text><text x="280" y="587">衝突を通じて加速し、風となる</text>
+<path d="M42 636H758" stroke="#c8c8bd"/>
+<text x="42" y="675" font-size="20">組成・粒径・脈動・重力に依存する。落下するガスもある。</text>
+<text x="42" y="709" font-size="18">独立作図：Höfner &amp; Olofsson (2018) の物理過程を学習用に整理</text></g></svg>
