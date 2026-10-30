@@ -105,3 +105,8 @@
   .watch-masthead, .watch-list, .watch-story, .watch-featured .watch-story { display: block; }
   .watch-list > li { break-inside: avoid; }
 }
+
+/* Publication-date groups keep newer stories above older editions. */
+.watch-date-group { margin: 0; }
+.watch-date-heading { margin: 28px 0 0; padding: 10px 0; border-bottom: 1px solid var(--line); color: var(--muted); font: .78rem/1.6 var(--sans); letter-spacing: .04em; }
+.watch-thumbnail-wide { max-width: 100%; }
