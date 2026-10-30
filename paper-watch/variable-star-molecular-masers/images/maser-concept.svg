@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="460" viewBox="0 0 1000 460" role="img" aria-labelledby="title desc">
+<title id="title">変光星の脈動と水メーザーの変動</title><desc id="desc">脈動が衝撃波を生み、星周ガスに作用して水メーザーが変動するという仮説を示す概念図。距離や時間は尺度どおりではない。</desc>
+<rect width="1000" height="460" fill="#fbf8ef"/><g font-family="sans-serif" fill="#263e44" text-anchor="middle"><text x="500" y="54" font-size="30" font-weight="bold">星の変光と水メーザーを結ぶ考え方</text>
+<rect x="30" y="105" width="255" height="190" rx="12" fill="#f0dfca" stroke="#997b60" stroke-width="2"/><circle cx="157" cy="177" r="42" fill="#c9825d"/><path d="M99 177h-17m150 0h-17M157 119v-15m0 146v-15" stroke="#a65d43" stroke-width="5"/><text x="157" y="260" font-size="27">変光星の脈動</text>
+<rect x="370" y="105" width="255" height="190" rx="12" fill="#e7edea" stroke="#63837e" stroke-width="2"/><path d="M399 200q24 -55 48 0t48 0t48 0t48 0" fill="none" stroke="#447f7a" stroke-width="6"/><text x="497" y="260" font-size="27">大気を進む衝撃波</text>
+<rect x="710" y="105" width="255" height="190" rx="12" fill="#e5edf1" stroke="#687f94" stroke-width="2"/><circle cx="788" cy="181" r="20" fill="#5888a0"/><circle cx="858" cy="156" r="14" fill="#87aeb9"/><circle cx="876" cy="205" r="18" fill="#5888a0"/><text x="837" y="260" font-size="27">水メーザーの変動</text>
+<path d="M294 199h61m-18 -12 18 12-18 12M634 199h61m-18 -12 18 12-18 12" stroke="#557279" stroke-width="5" fill="none"/><text x="500" y="353" font-size="24">衝撃波による変動は提案された説明であり、原因は未確定</text><text x="500" y="398" font-size="21">位置・距離・時間は模式的／惑星による衝撃波も別の仮説</text></g></svg>

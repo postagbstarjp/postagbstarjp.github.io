@@ -78,14 +78,14 @@
 
 既存3本の正式出版を再調査。VX Sgr（ApJ投稿・査読中）、Vy 2-2（A&A掲載決定、巻号・出版社DOI未確認）、ALMA2040（ホワイトペーパー）は、2026年10月24日現在、補完できる巻・論文番号を確認できなかったため推測で追記しない。新規解説のうちNGC 6302はMNRASの受理原稿オンライン公開、DOI 10.1093/mnras/stag1992 を明記。NH₃の複数成分解析論文はApJ掲載決定の記載を反映し、巻号・DOIは未確認とした。
 
-## 2026年10月30日追加分
+## 2026年10月30日追加記事：図版の確認・掲載記録
 
-- [Millar（arXiv:2610.36369v1）](https://arxiv.org/html/2610.36369v1)：本文・表3を参照。SiC₇とSiC₈は予測、SiC₆との2〜4倍の比較は観測値を基準とする。図は転載していない。
-- [Schultheisほか（arXiv:2610.37385v1）](https://arxiv.org/html/2610.37385v1)：方法、図3・4と結論を参照。年齢較正による差と古い年代の少数標本に注意。図は転載していない。
-- [Takeichiほか（arXiv:2610.37574v1）](https://arxiv.org/html/2610.37574v1)：モデルと結論を参照。球対称を仮定し、光度と色の同時再現を検討した。図は転載していない。
-- [Suh（arXiv:2610.33991v1）](https://arxiv.org/html/2610.33991v1)：カタログとモデルの限界を参照。70,877件は銀河系の標本。図は転載していない。
-- [Darlingほか（arXiv:2610.31766v1）](https://arxiv.org/html/2610.31766v1)：位置測定と不確かさの定義を参照。図は転載していない。
-- [Leonhardes-Barbozaほか（arXiv:2610.31755v1）](https://arxiv.org/html/2610.31755v1)：方法、図4、結果と限界を参照。図4は著者らの計算による光度曲線で、図中・キャプションに第三者素材の表示はない。論文v1の [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) のもとで、原著のSVGを無加工で掲載。原図の範囲・軸・色を維持し、日本語キャプションを追加。著者名、原図へのリンク、ライセンスを記事中に記載。権利者は著者。
-- [Rudnitskij（2002）出版社書誌・抄録](https://www.cambridge.org/core/journals/publications-of-the-astronomical-society-of-australia/article/molecular-masers-in-variable-stars/1F2651E27482B76B2B16BA6E2EC0ECF6)：19巻4号499–504頁。出版社PDF本文の観測・仮説・提案する検証を参照。検出限界と観測の空白に注意。図は転載していない。
+各arXiv v1のHTMLには CC BY 4.0 が明示されています。採用図は当該原著中の図とキャプションを個別に確認し、第三者画像の転載や別ライセンスの表示は見当たりません。図中の既発表観測データ・比較研究は各原著のキャプションに出典があります。作者が作成した図をarXiv HTMLの表示画像から取得し、画像自体は変換・クロップせず保存。図番号、著者、原図、ライセンスと日本語解説を記事に表示しています。一覧は同じ画像の縮小表示です。
 
-Millarの掲載状態とオンライン公開日は[出版社書誌](https://academic.oup.com/mnras/advance-article/doi/10.1093/mnras/stag2050/9003260)を参照。上記arXiv 6本の版はいずれもv1、各ページにCC BY 4.0が示されている。使用していない図の個別の第三者権利は判定していない。
+- T. J. Millar（2026）、[arXiv:2610.36369v1 Figure 1](https://arxiv.org/html/2610.36369v1#S3.F1)、[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。取得ファイル `irc10216-silicon-carbon-chains/images/abundance.svg`。
+- Mathias Schultheis, Maria-Rosa L. Cioni, Samuele Anoardo（2026）、[arXiv:2610.37385v1 Figure 4](https://arxiv.org/html/2610.37385v1#S2.F4)、[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。取得ファイル `lmc-agb-star-formation-history/images/history.svg`。 他研究の比較結果を含むため原著キャプションの出典を参照。
+- Yuma Takeichi, Daichi Tsuna, Daichi Hiramatsu, Morgan MacLeod, Masato Sato（2026）、[arXiv:2610.37574v1 Figure 7](https://arxiv.org/html/2610.37574v1#S4.F7)、[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。取得ファイル `dust-electron-capture-supernovae/images/light-colour.svg`。 他研究の比較結果を含むため原著キャプションの出典を参照。
+- Kyung-Won Suh（2026）、[arXiv:2610.33991v1 Figure 8右](https://arxiv.org/html/2610.33991v1#S4.F8)、[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。取得ファイル `oxygen-rich-agb-star-catalog/images/colour-magnitude.png`。 右パネルのみ選択。
+- Jeremy Darling, Jennie Paine, Matthew Hosek Jr., Shoko Sakai, Stefan Gillessen, Tatsuya Akiba-Lewis, Andrea Ghez, Frank Eisenhauer, Reinhard Genzel（2026）、[arXiv:2610.31766v1 Figure 1](https://arxiv.org/html/2610.31766v1#S1.F1)、[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。取得ファイル `galactic-center-sio-reference-frame/images/maser-motion.png`。
+- Rudnitskij（2002）：出版社版の図の第三者転載許可を確認できないため原著図は不採用。[原著本文](https://doi.org/10.1071/AS02018)を参考に、本サイトで独立に作成した概念図 `variable-star-molecular-masers/images/maser-concept.svg` を掲載。距離・時間の数値は設定せず、推測された因果関係として表示。原著図の複製・改変ではない。
+- Naunet Leonhardes-Barboza, Andrea Antoni, Morgan MacLeod, Angela Twum, Enrico Ramirez-Ruiz（2026）：[arXiv:2610.31755v1 Figure 4](https://arxiv.org/html/2610.31755v1#S4.F4)、[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。以前から掲載している無加工SVGを維持。
