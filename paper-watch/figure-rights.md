@@ -108,3 +108,15 @@
 | 2610.28917 | `e557c2575e107be0f9cb98e20b09ab0c769146f636c005ad2b49e7641ea5a036` | `662baf0e92d3b2c079e15133bb354e3f9a48c4584817399a25037ce8b3b79a07` |
 | 2610.28746 | `741b1598b5b5716525711ff6cd0db43bd5ac9e6363fced6312b01e849638bf44` | `04e00df0ae711319e192ff3c4b32733dd079a77c2776cfc8ca94542dfb006e78` |
 | 2610.30509 | `8a92ab5bf6d1704305587d397627c16219285d2bf701d94f40a50610bbfbc7ff` | `e875bb15218a94131d647872b9241a7ab29e9b6041ba00741a92452a8c7ef69e` |
+
+## 2026年10月30日追加分
+
+- [Millar（arXiv:2610.36369v1）](https://arxiv.org/html/2610.36369v1)：本文・表3を参照。SiC₇とSiC₈は予測、SiC₆との2〜4倍の比較は観測値を基準とする。図は転載していない。
+- [Schultheisほか（arXiv:2610.37385v1）](https://arxiv.org/html/2610.37385v1)：方法、図3・4と結論を参照。年齢較正による差と古い年代の少数標本に注意。図は転載していない。
+- [Takeichiほか（arXiv:2610.37574v1）](https://arxiv.org/html/2610.37574v1)：モデルと結論を参照。球対称を仮定し、光度と色の同時再現を検討した。図は転載していない。
+- [Suh（arXiv:2610.33991v1）](https://arxiv.org/html/2610.33991v1)：カタログとモデルの限界を参照。70,877件は銀河系の標本。図は転載していない。
+- [Darlingほか（arXiv:2610.31766v1）](https://arxiv.org/html/2610.31766v1)：位置測定と不確かさの定義を参照。図は転載していない。
+- [Leonhardes-Barbozaほか（arXiv:2610.31755v1）](https://arxiv.org/html/2610.31755v1)：方法、図4、結果と限界を参照。図4は著者らの計算による光度曲線で、図中・キャプションに第三者素材の表示はない。論文v1の [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) のもとで、原著のSVGを無加工で掲載。原図の範囲・軸・色を維持し、日本語キャプションを追加。著者名、原図へのリンク、ライセンスを記事中に記載。権利者は著者。
+- [Rudnitskij（2002）出版社書誌・抄録](https://www.cambridge.org/core/journals/publications-of-the-astronomical-society-of-australia/article/molecular-masers-in-variable-stars/1F2651E27482B76B2B16BA6E2EC0ECF6)：19巻4号499–504頁。出版社PDF本文の観測・仮説・提案する検証を参照。検出限界と観測の空白に注意。図は転載していない。
+
+Millarの掲載状態とオンライン公開日は[出版社書誌](https://academic.oup.com/mnras/advance-article/doi/10.1093/mnras/stag2050/9003260)を参照。上記arXiv 6本の版はいずれもv1、各ページにCC BY 4.0が示されている。使用していない図の個別の第三者権利は判定していない。
