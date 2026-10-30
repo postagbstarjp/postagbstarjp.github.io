@@ -41,7 +41,8 @@
   break-inside: avoid;
 }
 /* The leading story remains full width; remaining stories flow down each column. */
-.watch-list > .watch-featured {
+.watch-list > .watch-featured,
+.watch-list > .watch-archive-lead {
   -webkit-column-span: all;
   column-span: all;
   border-bottom: 3px double var(--accent);
@@ -52,18 +53,19 @@
 .watch-list h2 a { color: var(--accent); text-decoration: none; }
 .watch-list h2 a:is(:hover, :focus-visible) { text-decoration: underline; text-underline-offset: .2em; }
 .watch-featured h2 { max-width: 38rem; font-size: clamp(1.4rem, 2.4vw, 1.9rem); }
-/* A photo/plot belongs to its own article, never to a neighboring column. */
+/* Lead stories allow the summary and credit to flow alongside the figure. */
 .watch-story { display: block; min-width: 0; }
-.watch-featured .watch-story {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
-  gap: 36px;
-  align-items: start;
+.watch-featured article, .watch-archive-lead article { display: flow-root; }
+.watch-featured .watch-thumbnail, .watch-archive-lead .watch-thumbnail {
+  float: right;
+  width: 45%;
+  max-width: 460px;
+  margin: 0 0 12px 30px;
 }
 .watch-story-text-only { display: block; }
 .watch-summary { margin: 0; font-size: .94rem; line-height: 1.95; }
 .watch-thumbnail { box-sizing: border-box; min-width: 0; width: 100%; max-width: 380px; margin: 14px 0 0; }
-.watch-featured .watch-thumbnail { max-width: none; margin: 0; }
+
 .watch-thumbnail > a { display: block; max-width: 100%; background: white; }
 .watch-thumbnail img { display: block; width: 100%; max-width: 100%; height: auto; }
 .watch-thumbnail figcaption { margin-top: 8px; color: var(--muted); font-family: var(--sans); font-size: .65rem; line-height: 1.8; overflow-wrap: anywhere; }
@@ -79,14 +81,15 @@
 @media (max-width: 960px) {
   .watch-masthead { grid-template-columns: 1fr; gap: 16px; padding-top: 24px; }
   .watch-masthead h1 { font-size: 1.9rem; }
-  .watch-featured .watch-story { display: block; }
-  .watch-featured .watch-thumbnail { max-width: 620px; margin: 16px 0 0; }
 }
 @media (max-width: 820px) {
   .home-page .paper-watch-section { grid-template-columns: 1fr; gap: 14px; }
 }
 @media (max-width: 760px) {
   .watch-list { column-count: 1; column-rule: none; }
+  .watch-featured .watch-thumbnail, .watch-archive-lead .watch-thumbnail {
+    float: none; width: 100%; max-width: 620px; margin: 0 0 16px;
+  }
 }
 @media (max-width: 600px) {
   .home-page .home-nav { display: grid; grid-template-columns: repeat(3, auto); column-gap: 14px; row-gap: 0; }
