@@ -49,10 +49,10 @@
 }
 .watch-kicker { margin: 0 0 8px; color: var(--accent); font-family: var(--sans); font-size: .72rem; line-height: 1.8; overflow-wrap: anywhere; }
 .watch-kicker span { display: inline-block; color: var(--muted); }
-.watch-list h2 { margin: 0 0 14px; font-size: clamp(1.15rem, 1.7vw, 1.4rem); font-weight: 500; line-height: 1.7; text-wrap: pretty; }
-.watch-list h2 a { color: var(--accent); text-decoration: none; }
-.watch-list h2 a:is(:hover, :focus-visible) { text-decoration: underline; text-underline-offset: .2em; }
-.watch-featured h2 { max-width: 38rem; font-size: clamp(1.4rem, 2.4vw, 1.9rem); }
+.watch-list h3 { margin: 0 0 14px; font-size: clamp(1.15rem, 1.7vw, 1.4rem); font-weight: 500; line-height: 1.7; text-wrap: pretty; }
+.watch-list h3 a { color: var(--accent); text-decoration: none; }
+.watch-list h3 a:is(:hover, :focus-visible) { text-decoration: underline; text-underline-offset: .2em; }
+.watch-featured h3 { max-width: 38rem; font-size: clamp(1.4rem, 2.4vw, 1.9rem); }
 /* Lead stories allow the summary and credit to flow alongside the figure. */
 .watch-story { display: block; min-width: 0; }
 .watch-featured article, .watch-archive-lead article { display: flow-root; }
@@ -100,7 +100,7 @@
   .watch-masthead h1 { font-size: 1.6rem; }
   .watch-masthead .eyebrow { margin-bottom: 8px; }
   .watch-edition { font-size: .7rem; }
-  .watch-list h2 { font-size: 1.3rem; }
+  .watch-list h3 { font-size: 1.3rem; }
   .home-page .paper-watch-section { grid-template-columns: 1fr; gap: 14px; padding: 24px 0 28px; }
   .home-page .paper-watch-section h2 { font-size: 1.4rem; }
 }
@@ -113,3 +113,7 @@
 .watch-date-group { margin: 0; }
 .watch-date-heading { margin: 28px 0 0; padding: 10px 0; border-bottom: 1px solid var(--line); color: var(--muted); font: .78rem/1.6 var(--sans); letter-spacing: .04em; }
 .watch-thumbnail-wide { max-width: 100%; }
+
+/* Keep provenance distinct from the reading text without hiding its conditions. */
+.watch-page .paper-information { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+.watch-page .paper-information .paper-note { color: var(--muted); font-size: .85rem; }

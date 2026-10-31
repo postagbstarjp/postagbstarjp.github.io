@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Lupiらは化学計算ライブラリKROME-Xを提案し、精度と速度を検証しています。高速化の幅は計算条件に依存します。">
-  <title>宇宙の化学反応を、もっと速く計算する｜中島の研究ウォッチ｜中島淳一</title>
+  <title>天体化学の計算を高速化するKROME-X｜中島の研究ウォッチ｜中島淳一</title>
   <link rel="stylesheet" href="../../styles.css">
   <link rel="stylesheet" href="../paper-watch.css">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -26,11 +26,12 @@
       <header class="article-header">
         <p class="eyebrow" lang="en">Research Watch</p>
         <p class="article-date">記事公開：<time datetime="2026-10-24">2026年10月24日</time> · 他の研究者の論文紹介</p>
-        <h1 id="article-title">宇宙の化学反応を、もっと速く計算する</h1>
+        <h1 id="article-title">天体化学の計算を高速化するKROME-X</h1>
         <p class="article-subtitle">KROME-Xが目指す、化学・放射・ダストを結びつけるシミュレーション</p>
         <p class="article-lead">Alessandro Lupiらは、天体の化学反応と熱的な変化を計算するライブラリKROMEをC++で作り直したKROME-Xを提案しています。この論文では、従来の計算との整合性、計算速度、GPUに適した条件を検証しています。高速化の効果は、反応ネットワークや計算機の条件とともに読む必要があります。</p>
         <p class="paper-status">プレプリント・Astronomy &amp; Astrophysicsへ投稿（著者コメント）<br><a href="https://arxiv.org/abs/2610.28917">原著を読む（arXiv）</a></p>
       </header>
+      <nav class="reading-contents" aria-label="この記事の目次"><a href="#section-1">化学反応の時間発展は計算が重い</a><a href="#section-2">高速化を数字だけで受け取らない</a><a href="#section-3">光・塵・冷却を結び付ける設計</a><a href="#section-4">放射輸送モデルとの役割分担</a><a href="#paper-title">原著・出典情報</a></nav>
       <div class="article-body">
         <section aria-labelledby="section-1">
           <h2 id="section-1">化学反応の時間発展は計算が重い</h2>
