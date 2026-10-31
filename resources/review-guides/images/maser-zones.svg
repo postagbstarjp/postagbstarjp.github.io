@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="740" viewBox="0 0 800 740" role="img" aria-labelledby="title desc">
 <title id="title">SiO・H₂O・OHメーザーの典型的な環境</title><desc id="desc">酸素過剰AGB星周囲の典型像。内側のSiO、中間のH2O、外側のOHが異なる領域を探る。リングは境界や全物質を表さず、固定半径ではない。</desc>
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#386668"/></marker><radialGradient id="star"><stop stop-color="#fff2c9"/><stop offset="1" stop-color="#c17b49"/></radialGradient></defs>
+<defs><radialGradient id="star"><stop stop-color="#fff2c9"/><stop offset="1" stop-color="#c17b49"/></radialGradient></defs>
 <rect width="800" height="740" rx="8" fill="#f0eee6"/>
 <g font-family="Yu Gothic, Meiryo, sans-serif" fill="#243c3e" font-size="23">
 <text x="42" y="55" font-size="27" font-weight="bold">メーザーは風の異なる場所を探る</text>
@@ -9,7 +9,6 @@
 <circle cx="285" cy="335" r="136" fill="#3d7879" fill-opacity=".06" stroke="#3d7879" stroke-dasharray="4 8"/>
 <circle cx="285" cy="335" r="72" fill="#a26043" fill-opacity=".08" stroke="#a26043" stroke-dasharray="4 8"/>
 <circle cx="285" cy="335" r="27" fill="url(#star)"/><circle cx="355.1" cy="351.4" r="5.5" fill="#a26043"/><circle cx="328.2" cy="392.6" r="5.5" fill="#a26043"/><circle cx="235.7" cy="387.5" r="5.5" fill="#a26043"/><circle cx="213.5" cy="343.6" r="5.5" fill="#a26043"/><circle cx="224.7" cy="295.6" r="5.5" fill="#a26043"/><circle cx="313.3" cy="268.8" r="5.5" fill="#a26043"/><circle cx="349.3" cy="302.5" r="5.5" fill="#a26043"/><circle cx="417.4" cy="366.0" r="5.5" fill="#3d7879"/><circle cx="384.2" cy="428.1" r="5.5" fill="#3d7879"/><circle cx="254.0" cy="467.4" r="5.5" fill="#3d7879"/><circle cx="191.9" cy="434.2" r="5.5" fill="#3d7879"/><circle cx="154.8" cy="374.4" r="5.5" fill="#3d7879"/><circle cx="185.8" cy="241.9" r="5.5" fill="#3d7879"/><circle cx="245.6" cy="204.8" r="5.5" fill="#3d7879"/><circle cx="316.0" cy="202.6" r="5.5" fill="#3d7879"/><circle cx="415.2" cy="295.6" r="5.5" fill="#3d7879"/><circle cx="491.4" cy="383.3" r="5.5" fill="#7a8063"/><circle cx="450.0" cy="468.1" r="5.5" fill="#7a8063"/><circle cx="283.8" cy="547.0" r="5.5" fill="#7a8063"/><circle cx="191.9" cy="525.5" r="5.5" fill="#7a8063"/><circle cx="118.5" cy="466.2" r="5.5" fill="#7a8063"/><circle cx="78.6" cy="286.7" r="5.5" fill="#7a8063"/><circle cx="120.0" cy="201.9" r="5.5" fill="#7a8063"/><circle cx="194.1" cy="143.5" r="5.5" fill="#7a8063"/><circle cx="378.1" cy="144.5" r="5.5" fill="#7a8063"/><circle cx="451.5" cy="203.8" r="5.5" fill="#7a8063"/><circle cx="491.9" cy="289.0" r="5.5" fill="#7a8063"/>
-<path d="M305 315L442 178M265 355L128 492" stroke="#386668" stroke-width="2" marker-end="url(#arrow)"/>
 <path d="M352 350H550M415 374L550 408M473 432L550 480" fill="none" stroke="#8b9991"/>
 <text x="563" y="340" fill="#a26043" font-weight="bold">SiO</text><text x="563" y="369" font-size="20">高温・高密度の大気</text>
 <text x="563" y="408" fill="#3d7879" font-weight="bold">H₂O</text><text x="563" y="438" font-size="20">風の加速域など</text>

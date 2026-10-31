@@ -24,10 +24,6 @@ html { scroll-behavior: auto; }
 .review-guide .chapter > header { margin-bottom: 24px; }
 .review-guide .chapter-number { font: .75rem/1.8 var(--sans); letter-spacing: .1em; color: var(--accent); margin: 0; }
 .review-guide p { line-height: 2.05; }
-.review-guide .starter-list { padding-left: 1.6em; }
-.review-guide .starter-list li { margin-bottom: 12px; padding-left: .3em; }
-.review-guide .starter-list strong { color: var(--accent); font-weight: 600; }
-.review-guide .starter-list span { display: block; font-size: .88rem; color: var(--muted); }
 .review-guide .paper { padding: 24px 0 22px; border-top: 1px solid var(--line); }
 .review-guide .paper h3 { margin: 5px 0 10px; font-weight: 600; }
 .review-guide .paper .paper-title { display: block; font-family: Georgia, var(--serif); font-size: 1.1rem; font-weight: 400; line-height: 1.6; margin-top: 5px; letter-spacing: .01em; }
@@ -102,3 +98,12 @@ html { scroll-behavior: auto; }
   .review-guide .supplement::details-content { content-visibility: visible; }
   .review-guide .supplement { background: transparent; }
 }
+
+/* Detailed paper entries share the existing guide typography. */
+.review-guide .paper-detail h4 { font-size: .96rem; line-height: 1.85; color: var(--accent); margin: 24px 0 10px; font-weight: 600; overflow-wrap: anywhere; }
+.review-guide .paper-detail p { font-size: .96rem; }
+.review-guide .paper-detail .table-wrap { margin: 22px 0; }
+.review-guide .paper-detail table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: .82rem; line-height: 1.9; }
+.review-guide .paper-detail :is(th, td) { border-block: 1px solid var(--line); padding: 10px 8px; text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+.review-guide .paper-detail th { color: var(--accent); font-weight: 600; }
+@media (max-width: 640px) { .review-guide .paper-detail :is(th, td) { padding: 9px 5px; } }
