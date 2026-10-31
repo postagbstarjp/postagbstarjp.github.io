@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="自宅PCでは時間がかかりすぎるRADMC-3Dの放射輸送計算をどう進めるか。クラウドCPU・HPCのサービス候補、並列化、費用、初回試験と再現性の確認手順をまとめます。">
-  <title>RADMC-3Dの計算が長すぎるとき：クラウドCPUとHPCの選択肢｜中島淳一</title>
+  <title>RADMC-3Dの計算環境を選ぶための覚え書き｜中島淳一</title>
   <link rel="canonical" href="https://postagbstarjp.github.io/resources/radmc3d-cloud-hpc/">
   <link rel="stylesheet" href="../../styles.css?v=editorial-refined-20261018">
   <link rel="stylesheet" href="./article.css?v=20261025b">
@@ -19,16 +19,18 @@
   <a class="skip-link" href="#main">本文へ移動</a>
   <header class="site-header"><div class="header-inner"><a class="site-name" href="../../" aria-label="中島淳一 ホーム"><span lang="ja">中島淳一</span><span lang="en">Jun-ichi Nakashima</span></a><a class="home-link" href="../../">ホームへ戻る</a></div></header>
   <main id="main" class="computing-main" tabindex="-1">
-    <nav class="article-nav" aria-label="現在の位置"><a href="../../">ホーム</a><span aria-hidden="true"> / </span><a href="../">研究情報源・公開データ</a><span aria-hidden="true"> / </span><span aria-current="page">研究の方法・計算環境</span></nav>
+    <nav class="article-nav" aria-label="現在の位置"><a href="../../">ホーム</a><span aria-hidden="true"> / </span><a href="../">資料・書庫</a><span aria-hidden="true"> / </span><span aria-current="page">研究の方法・計算環境</span></nav>
     <article aria-labelledby="article-title">
       <header class="article-header">
         <p class="eyebrow" lang="en">Research methods / Computing</p>
         <p class="article-date">研究の方法・計算環境についての覚え書き · <time datetime="2026-10-25">2026年10月25日</time></p>
-        <h1 id="article-title">RADMC-3Dの計算が長すぎるとき：クラウドCPUとHPCの選択肢</h1>
+        <h1 id="article-title">RADMC-3Dの計算環境を選ぶための覚え書き</h1>
         <p class="article-subtitle">自宅PCで時間のかかる放射輸送計算を進めるための実務ノート</p>
         <p class="article-lead">RADMC-3Dの計算がローカルPCでは長時間かかるとき、どの計算環境を選び、どのような順序で性能・費用・科学的妥当性を確認するかを整理します。</p>
         <p class="scope-note">2026年10月25日時点の調査に基づく技術ノートです。クラウド上でのRADMC-3Dの性能・費用を実測した結果ではありません。</p>
       </header>
+      <aside class="reading-paths" aria-label="この調査ノートの読み方"><ul><li><strong>未実測の調査ノート</strong>：性能と費用の比較実験ではありません。</li><li><a href="#section-3">まずローカルの並列化を確認する</a>：ビルド条件と実際の計算時間を記録します。</li><li><strong>単一モデルと多数の独立モデルを区別する</strong>：前者は1件の所要時間、後者は一定時間に完了する件数が検討の軸になります。</li></ul></aside>
+      <nav class="reading-contents" aria-label="このノートの目次"><a href="#section-1">問題設定：自宅PCで計算時間が長すぎる</a><a href="#section-2">手元の環境からクラウドLinuxへ移す</a><a href="#section-3">並列化：単一モデルと多数モデルは別問題</a><a href="#section-4">候補となる計算サービス</a><a href="#section-5">費用は「完成したモデル1件当たり」で比較する</a><a href="#section-6">初回試験の進め方</a><a href="#section-7">AIコーディング支援を使う範囲</a><a href="#section-8">選択の目安</a><a href="#references-title">参考資料</a></nav>
       <div class="article-body">
         <section aria-labelledby="section-1">
           <h2 id="section-1">問題設定：自宅PCで計算時間が長すぎる</h2>
