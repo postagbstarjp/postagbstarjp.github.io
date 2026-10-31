@@ -1489,3 +1489,30 @@ h1 span[lang="en"] {
   :root .program-hero { grid-template-columns: minmax(0, 1fr); }
   :root .maser-guide { width: 100%; max-width: 36rem; }
 }
+
+/* Restore the full front-page shelves, keeping all original summaries visible. */
+:root .home-page .research-entries .research-featured { background: var(--paper-deep); padding: 16px 20px; margin-bottom: 8px; }
+:root .home-page .research-entry h3 { font-size: 1.25rem; line-height: 1.65; margin-block: 8px; }
+:root .home-page .research-entry > p { max-width: 49rem; }
+:root .home-page .ndo-review-feature { margin: 0 0 20px; padding: 20px; gap: 24px; }
+:root .home-page .ndo-review-feature h2 { font-size: 1.5rem; }
+:root .home-page .ndo-review-summary { font-size: 1rem; line-height: 1.8; }
+:root .home-page .resources-overview { display: block; column-count: 2; column-gap: 32px; }
+:root .home-page .resources-overview li { break-inside: avoid; padding-block: 14px; }
+:root .home-page .resources-note { padding-block: 14px; }
+:root .home-page .resources-entry > div:first-child { display: block; }
+@media (max-width: 760px) {
+  :root .home-page .resources-overview { column-count: 1; }
+}
+@media (max-width: 600px) {
+  :root .home-page .home-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  :root .home-page .ndo-review-feature { padding: 16px; }
+}
+/* Full research list: one leading item, then independent newspaper columns. */
+:root .home-page .research-entries { column-count: 2; column-gap: 32px; }
+:root .home-page .research-entries .research-entry { break-inside: avoid; }
+:root .home-page .research-entries .research-entry.research-featured { column-span: all; padding: 16px 20px; }
+:root .home-page .research-entries .research-featured h3 { font-size: 1.4rem; }
+@media (max-width: 760px) {
+  :root .home-page .research-entries { column-count: 1; }
+}
