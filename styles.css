@@ -1307,68 +1307,151 @@ h1 span[lang="en"] {
   .home-page .home-nav { flex-wrap: wrap; gap: 10px 22px; justify-content: flex-start; }
 }
 
-/* Compact two-column editorial composition for writing and profile only.
-   Keep all copy, type sizes, colors and unrelated page sections unchanged. */
-@media (min-width: 1100px) {
-  .home-page .links-section {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: start;
-    gap: 42px;
-    padding: 28px 0 34px;
-  }
-  .home-page #writing,
-  .home-page #profiles {
-    min-width: 0;
-  }
-  /* A readable vertical catalogue inside the left newspaper column. */
-  .home-page #writing .media-links {
-    display: block;
-  }
-  .home-page #writing .media-links li,
-  .home-page #writing .media-links li + li {
-    margin: 0;
-    padding: 9px 0;
+/* Dense, three-column lower homepage: preserve copy while balancing the archive.
+   Each column is a vertical reading stream, not a row of stretched cards. */
+.home-page .archive-catalog {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: 0;
+  margin: 0;
+  padding: 26px 0 30px;
+  border-top: 3px double var(--accent);
+  border-bottom: 1px solid var(--line);
+}
+.home-page .archive-catalog .archive-column {
+  min-width: 0;
+  padding: 0 22px;
+}
+.home-page .archive-catalog .archive-column:first-child { padding-left: 0; }
+.home-page .archive-catalog .archive-column:last-child { padding-right: 0; }
+.home-page .archive-catalog .archive-column + .archive-column {
+  border-left: 1px solid var(--line);
+}
+.home-page .archive-catalog .link-group,
+.home-page .archive-catalog .about-site,
+.home-page .archive-catalog .resources-entry {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.home-page .archive-catalog .link-group h2 { margin: 0 0 12px; }
+.home-page .archive-catalog .eyebrow { margin-bottom: 10px; }
+.home-page .archive-catalog #writing .media-links {
+  display: block;
+  margin: 0;
+}
+.home-page .archive-catalog #writing .media-links li,
+.home-page .archive-catalog #writing .media-links li + li {
+  margin: 0;
+  padding: 8px 0;
+  border-top: 1px solid var(--line);
+}
+.home-page .archive-catalog #writing .media-links li:first-child {
+  padding: 10px 12px;
+  border-top: 2px solid var(--accent);
+  border-left: 0;
+}
+.home-page .archive-catalog .media-links p { margin: 2px 0 0; }
+.home-page .archive-catalog #profiles > p:not(.eyebrow) {
+  max-width: none;
+  margin: 0 0 12px;
+}
+.home-page .archive-catalog #profiles .external-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2px 12px;
+  padding-top: 9px;
+  border-top: 1px solid var(--line);
+}
+.home-page .archive-catalog #profiles .external-links li,
+.home-page .archive-catalog #profiles .external-links li + li {
+  min-width: 0;
+  margin: 0;
+}
+.home-page .archive-catalog .resources-note {
+  display: block;
+  margin: 16px 0 0;
+  padding: 13px 0 0;
+  border-top: 1px solid var(--line);
+}
+.home-page .archive-catalog .resources-note-label { margin: 0 0 5px; }
+.home-page .archive-catalog .resources-note > div > p { margin-top: 5px; }
+.home-page .archive-catalog .about-site:not(.resources-entry) {
+  display: block;
+  margin: 19px 0 0;
+  padding: 16px 0 0;
+  border-top: 1px solid var(--line);
+}
+.home-page .archive-catalog .about-site:not(.resources-entry) h2 {
+  margin: 0 0 12px;
+}
+.home-page .archive-catalog .about-site:not(.resources-entry) .about-body {
+  display: block;
+  max-width: none;
+}
+.home-page .archive-catalog .about-site:not(.resources-entry) .about-body p {
+  margin: 0 0 11px;
+}
+.home-page .archive-catalog .resources-entry {
+  display: block;
+}
+.home-page .archive-catalog .resources-entry > div:first-child {
+  display: block;
+}
+.home-page .archive-catalog .resources-entry h2 {
+  margin: 0 0 10px;
+  font-size: 1.22rem;
+}
+.home-page .archive-catalog .resources-entry .resources-lead {
+  max-width: none;
+  margin: 0 0 13px;
+}
+.home-page .archive-catalog .resources-overview {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+}
+.home-page .archive-catalog .resources-overview li {
+  padding: 11px 0 12px;
+}
+.home-page .archive-catalog .resources-overview p { margin-top: 5px; }
+@media (min-width: 701px) and (max-width: 1040px) {
+  .home-page .archive-catalog { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .home-page .archive-catalog .archive-column:nth-child(3) {
+    grid-column: 1 / -1;
+    padding: 20px 0 0;
+    border-left: 0;
     border-top: 1px solid var(--line);
   }
-  .home-page #writing .media-links li:first-child {
-    padding: 10px 14px;
-    border-top: 2px solid var(--accent);
-  }
-  /* Summary and two-column reference index in the right column. */
-  .home-page #profiles.link-group {
-    margin: 0;
-    padding: 0 0 0 32px;
-    border-top: 0;
-    border-left: 1px solid var(--line);
-  }
-  .home-page #profiles > p:not(.eyebrow) {
-    max-width: none;
-    margin-bottom: 12px;
-  }
-  .home-page #profiles .external-links {
-    display: grid;
+  .home-page .archive-catalog .resources-overview {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 4px 18px;
-    padding-top: 8px;
-    border-top: 1px solid var(--line);
-  }
-  .home-page #profiles .external-links li,
-  .home-page #profiles .external-links li + li {
-    min-width: 0;
-    margin: 0;
+    column-gap: 24px;
   }
 }
-
-/* On narrower desktops/tablets, use two shorter items per row without
-   narrowing the text into four columns. Existing mobile rules remain. */
-@media (min-width: 601px) and (max-width: 1099px) {
-  .home-page #writing .media-links {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px 24px;
+@media (max-width: 700px) {
+  .home-page .archive-catalog {
+    display: block;
+    padding: 22px 0 28px;
   }
-  .home-page #profiles .external-links {
+  .home-page .archive-catalog .archive-column,
+  .home-page .archive-catalog .archive-column:first-child,
+  .home-page .archive-catalog .archive-column:last-child {
+    padding: 0;
+    border-left: 0;
+  }
+  .home-page .archive-catalog .archive-column + .archive-column {
+    margin-top: 22px;
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+  }
+  .home-page .archive-catalog #profiles .external-links {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 5px 20px;
+  }
+}
+@media (max-width: 430px) {
+  .home-page .archive-catalog #profiles .external-links {
+    grid-template-columns: minmax(0, 1fr);
   }
 }

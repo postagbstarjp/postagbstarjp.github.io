@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="天文学者・中島淳一の個人サイト。中国広東省の研究大学で研究と教育に携わり、晩期型星と天体メーザーを研究しています。代表論文、研究紹介、講義、科学に関する発信を掲載しています。">
   <title>中島淳一｜天文学・研究成果とプロフィール</title>
-  <link rel="stylesheet" href="./styles.css?v=ndo-title-caption-20261025">
+  <link rel="stylesheet" href="./styles.css?v=archive-columns-20261031">
   <link rel="stylesheet" href="./paper-watch/paper-watch.css">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
@@ -169,8 +169,9 @@
       </div>
     </section>
 
-    <section class="links-section" aria-label="発信・文章と研究者プロフィール">
-      <div id="writing" class="link-group">
+    <section class="archive-catalog" aria-label="発信・文章、研究者プロフィール、資料・書庫">
+      <div class="archive-column archive-column-writing">
+        <div id="writing" class="link-group">
         <p class="eyebrow"><span class="section-number" aria-hidden="true">03</span> Writing &amp; audio</p>
         <h2>発信・文章</h2>
         <ul class="external-links media-links">
@@ -192,8 +193,20 @@
           </li>
         </ul>
       </div>
-
-      <div id="profiles" class="link-group">
+        <section class="about-site" aria-labelledby="about-title">
+      <div>
+        <p class="eyebrow">About this site</p>
+        <h2 id="about-title">この場所について</h2>
+      </div>
+      <div class="about-body">
+        <p>ここは、私が読んだ論文や資料、研究や講義に関するノート、そのほかの個人的な記録を整理して保存する、インターネット上の私的な書庫です。</p>
+        <p>これまでに公表した研究成果とその背景、関心を持って読んだ論文の紹介、技術的な覚え書き、読書の記録なども収めています。</p>
+        <p>文章や音声で発信した内容も、この書庫にまとめています。</p>
+      </div>
+    </section>
+      </div>
+      <div class="archive-column archive-column-profile">
+        <div id="profiles" class="link-group">
         <p class="eyebrow"><span class="section-number" aria-hidden="true">04</span> Profile</p>
         <h2>研究者プロフィール</h2>
         <p><a href="./profile/">プロフィールのページ</a>には、略歴、研究活動、代表論文をまとめています。外部の公式情報や論文一覧もご覧いただけます。</p>
@@ -205,8 +218,23 @@
           <li><a href="https://scholar.google.co.jp/citations?user=LnKuRT4AAAAJ&amp;hl=ja" target="_blank" rel="noopener noreferrer">Google Scholar<span class="external-mark" aria-hidden="true">↗</span></a></li>
         </ul>
       </div>
-    </section>
-    <section class="about-site resources-entry" aria-labelledby="resources-entry-title">
+        <div class="resources-note" aria-label="レビュー論文ガイド">
+  <p class="resources-note-label">レビュー論文ガイド</p>
+  <div>
+    <h3><a href="./resources/review-guides/">晩期型星と星周メーザーを学ぶレビュー論文 →</a></h3>
+    <p>AGB星・赤色超巨星の進化と質量放出、星周メーザー、惑星状星雲、恒星合体の基礎を、学術誌の総説と専門書を通じて日本語で案内します。</p>
+  </div>
+</div>
+        <div class="resources-note" aria-label="計算技術ノート">
+  <p class="resources-note-label">計算技術ノート</p>
+  <div>
+    <h3><a href="./resources/radmc3d-cloud-hpc/">RADMC-3Dの計算が長すぎるとき：クラウドCPUとHPCの選択肢 →</a></h3>
+    <p>自宅PCでは時間のかかる放射輸送計算について、クラウドCPUやHPCの候補、実行手順と検証方法を整理しました。</p>
+  </div>
+</div>
+      </div>
+      <div class="archive-column archive-column-resources">
+        <section class="about-site resources-entry" aria-labelledby="resources-entry-title">
 <div><p class="eyebrow" lang="en">Research &amp; Learning Resources</p><h2 id="resources-entry-title">研究・学習に役立つ資料とツール</h2><p class="resources-lead">論文を探す、観測を計画する、基礎を学ぶ、解析を進める。目的に応じて選べる全152項目を、4つの分野にまとめました。</p></div>
 <ul class="resources-overview">
 <li><h3><a href="./resources/">研究情報源・公開データ →</a></h3><p>論文を探し、天体の情報を調べ、公開観測データを利用するための情報源です。ADS、SIMBAD、IRSA、CDMSなど、研究で役立つ主要なデータベースを紹介しています。</p></li>
@@ -214,31 +242,7 @@
 <li><h3><a href="./resources/learning/">学術誌・総説・専門教材 →</a></h3><p>ApJやA&amp;Aなどの学術誌、ARA&amp;Aをはじめとするレビュー誌を紹介しています。無料で読める定評ある専門教科書や講義ノートも、分野別に探せます。</p></li>
 <li><h3><a href="./resources/ai-tools/">研究・解析・執筆ツール →</a></h3><p>CASAやRADMC-3Dなどの解析ソフトウェアに加え、ChatGPTなどの生成AI、Overleaf、GitHubなど、研究や論文執筆を支えるサービスを紹介しています。</p></li>
 </ul>
-<div class="resources-note" aria-label="レビュー論文ガイド">
-  <p class="resources-note-label">レビュー論文ガイド</p>
-  <div>
-    <h3><a href="./resources/review-guides/">晩期型星と星周メーザーを学ぶレビュー論文 →</a></h3>
-    <p>AGB星・赤色超巨星の進化と質量放出、星周メーザー、惑星状星雲、恒星合体の基礎を、学術誌の総説と専門書を通じて日本語で案内します。</p>
-  </div>
-</div>
-<div class="resources-note" aria-label="計算技術ノート">
-  <p class="resources-note-label">計算技術ノート</p>
-  <div>
-    <h3><a href="./resources/radmc3d-cloud-hpc/">RADMC-3Dの計算が長すぎるとき：クラウドCPUとHPCの選択肢 →</a></h3>
-    <p>自宅PCでは時間のかかる放射輸送計算について、クラウドCPUやHPCの候補、実行手順と検証方法を整理しました。</p>
-  </div>
-</div>
-</section>
-
-    <section class="about-site" aria-labelledby="about-title">
-      <div>
-        <p class="eyebrow">About this site</p>
-        <h2 id="about-title">この場所について</h2>
-      </div>
-      <div class="about-body">
-        <p>ここは、私が読んだ論文や資料、研究や講義に関するノート、そのほかの個人的な記録を整理して保存する、インターネット上の私的な書庫です。</p>
-        <p>これまでに公表した研究成果とその背景、関心を持って読んだ論文の紹介、技術的な覚え書き、読書の記録なども収めています。</p>
-        <p>文章や音声で発信した内容も、この書庫にまとめています。</p>
+    </section>
       </div>
     </section>
   </main>
