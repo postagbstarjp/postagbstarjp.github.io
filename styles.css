@@ -1306,3 +1306,60 @@ h1 span[lang="en"] {
 @media (max-width: 960px) {
   .home-page .home-nav { flex-wrap: wrap; gap: 10px 22px; justify-content: flex-start; }
 }
+
+/* Compact newspaper-style homepage indexes (writing/profile only). */
+@media (min-width: 960px) {
+  /* Four short destinations read as one editorial row rather than two sparse rows. */
+  .home-page #writing .media-links {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, .65fr) minmax(0, 1fr) minmax(0, .95fr);
+    gap: 18px;
+  }
+  .home-page #writing .media-links li,
+  .home-page #writing .media-links li + li {
+    padding-block: 12px;
+  }
+  .home-page #writing .media-links li:first-child {
+    padding: 12px 16px;
+  }
+
+  /* Keep the profile heading and description together; avoid a wide, empty link grid. */
+  .home-page #profiles {
+    display: grid;
+    grid-template-columns: minmax(240px, .4fr) minmax(0, 1.6fr);
+    gap: 10px 30px;
+  }
+  .home-page #profiles > .eyebrow {
+    grid-column: 1;
+    grid-row: 1;
+    margin-bottom: 0;
+  }
+  .home-page #profiles > h2 {
+    grid-column: 1;
+    grid-row: 2;
+    margin-bottom: 0;
+  }
+  .home-page #profiles > p:not(.eyebrow) {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    align-self: center;
+    max-width: none;
+    margin-bottom: 0;
+  }
+  .home-page #profiles > .external-links {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 26px;
+    padding-top: 10px;
+    border-top: 1px solid var(--line);
+  }
+  .home-page #profiles .external-links li,
+  .home-page #profiles .external-links li + li {
+    margin: 0;
+  }
+  .home-page #profiles.link-group {
+    margin-top: 20px;
+    padding-top: 20px;
+  }
+}
