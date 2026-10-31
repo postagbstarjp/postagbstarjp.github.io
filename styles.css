@@ -1339,3 +1339,153 @@ h1 span[lang="en"] {
 @media print { .site-nav, .reading-contents { display: none; } }
 
 .review-guide .guide-title-phrase { display: inline-block; max-width: 100%; }
+
+/* Newspaper rhythm: compact blocks, readable leading, and no equal-height copy columns.
+   The root scope keeps this shared rhythm above the existing page-local spacing. */
+:root body { line-height: 1.8; }
+:root .site-header { padding-top: 16px; }
+:root .header-inner { padding-bottom: 14px; }
+:root .site-nav { padding-block: 3px; gap: 0 24px; }
+:root .article-nav { padding-top: 12px; }
+:root .eyebrow { margin-bottom: 10px; }
+:root .article-header { padding: 24px 0 20px; }
+:root .article-header h1 { line-height: 1.5; }
+:root .article-date { margin-bottom: 10px; }
+:root .article-subtitle { margin: 10px 0 14px; line-height: 1.75; }
+:root .article-lead { line-height: 1.85; }
+:root .article-body { padding-top: 22px; }
+:root .article-body section { margin-bottom: 28px; }
+:root .article-body h2, :root .paper-information h2 { margin-bottom: 12px; line-height: 1.6; }
+:root .article-body p { margin-bottom: .8em; line-height: 1.85; }
+:root .research-figure { margin-block: 24px 0; }
+:root .research-figure figcaption { margin-top: 10px; line-height: 1.75; }
+:root .paper-information, :root .watch-page .paper-information { margin-top: 24px; padding: 20px 0 16px; }
+:root .article-return { padding: 16px 0 24px; }
+:root .footer-inner { padding-block: 22px; }
+:root .reading-contents { margin-block: 14px; padding-block: 7px; gap: 0 22px; }
+:root .reading-contents a { padding-block: 5px; }
+:root .reading-paths { margin-block: 14px; padding-block: 10px; line-height: 1.8; }
+:root .reading-paths p { line-height: 1.8; margin-bottom: .5em; }
+:root .reading-paths li { padding-block: 2px; }
+
+/* The opening gives way to the research links within the first screen. */
+:root .home-page .header-inner { padding-bottom: 0; }
+:root .home-page .home-nav { margin-top: 10px; padding-block: 2px; gap: 0 26px; }
+:root .home-page .intro { padding: 22px 0 20px; gap: 14px 40px; }
+:root .home-page .intro-heading > .eyebrow { margin-bottom: 8px; }
+:root .home-page h1 { font-size: clamp(2.1rem, 3vw, 2.6rem); line-height: 1.3; }
+:root .home-page h1 span[lang="en"] { margin-top: 4px; font-size: .9rem; }
+:root .home-page .intro > .lead { padding-left: 20px; font-size: 1.12rem; line-height: 1.8; }
+:root .home-page .intro-body { display: block; max-width: 53rem; padding-top: 12px; font-size: .95rem; line-height: 1.8; }
+:root .home-page .intro-body p { margin: 0 0 .45em; }
+:root .home-page .intro-body p:nth-child(n) { padding-left: 0; border-left: 0; text-align: left; }
+:root .home-page .intro-body p:last-child { margin-bottom: 0; }
+:root .home-page :is(.research-section, .education-section, .paper-watch-section, .about-site) { padding-block: 18px 22px; gap: 12px; }
+:root .home-page #research h3 { margin-block: 10px 6px; line-height: 1.6; }
+:root .home-page #research p { margin-bottom: .65em; line-height: 1.8; }
+:root .home-page #research .research-featured { margin-top: 14px; padding-top: 10px; }
+:root .home-page .research-featured h3 { font-size: 1.3rem; }
+:root .home-page :is(.research-catalog, .profile-catalog) { margin-block: 10px; }
+:root .home-page .research-entries { display: block; }
+:root .home-page .research-entries .research-entry:nth-child(n) { padding: 12px 0; border-left: 0; }
+:root .home-page .education-entries { gap: 14px 28px; }
+:root .home-page .education-entries .education-entry { padding-top: 12px; }
+:root .home-page .education-entry > p { line-height: 1.8; }
+:root .home-page .links-section { padding-block: 18px 22px; gap: 28px; }
+:root .home-page .link-group h2 { margin-bottom: 12px; }
+:root .home-page .media-links li + li { margin-top: 8px; padding-top: 8px; }
+
+/* Long articles retain one reading column; short lists use independent columns. */
+:root .profile-header { padding: 24px 0 20px; }
+:root .profile-header .eyebrow { margin-bottom: 10px; }
+:root .profile-name { margin-top: 14px; }
+:root .profile-affiliation { margin-bottom: 16px; }
+:root .profile-lead { line-height: 1.75; }
+:root .profile-header > p { margin-bottom: .8em; }
+:root .profile-contents { padding-block: 10px; }
+:root .profile-section { display: block; padding-block: 28px; }
+:root .profile-section-heading { margin-bottom: 16px; }
+:root .profile-section-heading .eyebrow { margin-bottom: 4px; }
+:root .profile-section h2 br { display: none; }
+:root .profile-section-body { max-width: 49rem; }
+:root .profile-section-body > p { margin-bottom: .85em; }
+:root .profile-papers, :root .profile-conversations { margin-top: 16px; }
+:root .profile-papers > li + li, :root .profile-conversations > li + li { margin-top: 18px; padding-top: 18px; }
+:root .profile-timeline { margin-block: 16px 20px; }
+:root .profile-press-release { margin-top: 22px; padding-top: 16px; }
+:root .profile-updated { margin-bottom: 24px; }
+:root .program-hero { padding-top: 24px; gap: 20px 32px; }
+:root .program-hero p, :root .program-page p { line-height: 1.85; margin-bottom: .85em; }
+:root .program-lead { margin-top: 16px; }
+:root .program-contents { padding-block: 10px; gap: 4px 24px; }
+:root .program-section { padding-block: 30px; }
+:root .section-intro { margin-bottom: 22px; }
+:root .program-question { padding-block: 24px 28px; }
+:root .program-closing { padding-block: 30px; }
+:root .ndo-review .article-header { padding-bottom: 20px; }
+:root .ndo-review .edition-note { margin-top: 14px; line-height: 1.8; }
+:root .ndo-review .review-contents { padding-block: 18px; }
+:root .ndo-review .review-contents li { margin-block: .3rem; }
+:root .ndo-review .article-body { padding-top: 24px; }
+:root .ndo-review .article-body section { margin-bottom: 28px; }
+:root .ndo-review .review-chapter { padding-top: 18px; }
+:root .watch-masthead { padding-block: 18px; gap: 24px; }
+:root .watch-introduction > p { line-height: 1.8; }
+:root .watch-list > li { padding-block: 18px; }
+:root .watch-list h3 { margin-bottom: 10px; line-height: 1.6; }
+:root .watch-summary { line-height: 1.8; }
+:root .watch-byline { margin-top: 12px; padding-top: 8px; }
+:root .watch-date-heading { margin-top: 16px; padding-block: 8px; }
+
+/* Catalog entries flow down each column instead of leaving gaps under shorter items. */
+:root .resources-page .resource-intro { padding-top: 24px; }
+:root .resources-page .intro-copy { display: block; max-width: 49rem; margin-top: 14px; }
+:root .resources-page .intro-copy p + p { margin-top: .7em; }
+:root .resources-page .collection-nav { margin-top: 18px; }
+:root .resources-page .collection-nav a { padding-block: 10px; }
+:root .resources-page .section-nav { margin-top: 16px; padding-block: 6px; }
+:root .resources-page .resource-section { padding-block: 28px 14px; }
+:root .resources-page .section-heading { margin-bottom: 16px; }
+:root .resources-page .resource-grid { display: block; column-count: 2; column-gap: 32px; }
+:root .resources-page .resource-item { break-inside: avoid; padding-block: 14px; }
+:root .resources-page .resource-item p { line-height: 1.8; }
+:root .review-guide .guide-intro { padding-block: 24px 20px; }
+:root .review-guide h1 { margin-block: 12px 16px; }
+:root .review-guide p { line-height: 1.85; margin-bottom: .85em; }
+:root .review-guide .guide-nav { margin-block: 14px; padding-block: 8px; gap: 2px 24px; }
+:root .review-guide .chapter { padding-block: 26px 14px; }
+:root .review-guide .chapter > header { margin-bottom: 16px; }
+:root .review-guide .paper { padding-block: 16px; }
+:root .review-guide .scientific-figure { margin-block: 22px; padding-block: 14px; }
+:root .computing-page .scope-note { margin-top: 14px; line-height: 1.8; }
+
+@media (max-width: 760px) {
+  :root .resources-page .resource-grid { column-count: 1; }
+}
+@media (max-width: 600px) {
+  :root .site-header { padding-top: 12px; }
+  :root .header-inner { padding-bottom: 10px; }
+  :root .site-nav { gap: 0 18px; }
+  :root .home-page .home-nav { margin-top: 8px; padding-block: 0; gap: 0 14px; }
+  :root .home-page .intro { padding-block: 16px; gap: 10px; }
+  :root .home-page .intro > .lead { padding-left: 0; font-size: 1rem; }
+  :root .home-page .intro-body { padding-top: 10px; font-size: .93rem; }
+  :root .home-page .intro-heading > .eyebrow { margin-bottom: 4px; }
+  :root .home-page :is(.research-section, .education-section, .paper-watch-section, .about-site) { padding-block: 14px 18px; gap: 8px; }
+  :root .home-page .link-group + .link-group { padding-top: 16px; }
+  :root .article-header, :root .profile-header { padding-block: 20px 16px; }
+  :root .article-body { padding-top: 20px; }
+  :root .profile-section { padding-block: 24px; }
+  :root .program-section { padding-block: 24px; }
+  :root .watch-masthead { gap: 12px; }
+}
+:root .article-header h1 { font-size: clamp(1.6rem, 2.7vw, 2.15rem); }
+:root .profile-header h1, :root .review-guide h1 { font-size: clamp(1.65rem, 2.7vw, 2.2rem); line-height: 1.45; }
+:root .program-hero { grid-template-columns: minmax(0, 1fr) 300px; }
+:root .program-hero h1 { font-size: clamp(1.8rem, 2.7vw, 2.3rem); line-height: 1.45; }
+:root .maser-guide { padding: 16px; align-self: start; }
+:root .maser-shells { max-width: 180px; margin: 10px auto; }
+@media (max-width: 960px) {
+  :root .program-hero { grid-template-columns: minmax(0, 1fr); }
+  :root .maser-guide { width: 100%; max-width: 36rem; }
+}
