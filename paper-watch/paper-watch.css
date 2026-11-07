@@ -113,3 +113,11 @@
 .watch-date-group { margin: 0; }
 .watch-date-heading { margin: 28px 0 0; padding: 10px 0; border-bottom: 1px solid var(--line); color: var(--muted); font: .78rem/1.6 var(--sans); letter-spacing: .04em; }
 .watch-thumbnail-wide { max-width: 100%; }
+
+/* Preserve all three original Figure 5 panels; stack them on small screens. */
+.watch-page .figure-panel-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.watch-page .figure-panel-grid > a { display: block; min-width: 0; background: white; }
+@media (max-width: 600px) {
+  .watch-page .figure-panel-grid { grid-template-columns: 1fr; gap: 20px; }
+  .watch-page .figure-panel-grid > a { max-width: 400px; margin-inline: auto; }
+}

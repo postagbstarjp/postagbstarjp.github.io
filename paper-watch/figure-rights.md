@@ -120,3 +120,76 @@
 - Jeremy Darling, Jennie Paine, Matthew Hosek Jr., Shoko Sakai, Stefan Gillessen, Tatsuya Akiba-Lewis, Andrea Ghez, Frank Eisenhauer, Reinhard Genzel（2026）、[arXiv:2610.31766v1 Figure 1](https://arxiv.org/html/2610.31766v1#S1.F1)、[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。取得ファイル `galactic-center-sio-reference-frame/images/maser-motion.png`。
 - Rudnitskij（2002）：出版社版の図の第三者転載許可を確認できないため原著図は不採用。[原著本文](https://doi.org/10.1071/AS02018)を参考に、本サイトで独立に作成した概念図 `variable-star-molecular-masers/images/maser-concept.svg` を掲載。距離・時間の数値は設定せず、推測された因果関係として表示。原著図の複製・改変ではない。
 - Naunet Leonhardes-Barboza, Andrea Antoni, Morgan MacLeod, Angela Twum, Enrico Ramirez-Ruiz（2026）：[arXiv:2610.31755v1 Figure 4](https://arxiv.org/html/2610.31755v1#S4.F4)、[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。以前から掲載している無加工SVGを維持。
+
+
+## 2026年11月7日追加：6記事の図版判定
+
+概要のview licenseとarXiv v1 HTMLのLicense表示を照合。採用図はキャプション・関連節・実画像を確認し、写真や転載図、当該図を除外する別権利表示は見当たりませんでした。観測サーベイやソフトウェアの出典は原著を参照し、データの出典と第三者画像の転載を区別しています。画像はバイト単位で無改変、CSSによる表示縮小のみ。原著PDFは配置しません。CC BYは帰属・原典・ライセンス・変更点を表示し、CC BY-SA図は同ライセンスを保持します。今後翻案を配布する場合もShareAlike条件が必要です。記事本文やサイト全体を一律に同ライセンスとするものではありません。
+
+### long-period-carbon-mira
+
+- 原著：Ming To Suen, Kishalay De, Sam Rose, Rajorshi Bhattacharya, Viraj Karambelkar, Michael C. B. Ashley, Cuc Dinh, Nicholas Earley, Danielle Frostig, Matthew Hankins, Charles D. Kilpatrick, Mansi M. Kasliwal, Anna M. Moore, Roberto Soria, Aswin Suresh, Tony Travouillon（2026）、*Infrared spectroscopy of the longest-period Galactic Mira variables from Palomar Gattini-IR: Identification of a candidate thermally pulsing Super-Asymptotic Giant Branch star*。
+- 使用版：[arXiv:2610.38685v1](https://arxiv.org/abs/2610.38685v1) ／ [HTML本文](https://arxiv.org/html/2610.38685v1)。
+- 判定：原著図は不採用。概要のview licenseとHTML本文はarXivの非独占配布ライセンス。第三者による図の再配布を許す根拠は未確認。
+- 候補：Figure 1（光度曲線）、Figure 3（スペクトル）。転載許可が未確認のため画像を取得・配置せず、原著本文にリンク。
+
+### necklace-nebula-kinematics
+
+- 原著：E. Santamaría, J. A. Toalá, L. Sabin, M. A. Guerrero, G. Ramos-Larios（2026）、*A morpho-kinematic view of the Necklace nebula*。
+- 使用版：[arXiv:2610.38858v1](https://arxiv.org/abs/2610.38858v1) ／ [HTML本文](https://arxiv.org/html/2610.38858v1)。
+- 判定：今回は図なし。arXiv非独占配布ライセンスを転載根拠にしない。
+- 出版社受理原稿ページ：https://academic.oup.com/mnras/advance-article/doi/10.1093/mnras/stag2030/8997910 。ブラウザで2026年10月24日公開、© The Author(s) 2026、CC BY 4.0表示を直接確認。したがって論文全体を「転載不可」とは判定しない。
+- 再検討した候補：出版社受理原稿 Figure 2（観測とSHAPEモデルの[N II] PV図）。出版社ページのPDFリンクへの取得はセキュリティ検証・配信先への遷移後に失敗し、当該版の実画像と個別の別権利表示を最終照合できなかった。arXivの似た図へ出版社の許諾を無条件に適用せず、画像の取得・公開配置は行わない。
+- 対応：記事本文を完成させ、出版社原著とarXiv本文へリンク。確認済みの出版社ライセンスと、未完了の図別照合を区別する。
+
+### long-secondary-period-phase-offsets
+
+- 原著：D. M. Skowron, I. Soszyński, P. Iwanek, P. A. Kołaczek-Szymański（2026）、*Phase Offsets Between the Minimum Light and Radial Velocity in Long Secondary Period Stars*。
+- 使用版：[arXiv:2611.07018v1](https://arxiv.org/abs/2611.07018v1) ／ [HTML本文](https://arxiv.org/html/2611.07018v1)。
+- 採用：原著 Figure 5。概要のview licenseとHTML冒頭はいずれも[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
+- 図・キャプション：https://arxiv.org/html/2611.07018v1#S3.F5
+- 図の読み方・選定理由：良質標本の規格化したVバンド光度（各パネル上段）と視線速度（下段）。左からLSP星100個、ミラ型40個、半規則型180個で、狭い画面では上から同じ順に並びます。横軸は光度最小を基準にした位相、赤線は平均です。規格化した図なので、集団間の絶対振幅は比較できません。
+- 第三者素材：図・キャプション・関連節に別権利表示なし。各著者による観測解析・計算結果の作図。写真・転載図は含まれない。
+- 加工：画像自体は無改変。表示縮小と画面幅による3パネルの配置替えのみ。原著図番号、全著者、©、出典、ライセンス、加工内容を図注に表示。
+- 取得元：https://arxiv.org/html/2611.07018v1/usrednione_V_rv_LSP_100.png
+  - 配置：`paper-watch/long-secondary-period-phase-offsets/images/lsp.png`（856 × 965 px、278774 bytes）。SHA256：`d2ef981863ccf4651039df0c7ca4c3a5b3acb99e8aa5dc36802d345ad78f2464`。
+- 取得元：https://arxiv.org/html/2611.07018v1/usrednione_V_rv_MIRAS_40.png
+  - 配置：`paper-watch/long-secondary-period-phase-offsets/images/miras.png`（856 × 965 px、151936 bytes）。SHA256：`38827b3e3c6a58d9535eaa563867c9c7a5fd0102b65901cb4f8410ff23a8f2a7`。
+- 取得元：https://arxiv.org/html/2611.07018v1/usrednione_V_rv_SRV_180.png
+  - 配置：`paper-watch/long-secondary-period-phase-offsets/images/srv.png`（856 × 965 px、226645 bytes）。SHA256：`b7d08ab2d5a65159d5c59f7437027638e7b502176f0ef48ea5917f06cc7bef36`。
+
+### galah-low-accretion-symbiotic-stars
+
+- 原著：U. Munari, P. Valisa, N. Masetti, M. Fiorucci, M. Perko, B. Jamnik, G. Traven, A. Frigo, J. Bland-Hawthorn, S. Buder, A. R. Casey, G. M. De Silva, P. B. Das, K. C. Freeman, M. R. Hayden, J. Kos, G. F. Lewis, J. Lin, S. L. Martell, K. J. Schlesinger, S. Sharma, J. D. Simpson, D. Stello, D. B. Zucker, T. Zwitter（2026）、*The Galah survey and symbiotic stars. II. Discovery, validation, and intensive follow-up of 44 new systems accreting at the lowest detectable levels*。
+- 使用版：[arXiv:2611.05200v1](https://arxiv.org/abs/2611.05200v1) ／ [HTML本文](https://arxiv.org/html/2611.05200v1)。
+- 採用：原著 Figure 1。概要のview licenseとHTML冒頭はいずれも[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
+- 図・キャプション：https://arxiv.org/html/2611.05200v1#S3.F1
+- 図の読み方・選定理由：GaSS 2-38の視線速度（上段）とASAS-SN測光（下段）。左は時刻順、右は分光軌道の周期470日で折り重ねた表示です。上段右の緑線は軌道モデル。Gaiaの平均速度と観測期間、Galahと追跡分光の測定も区別されています。44系のうち一つの例であり、全標本の代表軌道ではありません。
+- 第三者素材：図・キャプション・関連節に別権利表示なし。各著者による観測解析・計算結果の作図。写真・転載図は含まれない。
+- 加工：画像自体は無改変。表示縮小のみ。原著図番号、全著者、©、出典、ライセンス、加工内容を図注に表示。
+- 取得元：https://arxiv.org/html/2611.05200v1/aa60724-26_fig01.png
+  - 配置：`paper-watch/galah-low-accretion-symbiotic-stars/images/orbit-light-curve.png`（2025 × 1013 px、259813 bytes）。SHA256：`9798e44f450e1ee7b03fb89a45eb8695e435448895c9ac09418dcbca0de0d5ce`。
+
+### substellar-common-envelope-survivors
+
+- 原著：Nicolas F. Miranda, Alex Mauch-Soriano, Joaquin A. Barraza-Jorquera, Matthias R. Schreiber, Maria Paula Ronco, Felipe Lagos-Vilches（2026）、*Population synthesis of substellar companions surviving common-envelope evolution*。
+- 使用版：[arXiv:2611.06549v1](https://arxiv.org/abs/2611.06549v1) ／ [HTML本文](https://arxiv.org/html/2611.06549v1)。
+- 採用：原著 Figure 6。概要のview licenseとHTML冒頭はいずれも[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)。
+- 図・キャプション：https://arxiv.org/html/2611.06549v1#S3.F6
+- 図の読み方・選定理由：共通外層進化後に残る伴星の計算上の質量と軌道周期。橙の三角は重力＋熱・効率1、青の丸と緑の四角は内部エネルギー全体を含めた効率0.3と1を表します。上の軌道長半径は代表質量による近似換算、赤破線は伴星がロッシュローブを満たす境界です。観測された天体の分布ではありません。
+- 第三者素材：図・キャプション・関連節に別権利表示なし。各著者による観測解析・計算結果の作図。写真・転載図は含まれない。
+- 加工：画像自体は無改変。表示縮小のみ。原著図番号、全著者、©、出典、ライセンス、加工内容を図注に表示。
+- 取得元：https://arxiv.org/html/2611.06549v1/fig3_postCE_period_mass_survivors_hours.png
+  - 配置：`paper-watch/substellar-common-envelope-survivors/images/survivor-period-mass.png`（2012 × 1860 px、147826 bytes）。SHA256：`8b366c3963fc5b6557fae2a3b1f81971183f132e182dcdc35989c79418fd1f4b`。
+
+### verifiable-astrophysics-agent-pipeline
+
+- 原著：Fang Zhou（2026）、*A semi-autonomous multi-agent pipeline for high-energy astrophysics research with enforced provenance and verifiable self-extension*。
+- 使用版：[arXiv:2611.05251v1](https://arxiv.org/abs/2611.05251v1) ／ [HTML本文](https://arxiv.org/html/2611.05251v1)。
+- 採用：原著 Figure 3。概要のview licenseとHTML冒頭はいずれも[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
+- 図・キャプション：https://arxiv.org/html/2611.05251v1#S4.F3
+- 図の読み方・選定理由：6観測を5キロ秒ごとの区間に分けた、規格化ストークスパラメータq＝Q/Iとu＝U/Iの分布。点は時間区間、誤差棒は測定の不確かさ、色は観測開始からの経過時間です。各パネル上部は観測IDで、原点からの隔たりと時間変動は異なる情報です。03006001の偏光度は有意検出されていません。
+- 第三者素材：図・キャプション・関連節に別権利表示なし。各著者による観測解析・計算結果の作図。写真・転載図は含まれない。
+- 加工：画像自体は無改変。表示縮小のみ。原著図番号、全著者、©、出典、ライセンス、加工内容を図注に表示。
+- 取得元：https://arxiv.org/html/2611.05251v1/figures/p2_stokes_plane_3x2.png
+  - 配置：`paper-watch/verifiable-astrophysics-agent-pipeline/images/stokes-plane.png`（2242 × 1318 px、338270 bytes）。SHA256：`2cfee078ce527223bc30298575f2a842e091525cabeca6dfa6ff34aea6f2716a`。
