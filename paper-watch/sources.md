@@ -89,3 +89,75 @@
 - Jeremy Darling, Jennie Paine, Matthew Hosek Jr., Shoko Sakai, Stefan Gillessen, Tatsuya Akiba-Lewis, Andrea Ghez, Frank Eisenhauer, Reinhard Genzel（2026）、[arXiv:2610.31766v1 Figure 1](https://arxiv.org/html/2610.31766v1#S1.F1)、[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。取得ファイル `galactic-center-sio-reference-frame/images/maser-motion.png`。
 - Rudnitskij（2002）：出版社版の図の第三者転載許可を確認できないため原著図は不採用。[原著本文](https://doi.org/10.1071/AS02018)を参考に、本サイトで独立に作成した概念図 `variable-star-molecular-masers/images/maser-concept.svg` を掲載。距離・時間の数値は設定せず、推測された因果関係として表示。原著図の複製・改変ではない。
 - Naunet Leonhardes-Barboza, Andrea Antoni, Morgan MacLeod, Angela Twum, Enrico Ramirez-Ruiz（2026）：[arXiv:2610.31755v1 Figure 4](https://arxiv.org/html/2610.31755v1#S4.F4)、[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。以前から掲載している無加工SVGを維持。
+
+
+## 2026年11月7日追加：校閲済み6記事
+
+確認日：2026年11月7日。本文はユーザー提供の校閲済み原稿を使用。原著調査は前回の確認資料を再利用し、本文の再執筆は行っていません。記事日付はローカル制作時点の2026年11月7日で、公開が別日となる場合は公開前に実日付へ合わせます。
+
+### long-period-carbon-mira
+
+- 原著：*Infrared spectroscopy of the longest-period Galactic Mira variables from Palomar Gattini-IR: Identification of a candidate thermally pulsing Super-Asymptotic Giant Branch star*
+- 著者：Ming To Suen, Kishalay De, Sam Rose, Rajorshi Bhattacharya, Viraj Karambelkar, Michael C. B. Ashley, Cuc Dinh, Nicholas Earley, Danielle Frostig, Matthew Hankins, Charles D. Kilpatrick, Mansi M. Kasliwal, Anna M. Moore, Roberto Soria, Aswin Suresh, Tony Travouillon
+- 使用版：[arXiv:2610.38685v1](https://arxiv.org/abs/2610.38685v1)、投稿 2026-10-28（UTC）。
+- 出版状態：プレプリント · PASP投稿（arXiv著者コメント） · 掲載決定は未確認
+- arXiv DOI：10.48550/arXiv.2610.38685。出版社DOIは未確認。arXiv DOIとは区別する。
+- 本文確認元：https://arxiv.org/html/2610.38685v1
+- 本文文字数：1437字（リードと本文段落、空白除去なし、Unicode文字数。見出し・図注・書誌を除く）。
+
+### necklace-nebula-kinematics
+
+- 原著：*A morpho-kinematic view of the Necklace nebula*
+- 著者：E. Santamaría, J. A. Toalá, L. Sabin, M. A. Guerrero, G. Ramos-Larios
+- 使用版：[arXiv:2610.38858v1](https://arxiv.org/abs/2610.38858v1)、投稿 2026-10-28（UTC）。
+- 出版状態：MNRAS受理原稿・オンライン公開（2026年10月24日） · DOI: 10.1093/mnras/stag2030 · 最終組版版・巻頁は未確認
+- arXiv DOI：10.48550/arXiv.2610.38858。出版社DOI：https://doi.org/10.1093/mnras/stag2030
+- 本文確認元：https://arxiv.org/html/2610.38858v1
+- 本文文字数：1322字（リードと本文段落、空白除去なし、Unicode文字数。見出し・図注・書誌を除く）。
+
+### long-secondary-period-phase-offsets
+
+- 原著：*Phase Offsets Between the Minimum Light and Radial Velocity in Long Secondary Period Stars*
+- 著者：D. M. Skowron, I. Soszyński, P. Iwanek, P. A. Kołaczek-Szymański
+- 使用版：[arXiv:2611.07018v1](https://arxiv.org/abs/2611.07018v1)、投稿 2026-11-04（UTC）。
+- 出版状態：プレプリント · ApJ投稿（arXiv著者コメント） · 掲載決定は未確認
+- arXiv DOI：10.48550/arXiv.2611.07018。出版社DOIは未確認。arXiv DOIとは区別する。
+- 本文確認元：https://arxiv.org/html/2611.07018v1
+- 本文文字数：1373字（リードと本文段落、空白除去なし、Unicode文字数。見出し・図注・書誌を除く）。
+
+### galah-low-accretion-symbiotic-stars
+
+- 原著：*The Galah survey and symbiotic stars. II. Discovery, validation, and intensive follow-up of 44 new systems accreting at the lowest detectable levels*
+- 著者：U. Munari, P. Valisa, N. Masetti, M. Fiorucci, M. Perko, B. Jamnik, G. Traven, A. Frigo, J. Bland-Hawthorn, S. Buder, A. R. Casey, G. M. De Silva, P. B. Das, K. C. Freeman, M. R. Hayden, J. Kos, G. F. Lewis, J. Lin, S. L. Martell, K. J. Schlesinger, S. Sharma, J. D. Simpson, D. Stello, D. B. Zucker, T. Zwitter
+- 使用版：[arXiv:2611.05200v1](https://arxiv.org/abs/2611.05200v1)、投稿 2026-11-03（UTC）。
+- 出版状態：A&A 715, A34（2026） · arXiv書誌欄に掲載情報あり
+- arXiv DOI：10.48550/arXiv.2611.05200。出版社DOI：https://doi.org/10.1051/0004-6361/202660724
+- 本文確認元：https://arxiv.org/html/2611.05200v1
+- 本文文字数：1336字（リードと本文段落、空白除去なし、Unicode文字数。見出し・図注・書誌を除く）。
+
+### substellar-common-envelope-survivors
+
+- 原著：*Population synthesis of substellar companions surviving common-envelope evolution*
+- 著者：Nicolas F. Miranda, Alex Mauch-Soriano, Joaquin A. Barraza-Jorquera, Matthias R. Schreiber, Maria Paula Ronco, Felipe Lagos-Vilches
+- 使用版：[arXiv:2611.06549v1](https://arxiv.org/abs/2611.06549v1)、投稿 2026-11-04（UTC）。
+- 出版状態：プレプリント · A&A投稿（arXiv著者コメント） · 掲載決定は未確認
+- arXiv DOI：10.48550/arXiv.2611.06549。出版社DOIは未確認。arXiv DOIとは区別する。
+- 本文確認元：https://arxiv.org/html/2611.06549v1
+- 本文文字数：1426字（リードと本文段落、空白除去なし、Unicode文字数。見出し・図注・書誌を除く）。
+
+### verifiable-astrophysics-agent-pipeline
+
+- 原著：*A semi-autonomous multi-agent pipeline for high-energy astrophysics research with enforced provenance and verifiable self-extension*
+- 著者：Fang Zhou
+- 使用版：[arXiv:2611.05251v1](https://arxiv.org/abs/2611.05251v1)、投稿 2026-11-03（UTC）。
+- 出版状態：プレプリント · 査読・出版状況は未確認（本文の誌名表記だけでは掲載と判定しない）
+- arXiv DOI：10.48550/arXiv.2611.05251。出版社DOIは未確認。arXiv DOIとは区別する。
+- 本文確認元：https://arxiv.org/html/2611.05251v1
+- 本文文字数：1477字（リードと本文段落、空白除去なし、Unicode文字数。見出し・図注・書誌を除く）。
+
+### PRIISM（ツール紹介）
+
+- 公式紹介：https://alma-telescope.jp/news/priism-202611.html （2026年11月5日）。
+- 公式実装：https://github.com/tnakazato/priism 、ASCL：https://ascl.net/2006.002 。
+- 関連：https://github.com/ikeda46/priism-selfcal 。
+- 成果はALMAアーカイブの円盤連続波画像の再解析。3次元分子線対応等は将来の取り組みとして区別。画像転載の個別条件を確定していないため、ニュース画像は複製せずリンクのみ。
