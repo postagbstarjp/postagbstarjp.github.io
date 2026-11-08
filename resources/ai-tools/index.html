@@ -7,6 +7,7 @@
   <title>研究・解析・執筆ツール｜研究・学習リンク集｜中島淳一</title>
   <link rel="stylesheet" href="../../styles.css?v=editorial-refined-20261018">
   <link rel="stylesheet" href="../resources.css?v=resources-unified-20261024">
+  <link rel="stylesheet" href="../numerical-astrophysics/navigation.css?v=20261108">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -21,6 +22,7 @@
 <header class="resource-intro">
 <p class="eyebrow" lang="en">Research, Analysis & Writing Tools</p><h1>研究・解析・執筆ツール</h1>
 <div class="intro-copy"><p>観測データの解析、画像の可視化、物理モデルの計算から、論文の読解・執筆、コードの共有まで。研究を進めるうえで役立つ34のソフトウェア・サービスを用途別に紹介します。</p><p>AIの説明は一次資料ではありません。数値、引用、式の導出、研究上の判断は自分で確かめることが不可欠です。各ツールの仮定や、サービスの利用条件も確認してください。</p></div>
+<aside class="numerical-guide-entry" aria-labelledby="numerical-guide-title"><h2 id="numerical-guide-title"><a href="../numerical-astrophysics/">天体物理の数値計算コード・総合ガイド →</a></h2><p>何を計算したいですか？ 恒星進化から分子化学・輻射輸送・偏光・観測との比較まで、6分野から探せます。詳説21コードと、この一覧の既存7コードへの入口をまとめています。</p></aside>
 <nav class="collection-nav" aria-label="研究・学習リンク集の各分野"><a href="../">研究情報源・公開データ<span>40項目</span></a>
 <a href="../observatories/">観測施設・観測計画<span>42項目</span></a>
 <a href="../learning/">学術誌・総説・専門教材<span>40項目</span></a>
@@ -92,7 +94,7 @@
 </ul>
 </section>
 <section id="modeling" class="resource-section" aria-labelledby="modeling-title">
-<header class="section-heading"><p class="eyebrow">03 <span lang="en">/ 4 entries</span></p><h2 id="modeling-title">放射輸送・物理モデル</h2><p>ガスやダストと光の相互作用を計算し、モデルから観測される画像やスペクトルを予測するソフトウェアです。観測結果との比較を通じて物理的な解釈を検討できます。</p></header>
+<header class="section-heading"><p class="eyebrow">03 <span lang="en">/ 4 entries</span></p><h2 id="modeling-title">放射輸送・物理モデル</h2><p>ガスやダストと光の相互作用を計算し、モデルから観測される画像やスペクトルを予測するソフトウェアです。観測結果との比較を通じて物理的な解釈を検討できます。</p><p class="service-note"><a href="../numerical-astrophysics/#radiation-polarization">総合ガイド：輻射輸送・励起・偏光のコードを比較する →</a></p></header>
 <ul class="resource-grid">
 <li class="resource-item" id="radmc-3d">
           <h3><a href="https://www.ita.uni-heidelberg.de/~dullemond/software/radmc-3d/index.php" target="_blank" rel="noopener noreferrer"><span lang="en">RADMC-3D</span><span class="outward" aria-hidden="true"> ↗</span></a></h3>
@@ -114,12 +116,12 @@
 </ul>
 </section>
 <section id="hydrodynamics" class="resource-section" aria-labelledby="hydrodynamics-title">
-<header class="section-heading"><p class="eyebrow">04 <span lang="en">/ 3 entries</span></p><h2 id="hydrodynamics-title">数値流体・磁気流体シミュレーション</h2><p>宇宙のガスの時間発展を計算する研究用コードです。空間を区切る格子法と、流体を粒子で表すSPH法では、計算方法と検証すべき点が異なります。</p></header>
+<header class="section-heading"><p class="eyebrow">04 <span lang="en">/ 3 entries</span></p><h2 id="hydrodynamics-title">数値流体・磁気流体シミュレーション</h2><p>宇宙のガスの時間発展を計算する研究用コードです。空間を区切る格子法と、流体を粒子で表すSPH法では、計算方法と検証すべき点が異なります。</p><p class="service-note"><a href="../numerical-astrophysics/#gas-dynamics">総合ガイド：流体・MHD・衝撃波のコードを比較する →</a></p></header>
 <ul class="resource-grid">
 <li class="resource-item" id="pluto"><h3><a href="https://plutocode.ph.unito.it/" target="_blank" rel="noopener noreferrer"><span lang="en">PLUTO</span><span class="outward" aria-hidden="true"> ↗</span></a></h3><p>格子法に基づく天体流体・磁気流体のシミュレーションコードです。通常の流体や磁場を伴う流れ、特殊相対論的な流れを扱い、衝撃波や流体不安定性などの計算に用いられます。利用できる物理過程は公開版と設定によって異なります。</p></li>
 <li class="resource-item" id="athena"><h3><a href="https://www.athena-astro.app/" target="_blank" rel="noopener noreferrer"><span lang="en">Athena++</span><span class="outward" aria-hidden="true"> ↗</span></a></h3><p>格子法に基づくC++製の天体流体・磁気流体コードです。柔軟な格子配置、適応格子細分化（AMR）、並列計算に対応します。東北大学から日本語の導入解説やチュートリアルも公開されています。</p></li>
 <li class="resource-item" id="phantom"><h3><a href="https://phantomsph.github.io/" target="_blank" rel="noopener noreferrer"><span lang="en">Phantom</span><span class="outward" aria-hidden="true"> ↗</span></a></h3><p>SPH法を用いて三次元の天体流体・磁気流体を計算するコードです。流れとともに移動する粒子でガスを表し、自己重力やダストなどを扱う設定があります。公式サンプル問題集から計算例や設定方法を参照できます。</p></li>
-</ul><p class="service-note">関連特集：<a href="numerical-astrophysics/">計算機の中で、星の一生と星周ガスを動かす</a>。恒星進化・分子化学・メーザー・偏光・干渉計を結ぶ21の公開コードと、それぞれの近似・注意点を紹介します。</p><p class="service-note">詳しい解説：<a href="astrophysical-hydrodynamics/">宇宙のガスの動きを計算する――PLUTO、Athena++、Phantom</a>。計算方法の概念図、3コードの比較表、公式資料への入口をまとめています。</p>
+</ul><p class="service-note">詳しい解説：<a href="astrophysical-hydrodynamics/">宇宙のガスの動きを計算する――PLUTO、Athena++、Phantom</a>。計算方法の概念図、3コードの比較表、公式資料への入口をまとめています。</p>
 </section>
 <section id="python" class="resource-section" aria-labelledby="python-title">
 <header class="section-heading"><p class="eyebrow">05 <span lang="en">/ 4 entries</span></p><h2 id="python-title">Pythonによる天文・科学解析</h2><p>座標、単位、観測データ、スペクトルやデータベースをPythonで扱うためのライブラリです。解析プログラムを組み立てる際の共通の基盤になります。</p></header>

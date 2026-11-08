@@ -1,0 +1,13 @@
+/* Scoped entrances; the site's shared styles are unchanged. */
+.numerical-guide-entry { margin: 1.8rem 0; padding: 1.2rem 1.4rem; border-block: 1px solid var(--line); border-left: 3px solid var(--accent); background: var(--paper-deep); }
+.numerical-guide-entry h2 { margin: 0 0 .6rem; font-size: 1.2rem; font-weight: 500; line-height: 1.8; }
+.numerical-guide-entry p { margin: 0; font-size: .9rem; line-height: 1.9; }
+.numerical-guide-entry a { overflow-wrap: anywhere; }
+.home-page .home-notes-entries { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 900px) {
+  .home-page .home-notes-entries { grid-template-columns: minmax(0, 1fr); }
+  .home-page .home-note-entry, .home-page .home-note-entry:first-child, .home-page .home-note-entry + .home-note-entry { padding: 15px 0; border-left: 0; }
+  .home-page .home-note-entry + .home-note-entry { border-top: 1px solid var(--line); }
+}
+
+.home-page .home-note-entry .note-title-unit { display: inline-block; }
