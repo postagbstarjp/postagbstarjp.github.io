@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="540" viewBox="0 0 1160 540" role="img" aria-labelledby="title desc">
+<title id="title">Code roles</title><desc id="desc">Conceptual overview of different modeling steps</desc>
+<style>text{font-family:"Yu Gothic","Hiragino Kaku Gothic ProN","Noto Sans CJK JP",sans-serif;fill:#273434}.header{font-size:23px;font-weight:600}.bold{font-size:18px;font-weight:600}.body{font-size:15px}.small{font-size:12px;fill:#62706c}.code{font-size:16px;font-weight:600;fill:#2e5355}.edge{fill:none;stroke:#5e7978;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}.dash{stroke-dasharray:7 7}.tile{fill:#fdfcf8;stroke:#9fada8;stroke-width:1.6}.lite{fill:#ecf1ec;stroke:#a2b4ac;stroke-width:1.5}.accent{fill:#d7e4df;stroke:#769b93;stroke-width:1.5}</style>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#5e7978"/></marker></defs>
+<rect width="1160" height="540" fill="#f7f5ef"/>
+<text class="header" x="50" y="58" text-anchor="start">From stellar evolution to synthetic observations</text>
+<rect class="tile" x="45" y="135" width="185" height="200" rx="12"/>
+<text class="bold" x="60" y="175" text-anchor="start">Stellar evolution</text>
+<text class="code" x="60" y="221" text-anchor="start">MESA</text>
+<text class="body" x="60" y="263" text-anchor="start">Mass-loss history</text>
+<line x1="230" y1="235" x2="267" y2="235" class="edge" marker-end="url(#ar)"/>
+<rect class="tile" x="270" y="135" width="185" height="200" rx="12"/>
+<text class="bold" x="285" y="175" text-anchor="start">Gas dynamics</text>
+<text class="code" x="285" y="211" text-anchor="start">Phantom</text>
+<text class="code" x="285" y="235" text-anchor="start">Athena++</text>
+<text class="body" x="285" y="284" text-anchor="start">Density / velocity</text>
+<line x1="455" y1="235" x2="492" y2="235" class="edge" marker-end="url(#ar)"/>
+<rect class="tile" x="495" y="135" width="185" height="200" rx="12"/>
+<text class="bold" x="510" y="175" text-anchor="start">Chemistry</text>
+<text class="code" x="510" y="221" text-anchor="start">UCLCHEM / KROME</text>
+<text class="body" x="510" y="263" text-anchor="start">Molecular abundance</text>
+<line x1="680" y1="235" x2="717" y2="235" class="edge" marker-end="url(#ar)"/>
+<rect class="tile" x="720" y="135" width="185" height="200" rx="12"/>
+<text class="bold" x="735" y="175" text-anchor="start">Line radiation</text>
+<text class="code" x="735" y="211" text-anchor="start">Magritte</text>
+<text class="code" x="735" y="235" text-anchor="start">MOLPOP-CEP</text>
+<text class="body" x="735" y="284" text-anchor="start">Excitation / opacity</text>
+<line x1="905" y1="235" x2="942" y2="235" class="edge" marker-end="url(#ar)"/>
+<rect class="tile" x="945" y="135" width="185" height="200" rx="12"/>
+<text class="bold" x="960" y="175" text-anchor="start">Observations</text>
+<text class="code" x="960" y="221" text-anchor="start">Spectra / PV</text>
+<text class="body" x="960" y="263" text-anchor="start">Compare with data</text>
+<rect class="lite" x="95" y="390" width="975" height="78" rx="12"/>
+<text class="body" x="124" y="425" text-anchor="start">Caution: Code outputs differ in formats, units, geometry, and approximations.</text>
+<text class="small" x="124" y="448" text-anchor="start">Arrows indicate a conceptual workflow, not automatic data compatibility.</text>
+<text class="small" x="50" y="505" text-anchor="start">SCHEMATIC ONLY — NOT A SIMULATION RESULT</text>
+</svg>

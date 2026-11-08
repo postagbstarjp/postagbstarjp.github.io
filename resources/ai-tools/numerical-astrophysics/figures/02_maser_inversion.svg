@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="510" viewBox="0 0 1080 510" role="img" aria-labelledby="title desc">
+<title id="title">Maser inversion</title><desc id="desc">Simplified energy-level population diagram</desc>
+<style>text{font-family:"Yu Gothic","Hiragino Kaku Gothic ProN","Noto Sans CJK JP",sans-serif;fill:#273434}.header{font-size:23px;font-weight:600}.bold{font-size:18px;font-weight:600}.body{font-size:15px}.small{font-size:12px;fill:#62706c}.code{font-size:16px;font-weight:600;fill:#2e5355}.edge{fill:none;stroke:#5e7978;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}.dash{stroke-dasharray:7 7}.tile{fill:#fdfcf8;stroke:#9fada8;stroke-width:1.6}.lite{fill:#ecf1ec;stroke:#a2b4ac;stroke-width:1.5}.accent{fill:#d7e4df;stroke:#769b93;stroke-width:1.5}</style>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#5e7978"/></marker></defs>
+<rect width="1080" height="510" fill="#f7f5ef"/>
+<text class="header" x="45" y="57" text-anchor="start">Maser inversion: level populations and amplification</text>
+<rect class="tile" x="48" y="105" width="462" height="310" rx="12"/>
+<rect class="tile" x="565" y="105" width="462" height="310" rx="12"/>
+<text class="bold" x="75" y="147" text-anchor="start">Two energy levels (schematic)</text>
+<text class="bold" x="593" y="147" text-anchor="start">Inversion condition</text>
+<line x1="108" y1="236" x2="398" y2="236" stroke="#5e7978" stroke-width="5"/>
+<line x1="108" y1="335" x2="398" y2="335" stroke="#5e7978" stroke-width="5"/>
+<text class="body" x="114" y="215" text-anchor="start">Upper level (u)</text>
+<text class="body" x="114" y="359" text-anchor="start">Lower level (l)</text>
+<line x1="334" y1="250" x2="334" y2="318" class="edge" marker-end="url(#ar)"/>
+<text class="bold" x="355" y="289" text-anchor="start">hν</text>
+<text class="bold" x="595" y="216" text-anchor="start">nᵤ / gᵤ   &gt;   nₗ / gₗ</text>
+<text class="body" x="594" y="257" text-anchor="start">n = population per level</text>
+<text class="body" x="594" y="284" text-anchor="start">g = statistical weight</text>
+<text class="body" x="594" y="340" text-anchor="start">Stimulated emission can amplify light</text>
+<rect class="lite" x="86" y="434" width="892" height="45" rx="8"/>
+<text class="small" x="109" y="463" text-anchor="start">Actual pumping is multilevel. This schematic does not model maser saturation.</text>
+</svg>
