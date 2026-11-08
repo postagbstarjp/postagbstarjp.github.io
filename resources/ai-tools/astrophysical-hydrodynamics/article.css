@@ -1,0 +1,27 @@
+/* Inherit the site's paper, typography and article layout. */
+.hydrodynamics-page { --accent: #2e5355; }
+.hydrodynamics-page .home-link { font-family: var(--sans); font-size: .8rem; }
+.hydrodynamics-page h1 { text-wrap: balance; }
+.hydrodynamics-page .title-unit { display: inline-block; }
+.hydrodynamics-page :is(h1, h2, p, a, th, td) { overflow-wrap: anywhere; }
+.article-contents { display: flex; flex-wrap: wrap; gap: .7rem 1.5rem; padding: 1.5rem 0; border-bottom: 1px solid var(--line); font-family: var(--sans); font-size: .8rem; }
+.hydrodynamics-page .article-body > p { margin-bottom: 1.4em; }
+.method-figure { max-width: 43rem; margin: 2rem auto; }
+.method-figure img { border: 1px solid var(--line); }
+.code-comparison { width: 100%; border-collapse: collapse; font-size: .88rem; line-height: 1.9; }
+.code-comparison caption { text-align: left; margin-bottom: 1rem; font-family: var(--sans); color: var(--accent); }
+.code-comparison :is(th, td) { padding: 1rem .8rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+.code-comparison thead { background: var(--paper-deep); }
+.code-comparison th { font-family: var(--sans); font-weight: 600; }
+.hydrodynamics-page .article-return { display: flex; flex-wrap: wrap; gap: .7rem 1.8rem; }
+@media (max-width: 600px) {
+  .hydrodynamics-page .article-header h1 { font-size: 1.65rem; }
+  .hydrodynamics-page .article-nav { font-size: .7rem; }
+  .code-comparison, .code-comparison tbody, .code-comparison tr, .code-comparison td, .code-comparison tbody th { display: block; }
+  .code-comparison caption { display: block; }
+  .code-comparison thead { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); }
+  .code-comparison tr { margin-bottom: 1.5rem; border: 1px solid var(--line); }
+  .code-comparison tbody th { background: var(--paper-deep); font-size: 1rem; }
+  .code-comparison td::before { content: attr(data-label); display: block; color: var(--accent); font-family: var(--sans); font-size: .75rem; margin-bottom: .3rem; }
+  .code-comparison td:last-child { border-bottom: 0; }
+}

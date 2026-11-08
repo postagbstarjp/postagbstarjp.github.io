@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="PLUTO、Athena++、Phantomの計算方法と特徴を紹介。格子法とSPH法の違い、比較表、公式ドキュメント・日本語チュートリアルへの入口をまとめます。">
+  <title>宇宙のガスの動きを計算する――PLUTO、Athena++、Phantom｜中島淳一</title>
+  <link rel="stylesheet" href="../../../styles.css?v=editorial-refined-20261018">
+  <link rel="stylesheet" href="article.css?v=20261108">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="canonical" href="https://postagbstarjp.github.io/resources/ai-tools/astrophysical-hydrodynamics/">
+</head>
+<body class="hydrodynamics-page">
+<a class="skip-link" href="#main">本文へ移動</a>
+<header class="site-header"><div class="header-inner"><a class="site-name" href="../../../" aria-label="中島淳一 ホーム"><span lang="ja">中島淳一</span><span lang="en">Jun-ichi Nakashima</span></a><a class="home-link" href="../../../">ホームへ戻る</a></div></header>
+<main id="main" class="research-main" tabindex="-1">
+<nav class="article-nav" aria-label="現在の位置"><a href="../../../">ホーム</a><span aria-hidden="true"> / </span><a href="../">研究・解析・執筆ツール</a><span aria-hidden="true"> / </span><span aria-current="page">数値流体シミュレーション</span></nav>
+<article aria-labelledby="article-title"><header class="article-header"><p class="eyebrow" lang="en">Astrophysical Hydrodynamics</p><p class="article-date">情報確認：<time datetime="2026-11-08">2026年11月8日</time></p><h1 id="article-title"><span class="title-unit">宇宙のガスの動きを</span><span class="title-unit">計算する</span><wbr><span class="title-unit">――PLUTO、</span><span class="title-unit">Athena++、</span><span class="title-unit">Phantom</span></h1></header>
+<nav class="article-contents" aria-label="記事の目次"><a href="#methods">二つの計算方法――格子法と粒子法</a>
+<a href="#pluto">PLUTO――幅広い現象を扱う格子型コード</a>
+<a href="#athena">Athena++――柔軟な格子配置と日本語の学習資料</a>
+<a href="#phantom">Phantom――粒子で三次元の流れを追う</a>
+<a href="#comparison">三つのコードを見比べる</a>
+<a href="#getting-started">最初に確認したいこと</a></nav>
+<div class="article-body"><p>天体の周囲や星間空間にあるガスは、必ずしも静かに漂っているわけではない。速さの異なる流れがぶつかれば衝撃波が生まれ、密度の高い層が形成される。流れの境界では不安定性が発達し、複雑な渦や乱流が現れることもある。磁場が加われば、ガスの運動はさらに多彩になる。</p>
+<p>こうした現象の時間発展を調べる一つの方法が、数値流体シミュレーションである。質量・運動量・エネルギーの保存則などを計算機で解き、密度、温度、速度、磁場が時間とともにどう変わるかを追跡する。天体物理学では、そのための本格的なコードが研究者向けに公開されている。ここでは、計算方法の異なる三つの代表的なコードを紹介する。</p>
+<section aria-labelledby="methods"><h2 id="methods">二つの計算方法――格子法と粒子法</h2>
+<p><strong>格子法</strong>は、計算する空間を多数の小さな区画に分け、各区画の流体の状態と、区画の境界を通る流れを計算する方法である。衝撃波の位置や密度の変化を追跡するのに適しており、必要な場所の格子を細かくする適応格子細分化（AMR）を使えるコードもある。</p>
+<p>一方、<strong>SPH（Smoothed Particle Hydrodynamics、平滑化粒子流体力学）法</strong>では、流体を粒子の集まりとして表し、近傍の粒子を使って密度や圧力などを評価する。粒子は流れとともに移動するため、複雑に変形する三次元のガス分布を扱う場合などに特徴がある。どちらにも得意な問題と注意すべき数値誤差があり、万能な方法というわけではない。</p>
+<figure class="research-figure method-figure"><img src="images/grid-and-sph.svg" width="720" height="720" alt="上段は固定された格子の境界を通る流れ、下段は流れとともに動く粒子と近傍の平滑化範囲を示す概念図。"><figcaption><span class="figure-number">図1</span>格子法とSPH法の違い。格子法では区画境界を通る流れを、SPH法では移動する粒子とその近傍を使って流体を計算する。粒子は個々の原子や分子を表すものではない。<span class="figure-source">本記事のために独自制作した概念図。実際の計算結果ではなく、粒子の配置や矢印は模式的に示している。</span></figcaption></figure>
+</section>
+<section aria-labelledby="pluto"><h2 id="pluto">PLUTO――幅広い現象を扱う格子型コード</h2>
+<p><strong><a href="https://plutocode.ph.unito.it/">PLUTO</a></strong> は、天体物理学の流体・プラズマ計算のために開発された公開コードである。通常の流体力学（HD）だけでなく、磁場を含む磁気流体力学（MHD）、特殊相対論的な流体・磁気流体も扱える。一次元から三次元までに対応し、直交・円筒・球座標系などを選択できる。</p>
+<p>有限体積法などに基づくGodunov型の衝撃波捕獲法を採用し、衝撃波、ジェット、爆風、流体不安定性などを計算できる。粘性、熱伝導、放射冷却といった物理過程を組み合わせる機能もあるが、使用できる機能は公開版と設定によって異なる。格子を局所的に細かくするAMRや、MPIによる並列計算にも対応する。</p>
+<p>比較的単純な問題から取り組みたい場合には、付属するテスト問題が手がかりになる。衝撃波管問題や爆風問題などは、計算結果を既知の解と照らし合わせるための基本的な例である。標準的なCPU版とは別に、GPU計算に対応した <strong><a href="https://plutocode.ph.unito.it/pluto-gpu.html">gPLUTO</a></strong> も開発されている。</p>
+<p>公式資料：<a href="https://plutocode.ph.unito.it/download.html">ダウンロード</a>／<a href="https://plutocode.ph.unito.it/documentation.html">ドキュメント</a>／<a href="https://plutocode.ph.unito.it/Doxygen/Test_Problems/index.html">テスト問題</a></p>
+</section>
+<section aria-labelledby="athena"><h2 id="athena">Athena++――柔軟な格子配置と日本語の学習資料</h2>
+<p><strong><a href="https://www.athena-astro.app/">Athena++</a></strong> は、天体物理学の流体・磁気流体シミュレーションを目的とするC++製コードである。一次元から三次元の計算が可能で、直交・円筒・球座標などの座標系に加え、AMRによって空間分解能を必要な場所に集中させられる。MPIやOpenMPによる並列化に対応し、メトリックを固定した一般相対論的磁気流体力学を扱う機能も備える。</p>
+<p>特徴の一つは、日本語で読める解説・実習資料が公開されていることだ。東北大学の<strong><a href="https://www.astr.tohoku.ac.jp/~tomida/athena/document.html">Athena++日本語ドキュメント</a></strong> には、導入方法のほか、一次元の衝撃波管問題、二次元の磁気流体計算、三次元計算、格子細分化などのチュートリアルが整理されている。数値流体力学を実際のコードと結び付けて学ぶ入口にもなる。</p>
+<p>公式資料：<a href="https://github.com/PrincetonUniversity/athena">GitHubリポジトリ</a>／<a href="https://www.astr.tohoku.ac.jp/~tomida/athena/tutorial.html">日本語チュートリアル</a></p>
+</section>
+<section aria-labelledby="phantom"><h2 id="phantom">Phantom――粒子で三次元の流れを追う</h2>
+<p><strong><a href="https://phantomsph.github.io/">Phantom</a></strong> は、格子法とは異なるSPH法を中心に据えた、三次元の天体流体・磁気流体シミュレーションコードである。現代的なFortranで書かれ、自己重力、磁場、ダスト、連星系や降着円盤などのモデルに対応する。流体を構成する粒子が動くため、流れに伴って形を変えるガスの分布を追跡するのが特徴だ。</p>
+<p>公式の<strong><a href="https://phantomsph.readthedocs.io/en/latest/examples/index.html">サンプル問題集</a></strong> には、降着円盤、乱流、連星、自己重力、ダストなど、多様な設定がある。<strong><a href="https://phantomsph.readthedocs.io/en/latest/examples/wind.html">恒星風とダスト形成のチュートリアル</a></strong> では、粒子の供給や物理パラメータの設定を具体的に確認できる。なお、SPH法でも空間分解能や数値的な粘性の扱いなどを慎重に検証する必要がある。</p>
+<p>公式資料：<a href="https://phantomsph.readthedocs.io/en/latest/">ドキュメント</a>／<a href="https://github.com/danieljprice/phantom">GitHubリポジトリ</a></p>
+</section>
+<section aria-labelledby="comparison"><h2 id="comparison">三つのコードを見比べる</h2>
+<table class="code-comparison"><caption>三つのコードの計算方法・特徴・学習資料</caption><thead><tr><th scope="col">コード</th><th scope="col">主な計算方法</th><th scope="col">特徴</th><th scope="col">入口となる資料</th></tr></thead><tbody><tr><th scope="row">PLUTO</th><td data-label="主な計算方法">格子法</td><td data-label="特徴">HD・MHD・相対論的流体、豊富なテスト問題</td><td data-label="入口となる資料"><a href="https://plutocode.ph.unito.it/documentation.html">公式ドキュメント</a>・<a href="https://plutocode.ph.unito.it/Doxygen/Test_Problems/index.html">テスト問題</a></td></tr><tr><th scope="row">Athena++</th><td data-label="主な計算方法">格子法</td><td data-label="特徴">柔軟な格子配置、AMR、並列計算、日本語教材</td><td data-label="入口となる資料"><a href="https://www.astr.tohoku.ac.jp/~tomida/athena/tutorial.html">日本語チュートリアル</a></td></tr><tr><th scope="row">Phantom</th><td data-label="主な計算方法">SPH粒子法</td><td data-label="特徴">三次元のガス流、自己重力、ダストなど</td><td data-label="入口となる資料"><a href="https://phantomsph.readthedocs.io/en/latest/examples/index.html">公式サンプル問題集</a></td></tr></tbody></table>
+</section>
+<section aria-labelledby="getting-started"><h2 id="getting-started">最初に確認したいこと</h2>
+<p>これらは大規模な計算機でも使われる研究用コードだが、すべての計算にスーパーコンピューターが必要なわけではない。単純な一次元の衝撃波問題や小規模な二次元計算なら、一般的な研究用PCで試せる場合もある。ただし、三次元の高解像度計算や複数の物理過程を組み合わせた問題では、必要なメモリと計算時間が大きく増える。</p>
+<p>公開コードを使う利点は、数値アルゴリズムを最初からすべて自作せずに、物理モデルの構築へ進めることにある。ただし、初期条件、境界条件、方程式や物理過程の選択は利用者の責任である。計算結果がもっともらしい画像になったとしても、保存則、格子幅・粒子数への依存性、基準問題との一致を検証しなければならない。コードを動かせることと、計算結果を科学的に信頼できることは、同じではない。</p>
+<p><em>情報確認：2026年11月8日。機能、配布条件、利用可能なモジュールは更新されることがあるため、最新情報は各公式サイトで確認してください。</em></p>
+</section></div></article>
+<nav class="article-return" aria-label="関連ページへ戻る"><a href="../#hydrodynamics">研究・解析・執筆ツールへ戻る →</a><a href="../../../">ホームへ戻る →</a></nav>
+</main>
+<footer class="site-footer"><div class="footer-inner"><a href="#main" class="back-to-top">ページ上部へ ↑</a><p class="copyright">© Jun-ichi Nakashima</p></div></footer>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "af9dc6af89aa4a5196e4b3d14166c4e8"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
