@@ -932,6 +932,28 @@ h1 span[lang="en"] {
 .home-page .resources-overview li { min-width: 0; padding: 18px 0; border-top: 1px solid var(--line); }
 .home-page .resources-overview h3 { margin: 0; font-size: 1.05rem; font-weight: 600; line-height: 1.7; overflow-wrap: anywhere; }
 .home-page .resources-overview p { margin: 10px 0 0; font-size: .9rem; line-height: 1.95; }
+/* The first resources link is a continuation of the section introduction.
+   On iPad it fills the column beside the longer About text without fake
+   spacer heights or duplicate visible content. */
+.home-page .resources-primary-link {
+  min-width: 0;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+}
+.home-page .resources-primary-link h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.home-page .resources-primary-link p {
+  margin: 5px 0 0;
+  font-size: .9rem;
+  line-height: 1.85;
+}
+
 
 .home-page .resources-note {
   display: grid;
@@ -1562,7 +1584,7 @@ h1 span[lang="en"] {
   }
   .home-page .archive-catalog .resources-overview {
     grid-area: resource-links;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     column-gap: 24px;
     margin-top: 12px;
     padding-top: 8px;
