@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="520" viewBox="0 0 1120 520" role="img" aria-labelledby="title desc">
+<title id="title">Chemical evolution</title><desc id="desc">Conceptual chemical network solver diagram</desc>
+<style>text{font-family:"Yu Gothic","Hiragino Kaku Gothic ProN","Noto Sans CJK JP",sans-serif;fill:#273434}.header{font-size:23px;font-weight:600}.bold{font-size:18px;font-weight:600}.body{font-size:15px}.small{font-size:12px;fill:#62706c}.code{font-size:16px;font-weight:600;fill:#2e5355}.edge{fill:none;stroke:#5e7978;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}.dash{stroke-dasharray:7 7}.tile{fill:#fdfcf8;stroke:#9fada8;stroke-width:1.6}.lite{fill:#ecf1ec;stroke:#a2b4ac;stroke-width:1.5}.accent{fill:#d7e4df;stroke:#769b93;stroke-width:1.5}</style>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#5e7978"/></marker></defs>
+<rect width="1120" height="520" fill="#f7f5ef"/>
+<text class="header" x="45" y="56" text-anchor="start">Time-dependent chemistry: network to abundances</text>
+<rect class="tile" x="48" y="110" width="320" height="285" rx="12"/>
+<rect class="tile" x="409" y="110" width="300" height="285" rx="12"/>
+<rect class="tile" x="749" y="110" width="322" height="285" rx="12"/>
+<text class="bold" x="70" y="151" text-anchor="start">Inputs</text>
+<text class="bold" x="430" y="151" text-anchor="start">ODE integration</text>
+<text class="bold" x="770" y="151" text-anchor="start">Outputs</text>
+<rect class="lite" x="80" y="174" width="91" height="43" rx="8"/>
+<text class="code" x="125" y="201" text-anchor="middle">CO</text>
+<rect class="lite" x="190" y="174" width="91" height="43" rx="8"/>
+<text class="code" x="235" y="201" text-anchor="middle">H₂O</text>
+<rect class="lite" x="80" y="249" width="91" height="43" rx="8"/>
+<text class="code" x="125" y="276" text-anchor="middle">SiO</text>
+<rect class="lite" x="190" y="249" width="91" height="43" rx="8"/>
+<text class="code" x="235" y="276" text-anchor="middle">OH</text>
+<text class="body" x="74" y="353" text-anchor="start">Reaction rates and initial abundances</text>
+<text class="small" x="74" y="374" text-anchor="start">Temperature, density, radiation</text>
+<text class="bold" x="429" y="237" text-anchor="start">d nᵢ / dt  =</text>
+<text class="body" x="430" y="271" text-anchor="start">formation - destruction</text>
+<text class="small" x="430" y="339" text-anchor="start">Coupled chemical ODEs</text>
+<text class="body" x="770" y="213" text-anchor="start">Species abundance Xi(t)</text>
+<text class="body" x="770" y="262" text-anchor="start">Evolution as conditions change</text>
+<text class="small" x="770" y="338" text-anchor="start">Depends on selected network</text>
+<line x1="368" y1="247" x2="409" y2="247" class="edge" marker-end="url(#ar)"/>
+<line x1="709" y1="247" x2="749" y2="247" class="edge" marker-end="url(#ar)"/>
+<rect class="lite" x="75" y="433" width="985" height="48" rx="8"/>
+<text class="small" x="97" y="462" text-anchor="start">Species labels are illustrative, NOT a complete physical reaction network.</text>
+</svg>

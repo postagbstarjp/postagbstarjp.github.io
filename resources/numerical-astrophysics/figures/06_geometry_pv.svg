@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="520" viewBox="0 0 960 520" role="img" aria-label="Conceptual position velocity diagram for an expanding shell versus bipolar outflow"><rect width="960" height="520" fill="#f7f5ef"/><style>text{font-family:Arial,Helvetica,sans-serif;fill:#263e46}.t{font-size:27px;font-weight:700}.h{font-size:19px;font-weight:700}.p{font-size:16px}.s{font-size:13px;fill:#53666a}.stroke{stroke:#49737b;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.thin{stroke:#9caeb0;stroke-width:2;fill:none}.curve{stroke:#bc785e;stroke-width:3;fill:none}</style>
+<text x="42" y="49" class="t">How geometry appears in a position–velocity diagram</text>
+<rect x="45" y="89" width="416" height="350" rx="15" fill="#fffdf8" stroke="#d4dad5"/>
+<text x="73" y="125" class="h">Expanding shell (idealized)</text>
+<line x1="113" y1="385" x2="415" y2="385" class="thin"/><line x1="113" y1="158" x2="113" y2="385" class="thin"/>
+<ellipse cx="260" cy="272" rx="110" ry="77" class="stroke" stroke-width="4"/>
+<path d="M260 181 L260 390" stroke="#bbc5bf" stroke-width="2" stroke-dasharray="6 6"/>
+<text x="192" y="417" class="p">Position</text><text x="66" y="297" class="p" transform="rotate(-90 66 297)">LOS velocity</text>
+<text x="95" y="466" class="s">PV envelope: an ellipse under ideal conditions</text>
+<rect x="497" y="89" width="416" height="350" rx="15" fill="#fffdf8" stroke="#d4dad5"/>
+<text x="525" y="125" class="h">Inclined bipolar outflow (schematic)</text>
+<line x1="564" y1="385" x2="876" y2="385" class="thin"/><line x1="564" y1="158" x2="564" y2="385" class="thin"/>
+<path d="M610 344 C670 319 740 248 827 191" class="curve" stroke-width="7"/>
+<path d="M608 197 C683 240 749 329 839 352" class="stroke" stroke-width="7"/>
+<circle cx="722" cy="273" r="10" fill="#456d75"/>
+<text x="664" y="417" class="p">Position</text><text x="524" y="297" class="p" transform="rotate(-90 524 297)">LOS velocity</text>
+<text x="528" y="466" class="s">PV gradients depend on geometry and viewing angle</text>
+<text x="50" y="506" class="s">Not an observation or Shape/ShapeMol simulation. Orientation, emissivity and line transfer can change the patterns.</text>
+</svg>

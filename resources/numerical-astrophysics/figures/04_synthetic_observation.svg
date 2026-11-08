@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1140" height="520" viewBox="0 0 1140 520" role="img" aria-labelledby="title desc">
+<title id="title">Synthetic observations</title><desc id="desc">Conceptual synthetic spectrum generation</desc>
+<style>text{font-family:"Yu Gothic","Hiragino Kaku Gothic ProN","Noto Sans CJK JP",sans-serif;fill:#273434}.header{font-size:23px;font-weight:600}.bold{font-size:18px;font-weight:600}.body{font-size:15px}.small{font-size:12px;fill:#62706c}.code{font-size:16px;font-weight:600;fill:#2e5355}.edge{fill:none;stroke:#5e7978;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}.dash{stroke-dasharray:7 7}.tile{fill:#fdfcf8;stroke:#9fada8;stroke-width:1.6}.lite{fill:#ecf1ec;stroke:#a2b4ac;stroke-width:1.5}.accent{fill:#d7e4df;stroke:#769b93;stroke-width:1.5}</style>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#5e7978"/></marker></defs>
+<rect width="1140" height="520" fill="#f7f5ef"/>
+<text class="header" x="48" y="56" text-anchor="start">How models become synthetic observations</text>
+<rect class="tile" x="45" y="117" width="262" height="280" rx="12"/>
+<rect class="tile" x="358" y="117" width="312" height="280" rx="12"/>
+<rect class="tile" x="721" y="117" width="378" height="280" rx="12"/>
+<text class="bold" x="63" y="151" text-anchor="start">3D physical model</text>
+<text class="bold" x="377" y="151" text-anchor="start">Line radiative transfer</text>
+<text class="bold" x="741" y="151" text-anchor="start">Observable predictions</text>
+<circle cx="92" cy="204" r="11" fill="#b4cbc6" stroke="#77958e" stroke-width="1" opacity=".85"/>
+<circle cx="133" cy="241" r="14" fill="#b4cbc6" stroke="#77958e" stroke-width="1" opacity=".85"/>
+<circle cx="174" cy="278" r="17" fill="#b4cbc6" stroke="#77958e" stroke-width="1" opacity=".85"/>
+<circle cx="215" cy="315" r="11" fill="#b4cbc6" stroke="#77958e" stroke-width="1" opacity=".85"/>
+<circle cx="97" cy="215" r="14" fill="#b4cbc6" stroke="#77958e" stroke-width="1" opacity=".85"/>
+<circle cx="138" cy="252" r="17" fill="#b4cbc6" stroke="#77958e" stroke-width="1" opacity=".85"/>
+<circle cx="179" cy="289" r="11" fill="#b4cbc6" stroke="#77958e" stroke-width="1" opacity=".85"/>
+<circle cx="220" cy="326" r="14" fill="#b4cbc6" stroke="#77958e" stroke-width="1" opacity=".85"/>
+<circle cx="102" cy="226" r="17" fill="#b4cbc6" stroke="#77958e" stroke-width="1" opacity=".85"/>
+<circle cx="143" cy="263" r="11" fill="#b4cbc6" stroke="#77958e" stroke-width="1" opacity=".85"/>
+<circle cx="184" cy="300" r="14" fill="#b4cbc6" stroke="#77958e" stroke-width="1" opacity=".85"/>
+<circle cx="225" cy="337" r="17" fill="#b4cbc6" stroke="#77958e" stroke-width="1" opacity=".85"/>
+<circle cx="107" cy="237" r="11" fill="#b4cbc6" stroke="#77958e" stroke-width="1" opacity=".85"/>
+<circle cx="148" cy="274" r="14" fill="#b4cbc6" stroke="#77958e" stroke-width="1" opacity=".85"/>
+<path d="M 478 205 Q 508 177 543 220" stroke="#79968e" stroke-width="4" fill="none"/>
+<path d="M 498 243 Q 528 215 563 258" stroke="#79968e" stroke-width="4" fill="none"/>
+<path d="M 454 275 Q 484 247 519 290" stroke="#79968e" stroke-width="4" fill="none"/>
+<text class="body" x="382" y="337" text-anchor="start">Excitation / absorption / emission</text>
+<text class="small" x="64" y="376" text-anchor="start">Density / velocity / abundances</text>
+<path d="M 756 255 L 1061 255 M 756 255 L 756 193" stroke="#8b9995" stroke-width="2" fill="none"/>
+<path d="M756 253 C785 254 801 252 820 251 C843 249 853 206 874 220 C893 239 916 244 930 218 C952 186 974 249 994 250 C1019 255 1040 251 1061 253" stroke="#2e5355" stroke-width="4" fill="none"/>
+<text class="small" x="754" y="286" text-anchor="start">frequency / velocity</text>
+<text class="body" x="740" y="350" text-anchor="start">Spectra / channel maps / PV diagrams</text>
+<line x1="307" y1="252" x2="358" y2="252" class="edge" marker-end="url(#ar)"/>
+<line x1="670" y1="252" x2="721" y2="252" class="edge" marker-end="url(#ar)"/>
+<rect class="lite" x="80" y="430" width="985" height="50" rx="8"/>
+<text class="small" x="100" y="461" text-anchor="start">Illustrative curves only — no real observation or computed model data.</text>
+</svg>
