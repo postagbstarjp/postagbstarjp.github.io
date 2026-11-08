@@ -1307,6 +1307,109 @@ h1 span[lang="en"] {
   .home-page .home-nav { flex-wrap: wrap; gap: 10px 22px; justify-content: flex-start; }
 }
 
+/* Two editorial notes in a compact newspaper-style section. */
+.home-page .home-notes-section {
+  margin: 0;
+  padding: 22px 0 28px;
+  border-top: 3px double var(--accent);
+}
+.home-page .home-notes-heading {
+  display: grid;
+  grid-template-columns: minmax(210px, .8fr) minmax(0, 1.7fr);
+  align-items: baseline;
+  gap: 8px 24px;
+  margin-bottom: 16px;
+}
+.home-page .home-notes-heading .eyebrow {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+.home-page .home-notes-heading h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: .06em;
+}
+.home-page .home-notes-heading > p:last-child {
+  margin: 0;
+  font-size: .94rem;
+  line-height: 1.65;
+}
+.home-page .home-notes-entries {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.home-page .home-note-entry {
+  min-width: 0;
+  padding: 15px 22px 17px;
+}
+.home-page .home-note-entry:first-child { padding-left: 0; }
+.home-page .home-note-entry + .home-note-entry {
+  padding-right: 0;
+  border-left: 1px solid var(--line);
+}
+.home-page .home-note-meta {
+  margin: 0 0 7px;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: .75rem;
+  line-height: 1.6;
+  letter-spacing: .025em;
+}
+.home-page .home-note-entry h3 {
+  margin: 0 0 8px;
+  font-size: 1.18rem;
+  font-weight: 500;
+  line-height: 1.55;
+  letter-spacing: .02em;
+  overflow-wrap: break-word;
+  text-wrap: pretty;
+}
+.home-page .home-note-entry h3 a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.home-page .home-note-entry h3 a:is(:hover, :focus-visible) { text-decoration: underline; }
+.home-page .home-note-entry > p:last-child {
+  margin: 0;
+  font-size: .95rem;
+  line-height: 1.75;
+  text-align: justify;
+}
+@media (min-width: 821px) {
+  .home-page .intro { padding-top: 36px; padding-bottom: 30px; }
+  .home-page .intro-body { padding-top: 20px; line-height: 1.85; }
+  .home-page .research-section:not(.program-entry),
+  .home-page .education-section { gap: 18px; padding-top: 22px; padding-bottom: 30px; }
+  .home-page .research-entries { gap: 16px 22px; }
+  .home-page .research-entries .research-entry:not(.research-featured) { padding-top: 16px; }
+  .home-page .research-entry:not(.research-featured) h3,
+  .home-page .education-entry h3 { margin-bottom: 8px; line-height: 1.6; }
+  .home-page .research-entry > p:not(.entry-date, .entry-status),
+  .home-page .education-entry > p { margin-bottom: 10px; line-height: 1.75; }
+  .home-page .education-entries { gap: 18px 30px; }
+}
+@media (max-width: 760px) {
+  .home-page .home-notes-heading {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+  .home-page .home-notes-entries { grid-template-columns: minmax(0, 1fr); }
+  .home-page .home-note-entry,
+  .home-page .home-note-entry:first-child,
+  .home-page .home-note-entry + .home-note-entry { padding: 15px 0; border-left: 0; }
+  .home-page .home-note-entry + .home-note-entry { border-top: 1px solid var(--line); }
+}
+@media (max-width: 430px) {
+  .home-page .home-notes-section { padding: 20px 0 24px; }
+  .home-page .home-notes-heading h2 { font-size: 1.35rem; }
+  .home-page .home-note-entry h3 { font-size: 1.1rem; }
+}
+
 /* Dense, three-column lower homepage: preserve copy while balancing the archive.
    Each column is a vertical reading stream, not a row of stretched cards. */
 .home-page .archive-catalog {
