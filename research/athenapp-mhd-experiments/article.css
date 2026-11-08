@@ -14,4 +14,12 @@
 .mhd-article .references { max-width: 43rem; margin: 0 auto 2rem; padding-left: 1.5rem; }
 .mhd-article .references li { margin-bottom: 1rem; }
 .mhd-article code { font-size: .9em; }
-.mhd-article .equation { text-align: center; font-family: var(--sans); font-size: 1.1rem; }
+.mhd-article .equation {
+  max-width: 100%;
+  margin: 1.1rem auto 1.4rem;
+  padding: .4rem 0;
+  overflow-x: auto;
+  text-align: center;
+  font-size: 1.16rem;
+  line-height: 1.6;
+}
