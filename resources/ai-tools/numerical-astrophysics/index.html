@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="恒星進化、分子化学、メーザー、偏光、電波干渉計を結ぶ21の公開計算コードを紹介。MESA、CHAMP、galarioなどの役割と近似、科学的な注意点を7枚の模式図で解説します。">
+  <title>計算機の中で、星の一生と星周ガスを動かす｜中島淳一</title>
+  <link rel="stylesheet" href="../../../styles.css?v=editorial-refined-20261018">
+  <link rel="stylesheet" href="article.css?v=20261108">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="canonical" href="https://postagbstarjp.github.io/resources/ai-tools/numerical-astrophysics/">
+</head>
+<body class="hydrodynamics-page numerical-page">
+<a class="skip-link" href="#main">本文へ移動</a>
+<header class="site-header"><div class="header-inner"><a class="site-name" href="../../../" aria-label="中島淳一 ホーム"><span lang="ja">中島淳一</span><span lang="en">Jun-ichi Nakashima</span></a><a class="home-link" href="../../../">ホームへ戻る</a></div></header>
+<main id="main" class="research-main" tabindex="-1">
+<nav class="article-nav" aria-label="現在の位置"><a href="../../../">ホーム</a><span aria-hidden="true"> / </span><a href="../">研究・解析・執筆ツール</a><span aria-hidden="true"> / </span><span aria-current="page">天体物理の公開計算コード</span></nav>
+<article aria-labelledby="article-title"><header class="article-header"><p class="eyebrow" lang="en">Numerical Astrophysics</p><p class="article-date">原稿・資料確認：<time datetime="2026-11-08">2026年11月8日</time></p><h1 id="article-title">計算機の中で、<br><span class="title-unit">星の一生と</span><wbr><span class="title-unit">星周ガスを動かす</span></h1><p class="article-subtitle">恒星進化・分子化学・メーザー・偏光・電波干渉計を結ぶ21の公開コード</p></header>
+<p class="editorial-note">本文は公開ドキュメントに基づく紹介です。以下のコードを筆者が自分の環境でインストール・実行し、性能検証したことを意味しません。</p>
+<details class="article-contents"><summary>目次：21のコード・比較表・補足</summary><ol><li><a href="#mesa">星の内部から考える――MESA</a></li><li><a href="#magritte">動く星周ガスを、電波で見た姿へ――Magritte</a></li><li><a href="#molpop-cep">メーザーは、どんな条件で増幅されるのか――MOLPOP-CEP</a></li><li><a href="#uclchem">分子は、時間とともにどう生まれ変わるのか――UCLCHEM</a></li><li><a href="#spectralradex">観測スペクトルに、最初の非LTEモデルを重ねる――SpectralRadex</a></li><li><a href="#cloudy">惑星状星雲の光のスペクトルを予測する――Cloudy</a></li><li><a href="#polaris">磁場を、偏光から推定するために――POLARIS</a></li><li><a href="#rebound">連星運動から、質量放出の形を考える――REBOUND</a></li><li><a href="#dedalus">方程式を自分で書き、解いてみる――Dedalus</a></li><li><a href="#champ">SiOメーザーの偏光は、磁場をどこまで語るのか――CHAMP</a></li><li><a href="#portal">通常の分子線の偏光から磁場を考える――PORTAL</a></li><li><a href="#shape">立体的な星周構造を、観測されるPV図へ――Shape / ShapeMol</a></li><li><a href="#paris-durham">衝撃波を通過すると、分子はどう変わるのか――Paris–Durham Shock Code</a></li><li><a href="#3d-pdr">紫外線が分子の世界を変える境界を追う――3D-PDR</a></li><li><a href="#naunet">自分で選んだ化学反応を、解けるプログラムにする――Naunet</a></li><li><a href="#galario">干渉計の観測と、画像ではなくvisibilityで比べる――galario</a></li><li><a href="#galpy">メーザー星の軌道を、銀河系の中で追ってみる――galpy</a></li><li><a href="#pyneb">惑星状星雲の温度・密度を、原子準位から求める――PyNeb</a></li><li><a href="#despotic">分子ガスは何によって温まり、何によって冷えるのか――DESPOTIC</a></li><li><a href="#pencil-code">磁気乱流とダイナモを、基礎方程式から調べる――Pencil Code</a></li><li><a href="#amuse">違う物理を解くコードを、同じ実験の中で動かす――AMUSE</a></li><li><a href="#comparison">二十一のコードをどう使い分けるか</a></li><li><a href="#more-codes">ほかにも選択肢がある――KROME、MPI-AMRVAC、MCFOST</a></li><li><a href="#conclusion">コードが使えることと、物理が分かることは別の話</a></li></ol></details>
+<div class="article-body"><p>星の内部で核融合が進み、やがて外層から大量のガスが放出される。そのガスは膨張し、冷え、分子やダストを形成する。伴星があればガスの流れは非対称になり、衝撃波が生まれる場合もある。さらに、その中で励起された分子が放つ電波を望遠鏡で観測すると、スペクトルや画像、位置―速度図という形で星周物質の様子が現れる。</p>
+<p>こうした一連の現象を、たった一つの数値計算コードで扱えるわけではない。恒星の内部構造を解くコード、ガスの運動を追うコード、化学反応を解くコード、放射が物質を通り抜ける過程を計算するコードは、それぞれ解こうとしている方程式が違うからだ。</p>
+<p>以前なら、こうしたプログラムを初めて動かすだけでも相当な手間がかかった。現在は公開コードのドキュメントが充実し、AIによるプログラミング支援を使って、設定ファイルの理解や解析スクリプトの作成を進めやすくなった。ただし、AIが用意した計算結果が、そのまま物理的に正しいことを意味するわけではない。むしろコードを動かしやすくなった今こそ、「何を仮定し、何を計算したのか」を丁寧に確かめる姿勢が重要だと思う。</p>
+<p>このサイトでは、すでに格子法による <strong>PLUTO、Athena++</strong> と、粒子法による <strong>Phantom</strong> を紹介している。今回はそれらと内容を重複させず、星周ガスの研究をもっと幅広い方向に拡張してくれそうな二十一の公開コードを取り上げたい。</p>
+<p><a href="../astrophysical-hydrodynamics/">既存記事：宇宙のガスの動きを計算する――PLUTO、Athena++、Phantom</a><br>
+<a href="../../../research/athenapp-mhd-experiments/">実際の数値実験：週末の昼下がり、ガスと磁場を動かしてみた</a></p>
+<figure class="research-figure"><a href="figures/01_computational_pipeline.svg" aria-label="恒星内部から合成観測まで、異なるコードの役割をつないだ概念図（原寸SVGを開く）"><img src="figures/01_computational_pipeline.svg" width="1160" height="540" loading="lazy" alt="恒星内部から合成観測まで、異なるコードの役割をつないだ概念図"></a><figcaption>図1．恒星内部の進化から観測との比較へ至る計算の見取り図。各段階のコードの役割を説明するための独自制作の模式図であり、実際に一連のコードを接続して計算した結果ではない。各段階のデータ形式、近似、時間尺度は異なり、出力を次のコードへそのまま渡せるとは限らない。<span class="figure-source"><a href="figures/01_computational_pipeline.svg">原寸SVGを開く・拡大する →</a></span></figcaption></figure>
+<section aria-labelledby="mesa"><h2 id="mesa">1．星の内部から考える――MESA</h2>
+<p>AGB星がどれほど長く生き、外層をどのような速さで失っていくのか。星周ガスの観測を考えるとき、その前提には中心星の進化がある。<strong>MESA（Modules for Experiments in Stellar Astrophysics）</strong>は、恒星の内部構造と時間発展を主として一次元で計算するための公開ソフトウェアだ。</p>
+<p>星の質量や組成を与え、核反応、エネルギー輸送、組成の混合などを追いながら進化を計算する。晩期型星の研究では、とりわけ質量放出の扱いが興味深い。MESAにはReimers、Blöcker、van Loonなどの質量放出処方が用意されており、その選択や係数を変えて、星のエンベロープ質量や進化経路への影響を調べられる。ここでの「質量放出」は星の進化に与える効果を扱うもので、放出ガスの三次元の形までMESAだけで解くこととは違う。</p>
+<p>例えば、初期質量の異なるモデルについて、質量放出の処方を変えたときのAGB期の継続時間や終末期の外層質量を比較することができる。観測された質量放出率と、恒星進化モデルの仮定を結び付ける入口になるだろう。ただし、計算で用いる混合や質量放出の処方は必ずしも第一原理から一意に決まるものではなく、得られた結果を普遍的な予言とみなすべきではない。</p>
+<p>公式：<a href="https://mesastar.org/">MESA</a> ／ <a href="https://docs.mesastar.org/en/latest/reference/controls.html">質量放出に関する設定（controls）</a></p>
+</section>
+<section aria-labelledby="magritte"><h2 id="magritte">2．動く星周ガスを、電波で見た姿へ――Magritte</h2>
+<p>流体計算で得られるのは、ガスの密度や温度、速度などの空間分布だ。しかし望遠鏡が直接受け取るのは、それらの物理量そのものではない。分子がどのように励起され、光子がどこで生まれ、どれだけ吸収されて届くかを計算して、初めて観測と比較できる。</p>
+<p><strong>Magritte</strong>は、その橋渡しに使う、三次元の分子・原子の輝線輻射輸送ソフトウェアだ。主として流体計算の後処理として利用され、非局所熱平衡（非LTE）を考慮した分子準位の励起と放射を計算できる。公式ドキュメントには、伴星によって形を乱されたAGB星の恒星風を別の流体コード <strong>MPI-AMRVAC</strong> で計算し、Magritteで視線方向の異なる合成観測を作った例が載っている。</p>
+<p>星周エンベロープについて考えるなら、まずは球対称で一定速度の膨張流を仮定し、分子輝線のスペクトルやチャネルマップがどのように現れるかを調べる。次に非対称の密度・速度構造を導入すれば、画像や位置―速度図にどのような違いが生まれるかを比較できる。モデルを観測に近づけるには、対象分子の存在量、衝突速度係数、境界放射場、光学的厚さを適切に与える必要がある。</p>
+<p>注意したいのは、一般的な非LTE輝線の計算と、強い反転分布をもつ<strong>飽和メーザー</strong>の計算は同じではないことだ。Magritteをメーザーのあらゆる問題に適用できるものとして紹介するのは避けたい。PyTorchを使う別実装 <strong>Magritte-torch</strong> もあるが、機能の一致や実行速度は環境と版を確かめて比較する必要がある。</p>
+<p>公式：<a href="https://magritte.readthedocs.io/en/stable/">Magritte documentation</a> ／ <a href="https://github.com/Magritte-code/Magritte">ソースコード</a> ／ <a href="https://github.com/Magritte-code/Magritte-torch">Magritte-torch</a></p>
+</section>
+<section aria-labelledby="molpop-cep"><h2 id="molpop-cep">3．メーザーは、どんな条件で増幅されるのか――MOLPOP-CEP</h2>
+<p>私が専門としているSiO、H₂O、OHメーザーでは、普通の熱放射とは異なる、分子準位の<strong>反転分布</strong>が重要になる。上の準位と下の準位の占有数を、それぞれの統計重率で割って比較したとき、上準位のほうが大きい状態では、誘導放出による増幅が起こりうる。</p>
+<p><strong>MOLPOP-CEP</strong>は、多準位分子・原子の励起と輝線輻射輸送を扱うFortranコードだ。名称にあるCEPは <em>Coupled Escape Probability</em> の略で、平行平板中の層の間の放射の結び付きを扱う。均一な一領域のescape probability近似を使う計算と、CEPに基づく計算を比較することもできる。</p>
+<p>このコードが面白いのは、入力を通して衝突係数、放射場、温度、密度などの仮定を変え、どのような励起条件が反転分布を生むのか検討できる点だ。たとえばSiOの励起条件を系統的に変えたり、OHに関係するラインオーバーラップの影響を調べたりする入口になる。ただし<strong>重要な適用範囲の違い</strong>がある。公式マニュアルによれば、CEP法での厳密解は平行平板のモデルが対象であり、メーザー飽和やラインオーバーラップの特別な扱いはLVGやslabのescape probabilityモードに限られる。<strong>「CEPによる厳密計算で、飽和メーザーが一般的に解ける」という意味ではない。</strong></p>
+<p>ここでは、メーザーの利得や励起機構を調べる計算と、実際の不均一な三次元メーザー源からの輝度や偏光を予測する計算を区別しておく必要がある。それでも、どの仮定が反転分布を作るのかを自分で確かめられるのは、大きな魅力だ。</p>
+<figure class="research-figure"><a href="figures/02_maser_inversion.svg" aria-label="準位占有数の反転とメーザー増幅の模式図（原寸SVGを開く）"><img src="figures/02_maser_inversion.svg" width="1080" height="510" loading="lazy" alt="準位占有数の反転とメーザー増幅の模式図"></a><figcaption>図2．二準位を単純化して描いたメーザーの反転分布の概念図。判定条件は単なる上準位粒子数の大小ではなく、統計重率で規格化した占有数の大小である。実際の励起には多準位の放射・衝突過程が関与し、図はMOLPOP-CEPによる計算結果ではない。<span class="figure-source"><a href="figures/02_maser_inversion.svg">原寸SVGを開く・拡大する →</a></span></figcaption></figure>
+<p>公式：<a href="https://github.com/aasensio/molpop-cep">MOLPOP-CEP リポジトリとManual</a> ／ <a href="https://iac.edu.es/en/science-and-technology/publications/molpop-cep-exact-fast-code-multi-level-systems">開発者によるコード論文の紹介</a></p>
+</section>
+<section aria-labelledby="uclchem"><h2 id="uclchem">4．分子は、時間とともにどう生まれ変わるのか――UCLCHEM</h2>
+<p>星周ガスにCOやSiO、H₂Oがあるというだけでは、いつ、どのような反応を経てそれらが形成されたのかは分からない。温度、密度、放射場が変われば反応速度も変わる。衝撃波に加熱されたガスが冷える過程では、化学組成そのものが時間発展する。</p>
+<p><strong>UCLCHEM</strong>は、気相反応とダスト粒子表面の化学反応を組み合わせ、分子の存在量を時間とともに計算するコードだ。Pythonから操作でき、計算の中心にはFortranが用いられる。静的な雲、重力収縮、衝撃波などの物理モデルを使え、最新版のドキュメントでは反応ネットワークを生成するMakeRatesとの連携も案内されている。2026年6月にはv4.0.0が公開されており、過去の版の例をそのまま最新版に適用できるとは限らない。</p>
+<p>例えば、一度高温になったガスが冷却するときに、いくつかの分子の存在量がどのように変化するのか、仮定を変えて比較する実験が考えられる。恒星合体後のガスや衝撃波を受けた星周エンベロープにも、着想としてつながる。しかし、UCLCHEMがそうした環境の化学を最初から網羅的に表現しているとは限らない。適用する温度域、反応データの妥当性、元素存在量、初期条件、冷却や放射場の扱いを確かめる必要がある。</p>
+<p><strong>「分子ができた」という計算結果の背後には、「どの反応をネットワークに含めたか」という選択がある。</strong> そこまで追跡して初めて、モデルと観測を科学的に比較できる。</p>
+<figure class="research-figure"><a href="figures/03_chemical_network.svg" aria-label="化学ネットワークと時間発展計算の模式図（原寸SVGを開く）"><img src="figures/03_chemical_network.svg" width="1120" height="520" loading="lazy" alt="化学ネットワークと時間発展計算の模式図"></a><figcaption>図3．化学反応ネットワーク、物理環境、時間発展する分子存在量の関係を示す独自制作の概念図。線で結んだ分子は、実際の網羅的な反応経路や速度係数を表すものではない。<span class="figure-source"><a href="figures/03_chemical_network.svg">原寸SVGを開く・拡大する →</a></span></figcaption></figure>
+<p>公式：<a href="https://uclchem.github.io/">UCLCHEM</a> ／ <a href="https://github.com/uclchem/UCLCHEM">GitHub</a> ／ <a href="https://github.com/uclchem/UCLCHEM/releases">リリース履歴</a></p>
+</section>
+<section aria-labelledby="spectralradex"><h2 id="spectralradex">5．観測スペクトルに、最初の非LTEモデルを重ねる――SpectralRadex</h2>
+<p>分子輝線の励起を調べたいとき、いきなり複雑な三次元モデルを作る必要はない。まず、温度、衝突相手の密度、分子柱密度、線幅を与えると、どの遷移がどれくらい明るくなるのかを確認したい。そこで役に立つのが、広く使われる<a href="../#radex">RADEX</a>系の計算だ。</p>
+<p><strong>SpectralRadex</strong>は、RADEXをPythonから効率よく利用するためのラッパーと、輝線のスペクトルモデルを組み合わせたソフトウェアである。内部でFortran版RADEXを呼び出し、励起温度や光学的厚さの結果をもとに周波数に対する輝度温度を求める。Pythonの中で条件を掃引し、たくさんのモデルを観測データと比較しやすい。</p>
+<p>例えば、COやほかの分子線の複数遷移の強度比が、密度と温度の違いによってどう変化するかを計算する。IRAS 19312+1950のように多種類の分子が観測される天体で、より複雑なモデルへ進む前の目安をつかむ用途も考えられる。</p>
+<p>ただし、<strong>同じ輝線強度を再現する物理条件は一通りとは限らない。</strong> 一領域の近似で得た励起条件を、複数の速度成分が重なり、温度や密度が場所ごとに異なる実在天体の一意な答えと読み替えてはいけない。強く飽和したメーザーを扱う道具としても適切ではない。</p>
+<p>公式：<a href="https://spectralradex.readthedocs.io/">SpectralRadex documentation</a></p>
+</section>
+<section aria-labelledby="cloudy"><h2 id="cloudy">6．惑星状星雲の光のスペクトルを予測する――Cloudy</h2>
+<p>晩期型星の周囲の物質は、中心星の温度が上がり、強い紫外線を受けると、分子ガスから光電離ガスへと性質を変えていく。その段階を理解するには、輝線を作る原子の電離状態と、ガスの加熱・冷却を同時に考える必要がある。</p>
+<p><strong>Cloudy</strong>は、入射する放射場を与えたときのガスの電離、励起、熱収支、化学などを計算し、観測されるスペクトルを予測する長い開発歴をもつコードだ。惑星状星雲、H II領域、活動銀河核など、幅広い天体環境を対象としている。</p>
+<p>たとえば中心星の有効温度や星雲の密度、元素組成などを変え、[O III]や[N II]といった光学禁制線の強度がどう変わるかを比較できる。放射場の強さ、光学的厚さ、ガスの密度分布やダストの有無もスペクトルに影響する。</p>
+<p>ここで計算されるのは、与えた構造と条件のもとでの放射・熱・電離状態であって、恒星の外層が三次元で流れ出す運動を万能に解くわけではない。MESAや流体計算コードと役割を分けて使うことで、進化の段階とスペクトルの関係を考えやすくなる。</p>
+<p>公式：<a href="https://gitlab.nublado.org/cloudy/cloudy">Cloudy 開発元のリポジトリ</a> ／ <a href="https://workshop.nublado.org/">Cloudy Workshop</a></p>
+</section>
+<section aria-labelledby="polaris"><h2 id="polaris">7．磁場を、偏光から推定するために――POLARIS</h2>
+<p>磁場は直接目に見えない。それでも、磁場によって配向したダスト粒子が放つ熱放射や、散乱・偏光を調べると、磁場についての情報が得られる。ただし偏光の方向をそのまま磁力線の方向だと決め付けるわけにはいかない。粒子の整列、光学的厚さ、観測波長などが関わるからだ。</p>
+<p><strong>POLARIS</strong>は、三次元のモンテカルロ輻射輸送を用い、ダストの加熱、放射、散乱、粒子整列、偏光などを計算するためのコードだ。分子線やシンクロトロン放射を扱う機能も備え、磁場を含む流体モデルから合成観測画像を作る用途に適している。</p>
+<p>例えば、MHD計算で得た密度分布・磁場ベクトルを与え、ダストの仮定を変えたときに偏光マップがどのように変わるかを調べられる。<a href="../#radmc-3d">RADMC-3D</a>にも重なる機能はあるが、<strong>磁場と偏光を主要な論点に据えるならPOLARISを検討する価値がある。</strong> 出力図の見た目だけで磁場構造を断定せず、粒子配向と放射輸送のモデル依存性を確認することが大切だ。</p>
+<p>公式：<a href="https://github.com/polaris-MCRT/POLARIS">POLARIS GitHub</a></p>
+</section>
+<section aria-labelledby="rebound"><h2 id="rebound">8．連星運動から、質量放出の形を考える――REBOUND</h2>
+<p>伴星があると、主星は質量中心の周りを動き、放出した物質の分布にも特徴的な模様が現れうる。この問題を本格的な流体計算で解く前に、「軌道運動だけを考えると何が起こるか」を切り出してみる方法がある。</p>
+<p><strong>REBOUND</strong>は、重力で相互作用する天体の運動を計算するN体積分器である。Pythonから利用でき、軌道要素を使った初期設定や積分方法の選択がしやすい。高精度の積分器や長期軌道計算向けの積分器が用意され、Windows環境でもPython版を導入できる。</p>
+<p>例えばAGB星と伴星を公転させ、主星から仮想的なテスト粒子を一定の初速度で放出するモデルを組めば、軌道運動が粒子分布に生む幾何学的効果を調べる出発点になる。重力や放出速度だけでどこまで特徴が出るかは、興味深い問題だ。</p>
+<p>しかし<strong>テスト粒子は実際の気体ではない。</strong> ガス圧、衝撃波、放射圧、ダストとガスの結合、冷却は、それぞれ追加の物理として考えなければならない。得られた模様をそのまま星周ガスの流体シミュレーションと呼ぶのは不正確である。</p>
+<p>公式：<a href="https://rebound.hanno-rein.de/">REBOUND</a> ／ <a href="https://rebound.hanno-rein.de/quickstart/installation/">導入ガイド</a></p>
+</section>
+<section aria-labelledby="dedalus"><h2 id="dedalus">9．方程式を自分で書き、解いてみる――Dedalus</h2>
+<p>研究用コードには、特定の物理問題に必要な方程式や数値解法があらかじめ整えられたものが多い。けれども、もっと基本的な問い――例えば単純化した流体の波動や不安定性が、どのように成長するか――を自分の方程式から調べたい場合もある。</p>
+<p><strong>Dedalus</strong>は、偏微分方程式をスペクトル法で解くためのPythonを中心としたフレームワークだ。座標や変数、境界条件、方程式を記述し、初期値問題や境界値問題、固有値問題を解く。公式にはRayleigh–Bénard対流、波動、球面上の流れなど、理論と数値計算をつなぐ例題が用意されている。</p>
+<p>例えば成層した流体の微小擾乱から出発し、密度や速度の摂動が時間とともにどう変化するかを調べる。単純な方程式から数値解の収束性を理解していく教材としても面白い。</p>
+<p>一方で、スペクトル法は不連続な衝撃波を自動的に安定して解ける万能な方法ではない。扱う境界や方程式に応じて数値解法を選び、解像度依存性を検証する必要がある。<strong>「何が起きるか」を調べるだけでなく、「なぜその方程式になるのか」を学ぶためのコード</strong>として魅力がある。</p>
+<p>公式：<a href="https://dedalus-project.readthedocs.io/en/latest/">Dedalus documentation</a> ／ <a href="https://dedalus-project.readthedocs.io/en/gpu/pages/tutorials.html">例題集</a></p>
+<figure class="research-figure"><a href="figures/04_synthetic_observation.svg" aria-label="流体の物理量から合成観測のデータキューブやPV図への概念図（原寸SVGを開く）"><img src="figures/04_synthetic_observation.svg" width="1140" height="520" loading="lazy" alt="流体の物理量から合成観測のデータキューブやPV図への概念図"></a><figcaption>図4．三次元物理モデルから輝線のチャネルマップ・スペクトル・位置―速度図へ至る情報の流れ。図中の小さな画像は概念的な表示で、実際の天体や計算結果ではない。<span class="figure-source"><a href="figures/04_synthetic_observation.svg">原寸SVGを開く・拡大する →</a></span></figcaption></figure>
+</section>
+<section aria-labelledby="champ"><h2 id="champ">10．SiOメーザーの偏光は、磁場をどこまで語るのか――CHAMP</h2>
+<p>強いメーザーが偏光していたとき、それをすぐに磁場の強さや方向へ変換できるだろうか。実際には、磁場によるZeeman効果に加え、励起の非等方性、背景から入射する偏光、メーザーの飽和などが観測量に影響する。したがって、偏光が検出されたことと、磁場の情報を一意に読み取れることは、同じではない。</p>
+<p><strong>CHAMP（CHAracterizing Maser Polarization）</strong>は、こうした問題に取り組むために開発された、天体メーザーの一次元偏光輻射輸送コードである。Lankhaar &amp; Vlemmings (2019, A&amp;A, 628, A14) は、飽和の度合い、高い角運動量量子数、超微細構造、非等方的なポンピングなどを考慮した計算を示した。論文ではSiOおよび22 GHz水メーザーの偏光を検討している。</p>
+<p>例えばSiOの励起状態を仮定し、磁場と視線のなす角、飽和の度合い、ポンピングの非等方性を変えたとき、直線偏光率や円偏光にどのような変化が生じるかを調べられる。観測偏光を磁場だけに帰属させることの危うさを、具体的なモデルから考える入口になるだろう。ただしCHAMPは、メーザー源全体の三次元流体運動や、ガスの化学組成を一緒に計算するコードではない。また、すべてのメーザー分子種や任意の幾何形状に既製のモデルがあると考えてはいけない。</p>
+<figure class="research-figure"><a href="figures/05_polarization_stokes.svg" aria-label="メーザー偏光と磁場の関係を示す模式図（原寸SVGを開く）"><img src="figures/05_polarization_stokes.svg" width="960" height="520" loading="lazy" alt="メーザー偏光と磁場の関係を示す模式図"></a><figcaption>図5．偏光観測のStokes I・Q・U・Vとモデル仮定の関係を示す独自制作の概念図。Q・Uは基準軸に依存し、直線偏光角と磁場方向が常に一致するわけではない。曲線は説明用であり、CHAMPの出力ではない。<span class="figure-source"><a href="figures/05_polarization_stokes.svg">原寸SVGを開く・拡大する →</a></span></figcaption></figure>
+<p>公式：<a href="https://blankhaar.github.io/code/">CHAMP（開発者の紹介）</a> ／ <a href="https://github.com/blankhaar/CHAMP">公開リポジトリ</a> ／ <a href="https://doi.org/10.1051/0004-6361/201935064">Lankhaar &amp; Vlemmings (2019)</a></p>
+</section>
+<section aria-labelledby="portal"><h2 id="portal">11．通常の分子線の偏光から磁場を考える――PORTAL</h2>
+<p>メーザーではない、通常の分子輝線にも偏光が生じる場合がある。偏光は、局所的な放射場の非等方性や磁場、分子準位の占有状態と結び付いており、ガスの密度や速度場だけでは予想できない。</p>
+<p><strong>PORTAL（POlarized Radiative Transfer Adapted to Lines）</strong>は、原子・分子のミリ波・サブミリ波スペクトル線の偏光を三次元で計算するコードだ。単独のLTE計算に使う方法のほか、別の通常の三次元輻射輸送計算を受け取って偏光を後処理する方法がある。磁場が複雑に曲がったモデルからStokes Q、U、Vの分布を予測する用途を想定する。</p>
+<p>例えば、MHD計算で得た星周エンベロープの密度・速度・磁場を使い、COなどの偏光を合成する構想が考えられる。しかし、MHDの出力を無加工で入力できる保証はなく、分子の準位占有数、物理量の単位、座標系、速度場の補間などを検証しなければならない。<strong>CHAMPがメーザーの偏光を対象とするのに対し、PORTALは通常の線放射の偏光に重心を置く</strong>、という対比が分かりやすい。</p>
+<p>公式：<a href="https://blankhaar.github.io/code/">PORTAL（開発者の紹介）</a> ／ <a href="https://github.com/blankhaar/PORTAL">公開リポジトリ</a> ／ <a href="https://arxiv.org/abs/2003.04331">関連論文</a></p>
+</section>
+<section aria-labelledby="shape"><h2 id="shape">12．立体的な星周構造を、観測されるPV図へ――Shape / ShapeMol</h2>
+<p>電波スペクトルの左右に速度成分が現れ、位置―速度図（PV図）には曲線や傾いた筋が見える。そこから天体が球殻なのか、双極流なのか、回転するトーラスなのかを推測するには、三次元の形と速度場を実際に投影してみるのが近道だ。</p>
+<p><strong>Shape</strong>は、惑星状星雲やその前駆天体などの三次元形態と運動学を組み立て、投影像やPV図を合成するためのモデリング環境である。<strong>ShapeMol</strong>は、分子線に対してLVG近似に基づく励起計算を加える拡張であり、モデルの分子線プロファイルやマップを観測と比較する用途に使われる。</p>
+<p>2026年のMasaほかの論文では、M1-92の三次元モデルをSHAPE/ShapeMolで構築し、単一鏡の23本の分子線プロファイルとNOEMAの5枚のマップを共通の物理構造で再現する試みが報告された。これは<strong>複数の観測量を一つの幾何学モデルで説明できるか</strong>を検証する好例である。ただし、観測に合うモデルが得られても、それが唯一の物理的解であると証明されたわけではない。</p>
+<p>例えば膨張する球殻、傾斜した双極流、回転・膨張を持つトーラスを一つずつ作り、同じ視線方向からのチャネルマップとPV図を比較する実験が考えられる。速度場の縮退や傾斜角の影響を理解するのにも適している。</p>
+<p><strong>Codexとの相性には注意が必要だ。</strong> Shapeは公式の利用案内でもGUIによる対話的なモデル構築を中心としている。スクリプトやバッチ処理でどこまで操作できるか、特定版の入出力形式を使った外部自動化が可能かは、未検証のまま「完全自動化できる」と書くべきではない。まず手動操作でモデルと出力を確認し、ファイルの読書きや観測との比較にCodexを使う方針が堅実だろう。</p>
+<figure class="research-figure"><a href="figures/06_geometry_pv.svg" aria-label="膨張球殻と双極流のPV模式図（原寸SVGを開く）"><img src="figures/06_geometry_pv.svg" width="960" height="520" loading="lazy" alt="膨張球殻と双極流のPV模式図"></a><figcaption>図6．膨張球殻のPV図で現れる楕円状の速度分布と、傾斜した双極流で生じうる位置と速度の相関を単純化した模式図。軸や曲線は概念的であり、Shape / ShapeMolの計算結果でも特定天体の観測図でもない。<span class="figure-source"><a href="figures/06_geometry_pv.svg">原寸SVGを開く・拡大する →</a></span></figcaption></figure>
+<p>公式：<a href="https://www.astrosen.unam.mx/shape/">Shape</a> ／ <a href="https://arxiv.org/abs/2604.12569">Masa et al. (2026), M1-92</a></p>
+</section>
+<section aria-labelledby="paris-durham"><h2 id="paris-durham">13．衝撃波を通過すると、分子はどう変わるのか――Paris–Durham Shock Code</h2>
+<p>高速の放出物がゆっくり膨張する分子ガスに突入すると、衝撃波によってガスが加熱され、化学反応の速さや分子の励起状態が変わる。衝撃波は単なる「温度の高い層」ではなく、イオン、中性粒子、磁場、化学と放射冷却が結び付いた構造である。</p>
+<p><strong>Paris–Durham Shock Code</strong>は、星間分子ガス中の衝撃波を対象に、流体・熱・化学過程を結合して計算するコードだ。C型、J型、CJ型などの衝撃波を検討できる。公開ダウンロードページではShock 1.1（2022年5月更新）について、反応ネットワークの改訂と約1500反応の追加、CJ型の積分手法の改良などが説明されている。</p>
+<p>一例として、合体後の放出ガスが既存の星周ガスに衝突した状況を単純化し、衝撃波速度、前面密度、磁場を変え、SiOやH₂Oの存在量・温度・冷却過程がどう変化するかを調べることが考えられる。ただし、このコードの通常の適用範囲に星周ガス特有の放射場やダスト物理がそのまま適合するかは確認が必要だ。また、<strong>分子が増えたことと、その分子のメーザー放射が強くなることは別の段階</strong>であり、後者には励起・輻射輸送計算が要る。</p>
+<p>公式：<a href="https://ism.obspm.fr/shock_download.html">Paris–Durham Shock Code</a></p>
+</section>
+<section aria-labelledby="3d-pdr"><h2 id="3d-pdr">14．紫外線が分子の世界を変える境界を追う――3D-PDR</h2>
+<p>中心星の温度が上昇して紫外線が強くなると、ガス全体が一様に電離・光解離するわけではない。遮蔽の強い領域には分子が残り、表面から内部へ向かって原子と分子の分布が変わる。これを立体的な密度構造の中で調べるには、放射場の向きと減衰を考慮しなければならない。</p>
+<p><strong>3D-PDR</strong>は、任意の三次元形状の光解離領域（PDR）を対象に、遠紫外線の伝搬、化学反応、ガスの加熱・冷却、分子・原子輝線の計算などを結び付けるコードだ。ITAMOSプロジェクトの資料では、改良版に<strong>RAYTHEIA</strong>という高速三次元光線追跡法を導入したと説明されている。</p>
+<p>例えば、post-AGB星の周囲に密度の高い球殻やトーラスが残ると仮定し、照射される紫外線が強くなったときにCOをはじめとする分子の存在領域がどう変化するかを調べられる。ただし、これは指定した放射場と物理環境でのモデルである。時間とともに星雲全体が膨張・電離する流体進化を一括して予測するものではなく、化学ネットワークや幾何の仮定が結果を左右する。</p>
+<p>公式：<a href="https://itamos.readthedocs.io/en/latest/3d-pdr/3dpdr.html">3D-PDRの説明</a> ／ <a href="https://github.com/itamos-ism/3D-PDR">公開リポジトリ</a></p>
+</section>
+<section aria-labelledby="naunet"><h2 id="naunet">15．自分で選んだ化学反応を、解けるプログラムにする――Naunet</h2>
+<p>化学反応ネットワークを研究に使うとき、反応式を書くだけでは終わらない。膨大な連立常微分方程式を、硬い（stiff）系として安定に積分し、反応速度係数と元素保存を確認する必要がある。</p>
+<p><strong>Naunet</strong>は、KIDAやUMISTなどのネットワークから、化学進化の計算に使うC++のコードを生成するツールだ。生成されたコードはSUNDIALS/CVODEなどの積分器と組み合わせることが想定されている。これは、既成の特定モデルをそのまま使うというより、<strong>自分のモデルに必要な反応系の計算器を作る</strong>ための道具である。</p>
+<p>たとえば、恒星風の温度と密度を時間関数として与え、Si、O、Hを含む限定的な反応ネットワークから出発する。反応を一つずつ増やして、分子存在量の変化や計算の硬さへの影響を調べる。Codexは初期設定や出力の検証スクリプト作成に役立つかもしれないが、採用する反応速度係数やその温度依存性、ネットワークの欠落を科学的に保証するわけではない。UCLCHEMやKROMEと同じ「化学」でも、コード生成に重心がある点が違う。</p>
+<p>公式：<a href="https://appolloford.github.io/naunet/">Naunet documentation</a> ／ <a href="https://github.com/appolloford/naunet">公開リポジトリ</a></p>
+</section>
+<section aria-labelledby="galario"><h2 id="galario">16．干渉計の観測と、画像ではなくvisibilityで比べる――galario</h2>
+<p>電波干渉計は、空の明るさの分布そのものを直接測っているのではない。アンテナ間の基線に対応する空間周波数で、複素visibilityをサンプリングしている。画像を再構成する際には不完全なuvカバレッジと画像化処理の影響が入るため、モデルと観測画像の比較だけでは判定しにくいことがある。</p>
+<p><strong>galario</strong>は、理論モデルの画像または軸対称輝度分布から、指定されたuv点での合成visibilityを高速に計算し、観測と比べるためのライブラリだ。CPU版に加えCUDAを使うGPU版があり、PythonとC++のインターフェースを提供する。モデルの位置ずれや回転を扱い、合成visibilityと観測からχ²を計算できる。</p>
+<p>例えば、VLAやALMAの連続波に対して、単純な星周ダスト分布や中心集中成分を仮定し、そのフーリエ変換から観測uv点での振幅・位相を比較できる。分子線についてはチャネルごとに適用する可能性があるが、速度軸、各チャネルの周波数、データの重み、単位、位相中心などを整合させる必要がある。<strong>galarioは干渉計画像を作るCASAの代わりでも、広帯域・多成分・全ての装置効果を自動的に解く完全な測定方程式シミュレーターでもない。</strong></p>
+<p>公開ドキュメントではWindowsネイティブには非対応と明記されている。計算を試す場合は既存のWindows環境を変更せず、独立したWSL2側環境での互換性を検証することになる。GPU版の利用には別途ビルド条件もある。</p>
+<figure class="research-figure"><a href="figures/07_image_uv_visibility.svg" aria-label="空の輝度分布からuv平面のvisibilityを求める模式図（原寸SVGを開く）"><img src="figures/07_image_uv_visibility.svg" width="960" height="520" loading="lazy" alt="空の輝度分布からuv平面のvisibilityを求める模式図"></a><figcaption>図7．空の輝度分布と、そのフーリエ成分がuv平面上で測られる関係を示す独自制作の概念図。点の配置は実際のVLA・ALMAのuvカバレッジではなく、モデル画像も観測・計算結果ではない。<span class="figure-source"><a href="figures/07_image_uv_visibility.svg">原寸SVGを開く・拡大する →</a></span></figcaption></figure>
+<p>公式：<a href="https://galario.readthedocs.io/en/latest/">galario documentation</a> ／ <a href="https://galario.readthedocs.io/en/latest/py-api.html">Python API</a> ／ <a href="https://arxiv.org/abs/1709.06999">論文 Tazzari et al. (2018)</a></p>
+</section>
+<section aria-labelledby="galpy"><h2 id="galpy">17．メーザー星の軌道を、銀河系の中で追ってみる――galpy</h2>
+<p>SiOメーザー源から得られる視線速度を、Gaiaの位置、距離、固有運動と組み合わせると、天体の三次元位置と速度を推定できる場合がある。その星が銀河系の中をどのような軌道で動いてきたのか、重力ポテンシャルを仮定して計算してみるのも興味深い。</p>
+<p><strong>galpy</strong>は、銀河系などの重力ポテンシャルを表し、その中の軌道を積分するPythonライブラリである。観測座標やAstropyのSkyCoordから初期値を設定し、軌道の投影、軌道要素、作用・角変数などを調べられる。</p>
+<p>例えば、信頼できるGaiaの対応天体が得られたSiOメーザー星の一部について、視線速度と距離を組み合わせ、選んだ銀河ポテンシャルのもとで軌道を積分する。ただし、<strong>観測が6次元の位相空間を与えることと、それらが十分に正確であることは別問題</strong>だ。とくに進化星では光学中心の変動、連星運動、距離の不確かさ、Gaiaの天体同定の曖昧さが影響しうる。ポテンシャルの選択や太陽の運動の仮定も結果を変える。まず少数例で誤差伝播を含めて試すのが適切だろう。</p>
+<p>公式：<a href="https://docs.galpy.org/en/latest/">galpy documentation</a></p>
+</section>
+<section aria-labelledby="pyneb"><h2 id="pyneb">18．惑星状星雲の温度・密度を、原子準位から求める――PyNeb</h2>
+<p>惑星状星雲の[O III]、[N II]、[S II]などの禁制線は、ガスの電子温度や密度を知る重要な手がかりになる。しかし、どの線比が温度に敏感で、どの線比が密度に敏感かは、原子の準位構造と衝突・放射遷移の競争から決まる。</p>
+<p><strong>PyNeb</strong>は、多準位原子の統計平衡を計算して禁制線の放射率などを求め、観測された線比から電子温度、電子密度、イオン存在量を推定するPythonコードだ。一定の原子・イオンには再結合線の放射率表も用いられる。原子データの選択や異なるデータセットの比較を行う仕組みもある。</p>
+<p>例えば、電子密度を固定して[O III]の温度診断線比を描いたり、[S II]の二本の線の比が密度にどう応答するかを調べたりできる。実際の観測の線比と比較する際には、減光補正や複数温度・密度成分の重なりにも注意が必要だ。Cloudyが<strong>放射場を与えて星雲全体の電離・熱・スペクトルを前向きにモデル化する</strong>のに対し、PyNebは<strong>観測線から局所的なプラズマ診断を進める</strong>ための道具として区別できる。</p>
+<p>公式：<a href="https://morisset.github.io/PyNeb_devel/">PyNeb公式サイト</a> ／ <a href="https://github.com/Morisset/PyNeb_devel">開発元リポジトリ</a></p>
+</section>
+<section aria-labelledby="despotic"><h2 id="despotic">19．分子ガスは何によって温まり、何によって冷えるのか――DESPOTIC</h2>
+<p>気体は冷える一方ではなく、宇宙線、ダストとの熱交換、光電加熱、分子線放射などによってエネルギーを受け取ったり失ったりしている。密度や組成を変えると、どの過程が支配的になるかも変わる。</p>
+<p><strong>DESPOTIC（Derive the Energetics and SPectra of Optically Thick Interstellar Clouds）</strong>は、雲の加熱・冷却、ガス・ダストの平衡温度、輝線の光度や熱進化を簡略化した物理モデルから計算するPythonライブラリである。Mark Krumholzが開発し、原理と例題はKrumholz (2014) に説明されている。</p>
+<p>例えば、一定の組成と放射場を仮定して、分子ガス密度を変えたときにCOなどの線冷却や熱平衡温度がどう変わるかを計算できる。複雑な流体計算に導入する冷却関数の振る舞いを理解する教材にもなるが、DESPOTICが多次元の流れやすべての化学反応を自動的に計算するわけではない。</p>
+<p>なお、検索で見つかる <code>keflavich/despotic</code> は<strong>KrumholzのコードのGitHub上のミラー</strong>として説明されており、公式開発元そのものと混同しない。バージョン、依存関係、入力データの現在の入手可能性も導入前に確認したい。</p>
+<p>公式：<a href="https://despotic.readthedocs.io/en/latest/">DESPOTIC documentation</a> ／ <a href="https://despotic.readthedocs.io/en/latest/installation.html">設置方法</a></p>
+</section>
+<section aria-labelledby="pencil-code"><h2 id="pencil-code">20．磁気乱流とダイナモを、基礎方程式から調べる――Pencil Code</h2>
+<p>Athena++の衝撃波や渦の実験の先には、磁場が乱流中でどのように増幅されるかという問題もある。その研究では、数値解法の精度、粘性や磁気拡散、空間解像度が特に重要になる。</p>
+<p><strong>Pencil Code</strong>は、高次精度の有限差分法を中心とした流体・MHDの研究コードであり、磁気乱流、ダイナモ、粒子などの問題を扱う。公式のサンプルには、ヘリカルな磁気流体乱流の計算例や数値拡散の設定についての説明がある。</p>
+<p>例えば、乱流の駆動方法や磁気拡散率を変え、磁気エネルギーの成長やスペクトルを比較する小規模な数値実験が考えられる。Athena++との違いは、単に「どちらもMHDが解ける」という点ではなく、<strong>数値差分の性質と適した物理問題が異なる</strong>点にある。ただし、Pencil Codeが衝撃波の多い問題で常にAthena++よりよいという意味ではない。高次差分法で数値的安定性を保つためには、十分な解像度と拡散係数の検証が欠かせない。</p>
+<p>公式：<a href="https://pencil-code.readthedocs.io/en/latest/">Pencil Code documentation</a> ／ <a href="https://pencil-code.readthedocs.io/en/latest/manuals/fmanual-part1.html">サンプルとマニュアル</a></p>
+</section>
+<section aria-labelledby="amuse"><h2 id="amuse">21．違う物理を解くコードを、同じ実験の中で動かす――AMUSE</h2>
+<p>恒星内部の質量が時間とともに変わり、それによって連星の軌道が変化する。さらに、放出されたガスが連星の重力場や放射場の影響を受ける――このような問題では、異なる物理分野の計算を組み合わせたくなる。しかしすべてを一から書くのは現実的とは限らない。</p>
+<p><strong>AMUSE（Astrophysical Multipurpose Software Environment）</strong>は、重力N体、恒星進化、流体など、異なる数値計算コードをPythonから統一的な操作で扱うためのフレームワークである。粒子集合、物理単位の管理、コード間で量を渡すためのインターフェース、相互作用を橋渡しする仕組みが用意されている。</p>
+<p>例えば、恒星進化から得た質量変化をN体軌道モデルへ反映し、選んだ連星系で軌道がどれくらい変わるかを調べる構想が考えられる。ただし、<strong>AMUSEに載っていないコードを、名前が知られているというだけで自動的につなげられるわけではない</strong>。実際に対応しているコミュニティコード、バージョン、結合方法、時間刻み、保存則や二重計上の有無を確認する必要がある。既存の作業環境を壊さないため、まず専用の独立した環境と公式の小さな例題から始めるべきだろう。</p>
+<p>公式：<a href="https://www.amusecode.org/">AMUSE</a> ／ <a href="https://amuse.readthedocs.io/en/main/">公式ドキュメント</a> ／ <a href="https://amuse.readthedocs.io/en/main/reference/available-codes.html">対応コード一覧</a></p>
+</section>
+<section aria-labelledby="comparison"><h2 id="comparison">22．二十一のコードをどう使い分けるか</h2>
+<table class="code-comparison"><caption>21コードの用途と注意点</caption><thead><tr><th scope="col">調べたいこと</th><th scope="col">まず検討したい<span class="title-unit">コード</span></th><th scope="col">特に注意したい点</th></tr></thead><tbody><tr><th scope="row">AGB星の内部構造・質量放出の進化</th><td data-label="まず検討したいコード">MESA</td><td data-label="特に注意したい点">質量放出・混合処方への依存性</td></tr><tr><th scope="row">三次元のガスから分子線を合成</th><td data-label="まず検討したいコード">Magritte</td><td data-label="特に注意したい点">分子データ、非LTE計算とメーザーの区別</td></tr><tr><th scope="row">メーザー励起・反転分布の条件</th><td data-label="まず検討したいコード">MOLPOP-CEP</td><td data-label="特に注意したい点">CEPとLVG/slabで扱える物理の違い</td></tr><tr><th scope="row">分子存在量の時間発展</th><td data-label="まず検討したいコード">UCLCHEM</td><td data-label="特に注意したい点">反応ネットワークと適用環境の妥当性</td></tr><tr><th scope="row">単純な非LTE輝線モデル・条件探索</th><td data-label="まず検討したいコード">SpectralRadex</td><td data-label="特に注意したい点">一領域近似とパラメータ縮退</td></tr><tr><th scope="row">電離ガス・惑星状星雲のスペクトル</th><td data-label="まず検討したいコード">Cloudy</td><td data-label="特に注意したい点">放射場、幾何、密度・組成の仮定</td></tr><tr><th scope="row">ダスト整列・偏光の合成観測</th><td data-label="まず検討したいコード">POLARIS</td><td data-label="特に注意したい点">粒子整列・光学的厚さと磁場の関係</td></tr><tr><th scope="row">連星軌道・重力による幾何学的効果</th><td data-label="まず検討したいコード">REBOUND</td><td data-label="特に注意したい点">粒子力学とガス流体の違い</td></tr><tr><th scope="row">簡略化した偏微分方程式・不安定性</th><td data-label="まず検討したいコード">Dedalus</td><td data-label="特に注意したい点">数値的収束と衝撃波への適用限界</td></tr><tr><th scope="row">SiO・H₂Oメーザーの偏光</th><td data-label="まず検討したいコード">CHAMP</td><td data-label="特に注意したい点">飽和、非Zeeman効果、一次元輸送</td></tr><tr><th scope="row">通常の分子・原子輝線の偏光</th><td data-label="まず検討したいコード">PORTAL</td><td data-label="特に注意したい点">放射輸送の前提、3Dモデルとの整合</td></tr><tr><th scope="row">星周構造の形・速度場・PV図</th><td data-label="まず検討したいコード">Shape / ShapeMol</td><td data-label="特に注意したい点">GUI中心、幾何学の縮退、LVGの近似</td></tr><tr><th scope="row">分子ガス中のC/J/CJ型衝撃波</th><td data-label="まず検討したいコード">Paris–Durham</td><td data-label="特に注意したい点">前面条件と化学・冷却過程の適用域</td></tr><tr><th scope="row">紫外線による光解離とガス温度</th><td data-label="まず検討したいコード">3D-PDR</td><td data-label="特に注意したい点">光線追跡、遮蔽、反応ネットワーク</td></tr><tr><th scope="row">自作の化学反応ネットワーク</th><td data-label="まず検討したいコード">Naunet</td><td data-label="特に注意したい点">反応データと生成コードの検証</td></tr><tr><th scope="row">干渉計モデルのuv空間フィット</th><td data-label="まず検討したいコード">galario</td><td data-label="特に注意したい点">画像・visibilityの単位と観測条件</td></tr><tr><th scope="row">銀河系内のメーザー星の軌道</th><td data-label="まず検討したいコード">galpy</td><td data-label="特に注意したい点">距離・固有運動・視線速度の誤差</td></tr><tr><th scope="row">星雲の電子温度・密度・存在量</th><td data-label="まず検討したいコード">PyNeb</td><td data-label="特に注意したい点">原子データ、輝線比と空間的不均一性</td></tr><tr><th scope="row">分子ガスの熱平衡・冷却</th><td data-label="まず検討したいコード">DESPOTIC</td><td data-label="特に注意したい点">近似幾何と環境への適用性</td></tr><tr><th scope="row">磁気乱流・ダイナモ</th><td data-label="まず検討したいコード">Pencil Code</td><td data-label="特に注意したい点">数値拡散・安定性・解像度</td></tr><tr><th scope="row">重力・進化・流体の結合</th><td data-label="まず検討したいコード">AMUSE</td><td data-label="特に注意したい点">対応コード、単位と結合誤差</td></tr></tbody></table>
+<p>この表に入れていない <strong><a href="../astrophysical-hydrodynamics/">Phantom、Athena++、PLUTO</a></strong> は、すでに別の記事で紹介した流体力学のコードだ。一方、<strong><a href="../#lime">LIME</a></strong> は分子線の放射輸送を扱う。星周ガスそのものの流れを三次元で追い、観測と比較するには、それぞれと今回のコードをどう役割分担させるかが問題になる。</p>
+</section>
+<section aria-labelledby="more-codes"><h2 id="more-codes">23．ほかにも選択肢がある――KROME、MPI-AMRVAC、MCFOST</h2>
+<p>調べていくと、このほかにも興味深いコードが見つかる。<strong>KROME</strong> は、反応ネットワークの記述から化学反応と微物理のソルバーを生成し、流体シミュレーションなどへ組み込むことを念頭に置いた道具だ。UCLCHEMが化学進化のモデルを組み立てる入口になるのに対し、KROMEは流体コードとの結合にも力点がある。なお、2026年に公開された<strong>KROME-X</strong>は旧来のKROMEを現代的なC++で書き直した別の開発であり、従来版と無条件に同一視しない。<a href="https://www.kromepackage.org/">KROME公式サイト</a> ／ <a href="https://arxiv.org/abs/2610.28917">KROME-X論文</a> ／ <a href="../../../paper-watch/krome-x-astrochemistry/">このサイトのKROME-X論文紹介</a></p>
+<p><strong>MPI-AMRVAC</strong> は、適応格子細分化を使う並列流体シミュレーションの枠組みで、上で触れたMagritteのAGB恒星風合成観測の例に、流体側の計算コードとして登場する。<a href="https://amrvac.org/">MPI-AMRVAC公式サイト</a></p>
+<p><strong>MCFOST</strong> は、モンテカルロ法とray tracingを用いた三次元の連続光・輝線輻射輸送コードだ。原始惑星系円盤向けの利用が主だが、AGB星の環境に応用された例も公式ドキュメントに記されている。<a href="https://mcfost.readthedocs.io/en/latest/overview.html">MCFOST公式ドキュメント</a></p>
+<p>いずれも、今回は個別の詳細解説ではなく、より広いソフトウェア群を見渡すための短い案内として挙げた。</p>
+</section>
+<section aria-labelledby="conclusion"><h2 id="conclusion">24．コードが使えることと、物理が分かることは別の話</h2>
+<p>これらを一列につなげれば、恒星の進化から観測スペクトルまで、すべてが自動的に計算できるわけではない。あるコードが必要とする速度場や温度場を、別のコードがそのまま出力するとは限らず、次元、単位、分解能、化学組成、放射場の取り扱いにも違いがある。物理過程の重複や欠落を避け、計算結果をつなぐための補間や検証を行わなければならない。</p>
+<p>それでも、個人の研究者が利用できる計算の選択肢が、これほど豊かに公開されていることは心強い。例えばメーザーの励起を知りたければ、まず分子準位や衝突係数の仮定を小さな問題で検証できる。観測された分子線の速度構造が気になれば、流体モデルから合成スペクトルを作る道筋を考えられる。星の合体や質量放出のあとの化学変化に興味があれば、時間依存の反応ネットワークに向かうことができる。</p>
+<p>AIによるコーディング支援は、この入口を以前より身近にしてくれるだろう。しかし大切なのは、多くのソフトウェアをインストールすること自体ではない。<strong>一つの物理的な問いを選び、その問いに必要な近似と方程式を見極め、計算結果を自分で疑いながら確かめること。</strong> その過程で、これまで観測だけからは考えにくかった問題が、少しずつ手の届くところに現れてくるのかもしれない。</p>
+</section><aside class="article-notes" aria-labelledby="notes"><h2 id="notes">資料と図版について</h2><ul><li>ソフトウェアの機能説明は2026年11月8日に閲覧できた公式サイト／公式リポジトリ／開発者資料に基づく。特定のOSでの動作や性能は本記事のために実測していない。</li><li>本文の7枚のSVG図は、今回の原稿のために新たに作成した<strong>模式図</strong>であり、実際の数値シミュレーション結果ではない。</li><li>既存記事で紹介したコードの詳細は関連リンクを参照。各コードの一次資料は各節末に示した。図はすべて本記事用の独自制作で、第三者の論文図の転載は含まない。</li></ul></aside></div></article>
+<nav class="article-return" aria-label="関連ページへ戻る"><a href="../#hydrodynamics">研究・解析・執筆ツールへ戻る →</a><a href="../../../">ホームへ戻る →</a></nav>
+</main>
+<footer class="site-footer"><div class="footer-inner"><a href="#main" class="back-to-top">ページ上部へ ↑</a><p class="copyright">© Jun-ichi Nakashima</p></div></footer>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "af9dc6af89aa4a5196e4b3d14166c4e8"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

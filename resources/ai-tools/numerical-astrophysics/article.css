@@ -1,0 +1,41 @@
+/* Inherit the site's paper, typography and article layout. */
+.hydrodynamics-page { --accent: #2e5355; }
+.hydrodynamics-page .home-link { font-family: var(--sans); font-size: .8rem; }
+.hydrodynamics-page h1 { text-wrap: balance; }
+.hydrodynamics-page .title-unit { display: inline-block; }
+.hydrodynamics-page :is(h1, h2, p, a, th, td) { overflow-wrap: anywhere; }
+.article-contents { display: flex; flex-wrap: wrap; gap: .7rem 1.5rem; padding: 1.5rem 0; border-bottom: 1px solid var(--line); font-family: var(--sans); font-size: .8rem; }
+.hydrodynamics-page .article-body > p { margin-bottom: 1.4em; }
+.method-figure { max-width: 43rem; margin: 2rem auto; }
+.method-figure img { border: 1px solid var(--line); }
+.code-comparison { width: 100%; border-collapse: collapse; font-size: .88rem; line-height: 1.9; }
+.code-comparison caption { text-align: left; margin-bottom: 1rem; font-family: var(--sans); color: var(--accent); }
+.code-comparison :is(th, td) { padding: 1rem .8rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+.code-comparison thead { background: var(--paper-deep); }
+.code-comparison th { font-family: var(--sans); font-weight: 600; }
+.hydrodynamics-page .article-return { display: flex; flex-wrap: wrap; gap: .7rem 1.8rem; }
+@media (max-width: 600px) {
+  .hydrodynamics-page .article-header h1 { font-size: 1.65rem; }
+  .hydrodynamics-page .article-nav { font-size: .7rem; }
+  .code-comparison, .code-comparison tbody, .code-comparison tr, .code-comparison td, .code-comparison tbody th { display: block; }
+  .code-comparison caption { display: block; }
+  .code-comparison thead { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); }
+  .code-comparison tr { margin-bottom: 1.5rem; border: 1px solid var(--line); }
+  .code-comparison tbody th { background: var(--paper-deep); font-size: 1rem; }
+  .code-comparison td::before { content: attr(data-label); display: block; color: var(--accent); font-family: var(--sans); font-size: .75rem; margin-bottom: .3rem; }
+  .code-comparison td:last-child { border-bottom: 0; }
+}
+
+/* Page-local additions for the long feature article. */
+.numerical-page .editorial-note { margin: 1.8rem 0; color: var(--muted); font-size: .85rem; line-height: 2; }
+.numerical-page .article-contents { display: block; }
+.article-contents summary { cursor: pointer; color: var(--accent); }
+.article-contents ol { columns: 2; column-gap: 2rem; padding-left: 1.5em; margin: 1.2rem 0 0; }
+.article-contents li { break-inside: avoid; padding: .25rem 0; line-height: 1.8; }
+.numerical-page .research-figure { max-width: 43rem; margin: 2.2rem auto; }
+.numerical-page .research-figure img { border: 1px solid var(--line); }
+.numerical-page h2 { scroll-margin-top: 1.5rem; }
+.numerical-page .article-notes { max-width: 43rem; margin: 2rem auto; padding-top: 2rem; border-top: 1px solid var(--line); }
+.article-notes ul { padding-left: 1.3em; font-size: .85rem; line-height: 2; }
+.article-notes li { margin-bottom: .7rem; }
+@media (max-width: 820px) { .article-contents ol { columns: 1; } }
