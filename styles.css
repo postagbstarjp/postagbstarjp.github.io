@@ -1520,14 +1520,19 @@ h1 span[lang="en"] {
   padding: 11px 0 12px;
 }
 .home-page .archive-catalog .resources-overview p { margin-top: 5px; }
-/* Tablet portrait: place the resources introduction alongside "About this site"
-   instead of leaving an empty area below the profile/review-guide column.
-   The four resource links still occupy the full width below the two columns. */
+/* iPad portrait: explicit editorial grid areas, so the resources introduction
+   starts beside "About this site", directly below the review guide. The
+   three-column desktop and the single-column phone layout are unchanged. */
 @media (min-width: 701px) and (max-width: 1040px) {
   .home-page .archive-catalog {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      "writing profile"
+      "about resources-heading"
+      "resource-links resource-links";
     column-gap: 24px;
     row-gap: 0;
+    align-items: start;
   }
   .home-page .archive-catalog .archive-column-writing,
   .home-page .archive-catalog .archive-column-resources,
@@ -1535,24 +1540,20 @@ h1 span[lang="en"] {
     display: contents;
   }
   .home-page .archive-catalog #writing {
-    grid-column: 1;
-    grid-row: 1;
+    grid-area: writing;
   }
   .home-page .archive-catalog .archive-column-profile {
-    grid-column: 2;
-    grid-row: 1;
+    grid-area: profile;
     min-width: 0;
     padding: 0 0 0 20px;
     border-left: 1px solid var(--line);
   }
   .home-page .archive-catalog .archive-column-writing > .about-site {
-    grid-column: 1;
-    grid-row: 2;
+    grid-area: about;
     margin-top: 16px;
   }
-  .home-page .archive-catalog .resources-entry > div:first-child {
-    grid-column: 2;
-    grid-row: 2;
+  .home-page .archive-catalog .resources-introduction {
+    grid-area: resources-heading;
     min-width: 0;
     margin-top: 16px;
     padding: 16px 0 0 20px;
@@ -1560,13 +1561,18 @@ h1 span[lang="en"] {
     border-left: 1px solid var(--line);
   }
   .home-page .archive-catalog .resources-overview {
-    grid-column: 1 / -1;
-    grid-row: 3;
+    grid-area: resource-links;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: 24px;
-    margin-top: 14px;
+    margin-top: 12px;
     padding-top: 8px;
     border-top: 1px solid var(--line);
+  }
+  .home-page .archive-catalog .archive-column-writing > .about-site .about-body {
+    line-height: 1.82;
+  }
+  .home-page .archive-catalog .archive-column-writing > .about-site .about-body p {
+    margin-bottom: 7px;
   }
 }
 @media (max-width: 700px) {
