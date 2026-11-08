@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="観測データの解析、画像の可視化、物理モデルの計算から、論文の読解・執筆、コードの共有まで。研究を進めるうえで役立つ31のソフトウェア・サービスを用途別に紹介します。AIの説明は一次資料ではありません。数値、引用、式の導出、研究上の判断は自分で確かめることが不可欠です。各ツールの仮定や、サービスの利用条件も確認してください。">
+  <meta name="description" content="観測データの解析、画像の可視化、物理モデルの計算から、論文の読解・執筆、コードの共有まで。研究を進めるうえで役立つ34のソフトウェア・サービスを用途別に紹介します。AIの説明は一次資料ではありません。数値、引用、式の導出、研究上の判断は自分で確かめることが不可欠です。各ツールの仮定や、サービスの利用条件も確認してください。">
   <title>研究・解析・執筆ツール｜研究・学習リンク集｜中島淳一</title>
   <link rel="stylesheet" href="../../styles.css?v=editorial-refined-20261018">
   <link rel="stylesheet" href="../resources.css?v=resources-unified-20261024">
@@ -20,19 +20,20 @@
 <main id="main" tabindex="-1">
 <header class="resource-intro">
 <p class="eyebrow" lang="en">Research, Analysis & Writing Tools</p><h1>研究・解析・執筆ツール</h1>
-<div class="intro-copy"><p>観測データの解析、画像の可視化、物理モデルの計算から、論文の読解・執筆、コードの共有まで。研究を進めるうえで役立つ31のソフトウェア・サービスを用途別に紹介します。</p><p>AIの説明は一次資料ではありません。数値、引用、式の導出、研究上の判断は自分で確かめることが不可欠です。各ツールの仮定や、サービスの利用条件も確認してください。</p></div>
+<div class="intro-copy"><p>観測データの解析、画像の可視化、物理モデルの計算から、論文の読解・執筆、コードの共有まで。研究を進めるうえで役立つ34のソフトウェア・サービスを用途別に紹介します。</p><p>AIの説明は一次資料ではありません。数値、引用、式の導出、研究上の判断は自分で確かめることが不可欠です。各ツールの仮定や、サービスの利用条件も確認してください。</p></div>
 <nav class="collection-nav" aria-label="研究・学習リンク集の各分野"><a href="../">研究情報源・公開データ<span>40項目</span></a>
 <a href="../observatories/">観測施設・観測計画<span>42項目</span></a>
 <a href="../learning/">学術誌・総説・専門教材<span>40項目</span></a>
-<a href="./" aria-current="page">研究・解析・執筆ツール<span>31項目</span></a></nav>
+<a href="./" aria-current="page">研究・解析・執筆ツール<span>34項目</span></a></nav>
 <nav class="section-nav" aria-label="このページの目次"><a href="#software"><span aria-hidden="true">01</span>電波観測データの解析</a>
 <a href="#visualization"><span aria-hidden="true">02</span>天体画像・カタログの可視化</a>
 <a href="#modeling"><span aria-hidden="true">03</span>放射輸送・物理モデル</a>
-<a href="#python"><span aria-hidden="true">04</span>Pythonによる天文・科学解析</a>
-<a href="#conversation"><span aria-hidden="true">05</span>対話型AI・大規模言語モデル</a>
-<a href="#research-ai"><span aria-hidden="true">06</span>AIによる情報調査・資料読解</a>
-<a href="#coding"><span aria-hidden="true">07</span>AIによるプログラミング</a>
-<a href="#writing"><span aria-hidden="true">08</span>論文執筆・開発・バージョン管理</a></nav>
+<a href="#hydrodynamics"><span aria-hidden="true">04</span>数値流体・磁気流体シミュレーション</a>
+<a href="#python"><span aria-hidden="true">05</span>Pythonによる天文・科学解析</a>
+<a href="#conversation"><span aria-hidden="true">06</span>対話型AI・大規模言語モデル</a>
+<a href="#research-ai"><span aria-hidden="true">07</span>AIによる情報調査・資料読解</a>
+<a href="#coding"><span aria-hidden="true">08</span>AIによるプログラミング</a>
+<a href="#writing"><span aria-hidden="true">09</span>論文執筆・開発・バージョン管理</a></nav>
 </header>
 <section id="software" class="resource-section" aria-labelledby="software-title">
 <header class="section-heading"><p class="eyebrow">01 <span lang="en">/ 7 entries</span></p><h2 id="software-title">電波観測データの解析</h2><p>観測装置や大気などの影響を補正し、画像やスペクトルを作るためのソフトウェアです。処理が何を仮定しているかを理解しながら利用することが大切です。</p></header>
@@ -112,8 +113,16 @@
         </li>
 </ul>
 </section>
+<section id="hydrodynamics" class="resource-section" aria-labelledby="hydrodynamics-title">
+<header class="section-heading"><p class="eyebrow">04 <span lang="en">/ 3 entries</span></p><h2 id="hydrodynamics-title">数値流体・磁気流体シミュレーション</h2><p>宇宙のガスの時間発展を計算する研究用コードです。空間を区切る格子法と、流体を粒子で表すSPH法では、計算方法と検証すべき点が異なります。</p></header>
+<ul class="resource-grid">
+<li class="resource-item" id="pluto"><h3><a href="https://plutocode.ph.unito.it/" target="_blank" rel="noopener noreferrer"><span lang="en">PLUTO</span><span class="outward" aria-hidden="true"> ↗</span></a></h3><p>格子法に基づく天体流体・磁気流体のシミュレーションコードです。通常の流体や磁場を伴う流れ、特殊相対論的な流れを扱い、衝撃波や流体不安定性などの計算に用いられます。利用できる物理過程は公開版と設定によって異なります。</p></li>
+<li class="resource-item" id="athena"><h3><a href="https://www.athena-astro.app/" target="_blank" rel="noopener noreferrer"><span lang="en">Athena++</span><span class="outward" aria-hidden="true"> ↗</span></a></h3><p>格子法に基づくC++製の天体流体・磁気流体コードです。柔軟な格子配置、適応格子細分化（AMR）、並列計算に対応します。東北大学から日本語の導入解説やチュートリアルも公開されています。</p></li>
+<li class="resource-item" id="phantom"><h3><a href="https://phantomsph.github.io/" target="_blank" rel="noopener noreferrer"><span lang="en">Phantom</span><span class="outward" aria-hidden="true"> ↗</span></a></h3><p>SPH法を用いて三次元の天体流体・磁気流体を計算するコードです。流れとともに移動する粒子でガスを表し、自己重力やダストなどを扱う設定があります。公式サンプル問題集から計算例や設定方法を参照できます。</p></li>
+</ul><p class="service-note">詳しい解説：<a href="astrophysical-hydrodynamics/">宇宙のガスの動きを計算する――PLUTO、Athena++、Phantom</a>。計算方法の概念図、3コードの比較表、公式資料への入口をまとめています。</p>
+</section>
 <section id="python" class="resource-section" aria-labelledby="python-title">
-<header class="section-heading"><p class="eyebrow">04 <span lang="en">/ 4 entries</span></p><h2 id="python-title">Pythonによる天文・科学解析</h2><p>座標、単位、観測データ、スペクトルやデータベースをPythonで扱うためのライブラリです。解析プログラムを組み立てる際の共通の基盤になります。</p></header>
+<header class="section-heading"><p class="eyebrow">05 <span lang="en">/ 4 entries</span></p><h2 id="python-title">Pythonによる天文・科学解析</h2><p>座標、単位、観測データ、スペクトルやデータベースをPythonで扱うためのライブラリです。解析プログラムを組み立てる際の共通の基盤になります。</p></header>
 <ul class="resource-grid">
 <li class="resource-item" id="astropy">
           <h3><a href="https://www.astropy.org/" target="_blank" rel="noopener noreferrer"><span lang="en">Astropy</span><span class="outward" aria-hidden="true"> ↗</span></a></h3>
@@ -134,7 +143,7 @@
 </ul>
 </section>
 <section id="conversation" class="resource-section" aria-labelledby="conversation-title">
-<header class="section-heading"><p class="eyebrow">05 <span lang="en">/ 6 entries</span></p><h2 id="conversation-title">対話型AI・大規模言語モデル</h2><p>問いを整理し、文章やコードのたたき台を作るための対話型サービスです。応答の正しさは、公式資料や原論文と照らし合わせて判断する必要があります。</p></header>
+<header class="section-heading"><p class="eyebrow">06 <span lang="en">/ 6 entries</span></p><h2 id="conversation-title">対話型AI・大規模言語モデル</h2><p>問いを整理し、文章やコードのたたき台を作るための対話型サービスです。応答の正しさは、公式資料や原論文と照らし合わせて判断する必要があります。</p></header>
 <ul class="resource-grid">
 <li class="resource-item" id="chatgpt">
           <p class="item-label">対話型AI</p>
@@ -169,7 +178,7 @@
 </ul>
 </section>
 <section id="research-ai" class="resource-section" aria-labelledby="research-ai-title">
-<header class="section-heading"><p class="eyebrow">06 <span lang="en">/ 3 entries</span></p><h2 id="research-ai-title">AIによる情報調査・資料読解</h2><p>検索や手元の資料の読解を助けるサービスです。要約と元の記述を区別し、引用先や数値を一次資料で確認してください。</p></header>
+<header class="section-heading"><p class="eyebrow">07 <span lang="en">/ 3 entries</span></p><h2 id="research-ai-title">AIによる情報調査・資料読解</h2><p>検索や手元の資料の読解を助けるサービスです。要約と元の記述を区別し、引用先や数値を一次資料で確認してください。</p></header>
 <ul class="resource-grid">
 <li class="resource-item" id="perplexity">
           <p class="item-label">AIによる調査・読解</p>
@@ -189,7 +198,7 @@
 </ul>
 </section>
 <section id="coding" class="resource-section" aria-labelledby="coding-title">
-<header class="section-heading"><p class="eyebrow">07 <span lang="en">/ 1 entries</span></p><h2 id="coding-title">AIによるプログラミング</h2><p>コードの作成・修正を支援する道具です。解析の仮定、計算結果、公開するコードの内容については利用者自身の検証が必要です。</p></header>
+<header class="section-heading"><p class="eyebrow">08 <span lang="en">/ 1 entries</span></p><h2 id="coding-title">AIによるプログラミング</h2><p>コードの作成・修正を支援する道具です。解析の仮定、計算結果、公開するコードの内容については利用者自身の検証が必要です。</p></header>
 <ul class="resource-grid">
 <li class="resource-item" id="codex">
           <p class="item-label">AIによるプログラミング</p>
@@ -199,7 +208,7 @@
 </ul>
 </section>
 <section id="writing" class="resource-section" aria-labelledby="writing-title">
-<header class="section-heading"><p class="eyebrow">08 <span lang="en">/ 2 entries</span></p><h2 id="writing-title">論文執筆・開発・バージョン管理</h2><p>論文の共同執筆やコードの共有を支えるサービスです。研究の記録と再現性を支える基盤として紹介します。</p></header>
+<header class="section-heading"><p class="eyebrow">09 <span lang="en">/ 2 entries</span></p><h2 id="writing-title">論文執筆・開発・バージョン管理</h2><p>論文の共同執筆やコードの共有を支えるサービスです。研究の記録と再現性を支える基盤として紹介します。</p></header>
 <ul class="resource-grid">
 <li class="resource-item" id="overleaf">
           <p class="item-label">研究・執筆・開発</p>
