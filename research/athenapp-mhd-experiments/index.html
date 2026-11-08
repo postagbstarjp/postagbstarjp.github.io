@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Athena++でOrszag–Tang渦と衝撃波・ガス雲の相互作用を試した二つの数値実験。計算図とともに物理、検証、限界を紹介します。">
+  <title>週末の昼下がり、ガスと磁場を動かしてみた｜中島淳一</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="./article.css">
+</head>
+<body class="research-page">
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="site-name" href="../../" aria-label="中島淳一 ホーム">
+        <span lang="ja">中島淳一</span>
+        <span lang="en">Jun-ichi Nakashima</span>
+      </a>
+      <p class="site-description">Astronomy, notes &amp; essays</p>
+    </div>
+  </header>
+
+  <main id="main" class="research-main mhd-article">
+<nav class="article-nav" aria-label="現在の位置"><a href="../../">ホーム</a><span aria-hidden="true"> / </span><span>数値実験</span></nav>
+<article aria-labelledby="article-title"><header class="article-header"><p class="eyebrow">Research / Numerical experiments</p><p class="article-date"><time datetime="2026-11-08">2026年11月8日</time> · 数値実験</p><h1 id="article-title">週末の昼下がり、ガスと磁場を動かしてみた</h1><p class="article-subtitle">Athena++で楽しむ二つの数値実験――磁気流体の渦と、衝撃波に襲われるガス雲</p></header>
+<div class="article-body">
+<p>週末の昼下がり、以前から少し触ってみたかった数値流体シミュレーションを動かしてみました。使ったのは、天体物理の研究でも利用されている公開コード「Athena++」です。今回の目的は論文を書くことではありません。ガスや磁場の運動を実際に計算し、それを自分の目で眺めてみたい、という純粋な興味から始めた実験です。</p>
+<p>計算環境の準備や実行スクリプトの作成には、AIコーディング支援ツールのCodexを使いました。研究室の計算機ではなく、手元のWindows PCとWSL2上のLinux環境を利用しています。ただし、AIに指示したからといって、計算結果が自動的に正しくなるわけではありません。元の問題設定を確かめ、終了時刻や保存則を点検し、そのうえで図を読み解く必要があります。</p>
+<p>今回は、磁場とガスの相互作用を調べる「Orszag–Tang vortex」と、衝撃波が高密度の雲に衝突する「Shock–Cloud Interaction」という、二つの標準問題を試しました。最初から複雑な天体を再現するのではなく、基本的な物理現象を、できるだけ単純な状況で観察するという趣向です。</p>
+<section aria-labelledby="chapter-1"><h2 id="chapter-1">1．最初は一様だったガスに、複雑な模様が生まれる</h2>
+<p>最初の実験は、<strong>Orszag–Tang vortex（オルザグ＝タン渦）</strong>という、磁気流体力学（MHD）の有名なテスト問題です。MHDでは、ガスの密度・圧力・速度だけでなく、磁場も時間とともに計算します。磁場は荷電粒子に力を及ぼしますが、ガス全体が正または負に帯電している必要はありません。プラズマは全体としてほぼ電気的に中性でも、電流や磁場を通じて力学的に振る舞います。</p>
+<p>今回用いたのは、磁場と流体が十分強く結び付いていると仮定する「理想MHD」です。電離率やイオンと中性粒子の衝突を個別に計算するものではありません。</p>
+<p>正方形の領域を128×128個の格子に分割し、最初に一様なガス密度と圧力を与えます。その一方で、速度と磁場には、場所によって向きや大きさが変わる規則的な模様を設定します。つまり、<strong>初めは密度に何の模様もないのに、内部ではすでにガスが動き、磁場も存在している</strong>わけです。</p>
+<figure class="research-figure"><a href="./figures/orszag_tang_3x3.png" aria-label="図1を原寸表示"><img src="./figures/orszag_tang_3x3.png" width="2048" height="1901" loading="lazy" alt="Orszag–Tang渦の時間発展。左から時刻0、0.5、1、上から密度、速度ベクトル、磁場の磁力線を示した3行3列の比較図。"></a><figcaption>図1．Orszag–Tang vortex の計算結果。上段はガス密度、中段は流速の大きさ（色）と速度ベクトル（矢印）、下段は磁場強度（色）とその時刻の面内磁力線（白い曲線）。列は左から t = 0、0.5、1.0。各行の色の尺度は時刻間で共通。矢印と曲線は粒子の移動軌跡を表しているわけではありません。値はすべてコード単位です。<span class="figure-source"><a href="./figures/orszag_tang_3x3.png">図1を原寸表示</a></span></figcaption></figure>
+<p>上段の左端、計算開始時刻の密度マップは一様な色です。ところが、時間が経過すると明るい帯や暗い領域が現れ、さらに細い筋状の構造へ発展します。密度が高くなった場所は圧縮されたガスに、低くなった場所は希薄になったガスに対応します。</p>
+<p>では、その模様はどこから生まれたのでしょうか。</p>
+<p>中段の矢印を見ると、初期には規則的だった速度場が次第に変形し、流れの速い場所と遅い場所、収束する場所と離れる場所が生まれています。同じ時刻の下段では、磁力線も大きく曲がっています。ガスの運動が磁場を変形させ、変形した磁場がローレンツ力を通じてガスの運動に影響する。この相互作用を計算しているのです。</p>
+<p>MHDの運動方程式には、普通の圧力勾配に加えて磁場による力が現れます。磁場の効果は、直感的には「磁気圧」と「磁気張力」に分けて考えられます。磁場が強い場所では磁気圧の勾配が働き、曲がった磁力線は張力に対応する力を及ぼします。もちろん、図の形だけから、どちらの力がどの場所で卓越しているかまでは分かりません。それを知るには、力の各成分を改めて計算する必要があります。</p>
+<p>この計算では、境界を越えた流れが反対側から再び入ってくる「周期境界条件」を使っています。天体の輪郭を模したものではなく、数値計算法の性質を検証するための理想化された空間です。Orszag–Tangという名称は1979年の研究に由来しますが、ここで解いたのはAthena++に実装された<strong>圧縮性・断熱の理想MHDテスト</strong>であり、元論文の計算をそのまま複製したものではありません。</p>
+<p>それでも、一様な密度からこんなに複雑な構造が生まれる様子を眺めていると、流体方程式の非線形性が実感できます。</p>
+</section>
+<section aria-labelledby="chapter-2"><h2 id="chapter-2">2．衝撃波が高密度のガス雲にぶつかると</h2>
+<p>二つ目は、もう少し天体物理に近い現象です。高速で進む衝撃波が、周囲より密度の高いガス雲に衝突するところを計算しました。</p>
+<p>まず状況を模式的に示しておきます。左から衝撃波が進み、中央にある雲へぶつかります。雲は周囲のガスより密度が高く、当初は円形の断面をしています。</p>
+<figure class="research-figure schematic-figure"><a href="./figures/shock_cloud_schematic.svg" aria-label="図2を原寸表示"><img src="./figures/shock_cloud_schematic.svg" width="340" height="150" loading="lazy" alt="左側から右向きに進む平面衝撃波が、中央にある円形断面の高密度雲に近づく配置を示す模式図。"></a><figcaption><span class="figure-source">模式図（計算結果ではない）</span>図2．衝撃波と高密度雲の初期配置を説明する模式図。これは計算結果ではありません。左側は衝撃波通過後の領域、中央の円は初期状態の高密度雲を表します。<span class="figure-source"><a href="./figures/shock_cloud_schematic.svg">図2を原寸表示</a></span></figcaption></figure>
+<p>今回の設定では、衝撃波のマッハ数は10、雲と周囲の密度比は10。磁場は入れず、放射冷却も考慮しない、二次元の断熱流体計算としました。格子数は160×80です。</p>
+<figure class="research-figure"><a href="./figures/shock_cloud_overview.png" aria-label="図3を原寸表示"><img src="./figures/shock_cloud_overview.png" width="2048" height="938" loading="lazy" alt="マッハ数10の平面衝撃波が密度比10の雲に衝突する2次元計算。5時刻、上段は密度、中段は速度矢印を重ねた密度、下段は圧力を示す。"></a><figcaption><span class="figure-source">図中の実時刻：0、0.300795、0.601134、1.001042、1.500000。点線の円は雲由来のガスを追跡するトレーサーではありません。</span>図3．Shock–Cloud Interaction の計算結果。左から t = 0、約0.30、約0.60、約1.00、1.50。上段は密度、中段は密度と速度ベクトル、下段は圧力。密度・圧力の色は対数尺度で、各行内で共通です。点線の円は初期状態の雲の位置を示す目印であり、後の時刻に「元の雲の物質」がそこに残っていることを示すものではありません。<span class="figure-source"><a href="./figures/shock_cloud_overview.png">図3を原寸表示</a></span></figcaption></figure>
+<p>時刻0では、左側の衝撃波面と、中央の円形の雲が分かれて見えます。衝撃波が近づき、時刻0.3ごろには、雲の衝撃波側に明るい高密度の領域が現れます。衝撃波が雲を強く圧縮しているのです。</p>
+<p>密度の高い雲の内部を伝わる衝撃波は、一般に周囲の低密度ガスを伝わる衝撃波より遅くなります。したがって、外側の衝撃波が先に進む間に、雲は高圧のガスに取り囲まれ、圧縮と加速を受けます。時刻0.6ごろには、もとの丸い形は崩れ始め、後方に複雑な流れが生じています。時刻1.0から1.5にかけては、弓状の高密度構造が右へ進んでいくのが見えます。</p>
+<p>ここで注意が必要なのは、<strong>密度の高い部分が、すべて最初の雲に由来するとは限らない</strong>ことです。周囲のガスも衝撃波によって圧縮されるため、この図だけでは両者を厳密に区別できません。雲の物質がどこへ運ばれたかを知りたければ、受動スカラーなどの追跡用の変数が必要です。</p>
+<p>衝撃波と雲の相互作用を考える際には、「cloud-crushing time（雲の圧縮時間）」という尺度がよく使われます。雲と周囲ガスの密度比を χ、雲の半径を R、周囲を進む衝撃波速度を v_s とすれば、強い衝撃波について、おおよそ次のように表せます。</p>
+<p class="equation" aria-label="雲の圧縮時間は、およそ密度比の平方根と雲半径の積を衝撃波速度で割ったもの">t<sub>cc</sub> ≃ √χ R / v<sub>s</sub>.</p>
+<p>今回のコード単位で χ = 10、R = 1、v_s = 10 とすると、t_cc は約0.316です。雲が衝撃波に襲われてから、内部に伝わる衝撃波が特徴的な距離を進むまでの目安になります。ただし、これだけで雲が完全に破壊される時刻を決められるわけではありません。</p>
+<p>図にはガス雲の圧縮、変形、加速がはっきり現れています。一方、細かな混合や不安定性の進み方まで定量的に議論するには、今回の格子は粗いものです。雲の半径に相当するのは約16セルで、高解像度の収束計算ではありません。ここは、結果の面白さと科学的な限界を区別しておきたいところです。</p>
+</section>
+<section aria-labelledby="chapter-3"><h2 id="chapter-3">3．計算が終了することと、正しいことは違う</h2>
+<p>今回、二つの計算はいずれも指定時刻まで正常に走り、図の作成まで完了しました。しかし、計算機が「終了コード0」を返しただけで、答えが物理的に正しいと判断できるわけではありません。</p>
+<p>最初のOrszag–Tang問題では、保存されたデータに非有限値（NaNやInf）がなく、密度と圧力は正の値を保っていました。質量の相対変動は保存済みVTKデータからの評価で最大約 8.38×10⁻⁹ でした。これは基本的な健全性を示しますが、解像度収束や磁場の発散制約を独立に検証したことまでは意味しません。</p>
+<p>衝撃波と雲の実験でも、全16時刻で密度・圧力は正、非有限値は見つからず、初期衝撃波はRankine–Hugoniot関係と整合していました。一方、出入りするガスの流束を用いた概算の質量収支には約1.1％の残差が報告されています。この領域はガスが出入りするため、領域内の質量が一定である必要はありませんが、厳密な収支検証としてはまだ改善の余地があります。</p>
+<p>こうした確認を挟むことも、数値実験の楽しさの一部です。美しい画像が出たことと、その画像をどこまで信用してよいかは、別々に考えなければなりません。</p>
+</section>
+<section aria-labelledby="chapter-4"><h2 id="chapter-4">4．星周ガスの研究につながるだろうか</h2>
+<p>私が研究している晩期型星や複雑な星周分子ガスでも、質量放出による流れ、衝撃波、密度の高い領域の形成は重要な問題です。とりわけIRAS 19312+1950のように、複数の速度成分や入り組んだ分子ガス構造を示す天体を考えると、こうした計算を観測と結び付けてみたい気持ちになります。</p>
+<p>ただし、今回の二つの標準問題は<strong>IRAS 19312+1950を再現したモデルではありません</strong>。恒星風の幾何学、分子の化学反応、放射冷却、分子線の励起・放射輸送など、実際の観測と比較するために必要な物理がまだ入っていないからです。二つ目の計算も、三次元の球状雲ではなく、二次元Cartesian格子上の円形断面を扱っています。</p>
+<p>次に進むなら、単純な恒星風と周囲の高密度ガスの相互作用を計算し、速度分布から模擬的な位置―速度図を作ってみるのが面白そうです。現実の分子線強度を再現するには、そこからさらに化学や放射輸送を考える必要があります。</p>
+<p>研究に結び付くかどうかは、まだ分かりません。けれども、物理的な問題を考え、コードに計算させ、結果を眺め、次の疑問を思い付く。そういう往復を、週末の昼下がりに手元のPCで気軽に楽しめるようになったのは、なかなか愉快なことだと思いました。</p>
+</section>
+<section aria-labelledby="conditions"><h2 id="conditions">計算条件と資料</h2>
+<div class="conditions-scroll" role="region" aria-label="計算条件の比較表（横スクロール可能）" tabindex="0"><table><caption>二つの数値実験の計算条件</caption><thead><tr><th scope="col">項目</th><th scope="col">Orszag–Tang vortex</th><th scope="col">Shock–Cloud Interaction</th></tr></thead><tbody>
+<tr><th scope="row">計算コード</th><td>Athena++</td><td>Athena++</td></tr>
+<tr><th scope="row">方程式</th><td>圧縮性・断熱の理想MHD</td><td>断熱流体力学（磁場なし）</td></tr>
+<tr><th scope="row">格子</th><td>128×128（2D）</td><td>160×80（2D）</td></tr>
+<tr><th scope="row">数値流束</th><td>HLLD</td><td>HLLC</td></tr>
+<tr><th scope="row">時間積分</th><td>VL2</td><td>VL2（公式入力に基づく）</td></tr>
+<tr><th scope="row">断熱指数</th><td>5/3</td><td>5/3</td></tr>
+<tr><th scope="row">終了時刻</th><td>t = 1.0</td><td>t = 1.5</td></tr>
+<tr><th scope="row">初期条件</th><td>一様密度・圧力、非一様な速度・磁場</td><td>Mach 10の平面衝撃波、密度比10の高密度雲</td></tr>
+<tr><th scope="row">境界</th><td>周期境界</td><td>上流で衝撃波通過後の流れを維持、他は流出境界</td></tr>
+<tr><th scope="row">長さ・時間</th><td>コード単位（実際の天体スケールではない）</td><td>コード単位（実際の天体スケールではない）</td></tr>
+</tbody></table></div>
+<p><strong>再現情報</strong>：最初のOrszag–Tang計算で使用したAthena++ソースのコミットIDは <code>053bc738d5c85dac717326b4338b34c7db4e715d</code>。衝撃波計算の正確なソースコミット・オプション・ログは、掲載前にローカルの当該実験README・manifestで最終照合してください。図3の中間時刻は図に記載された実時刻を採用しています。図1の t = 0.5 は、同じ設定で終了時刻を0.5にした別の補助計算によるものです。</p>
+<p><strong>文献・ソフトウェア</strong></p>
+<ul class="references"><li>Stone, J. M., Tomida, K., White, C. J. &amp; Felker, K. G. (2020), <em>The Athena++ Adaptive Mesh Refinement Framework: Design and Magnetohydrodynamic Solvers</em>, ApJS, 249, 4. <a href="https://doi.org/10.3847/1538-4365/ab929b">https://doi.org/10.3847/1538-4365/ab929b</a></li><li>Orszag, S. A. &amp; Tang, C.-M. (1979), <em>Small-scale structure of two-dimensional magnetohydrodynamic turbulence</em>, J. Fluid Mech., 90, 129–143. <a href="https://doi.org/10.1017/S002211207900210X">https://doi.org/10.1017/S002211207900210X</a></li><li>Klein, R. I., McKee, C. F. &amp; Colella, P. (1994), <em>On the Hydrodynamic Interaction of Shock Waves with Interstellar Clouds. I. Nonradiative Shocks in Small Clouds</em>, ApJ, 420, 213–236. <a href="https://ntrs.nasa.gov/citations/19950035611">https://ntrs.nasa.gov/citations/19950035611</a></li><li>Athena++公式ソースコード：<a href="https://github.com/PrincetonUniversity/athena">https://github.com/PrincetonUniversity/athena</a></li></ul>
+<p><em>掲載する図は、今回のローカル数値計算結果2点と、初期条件を説明する自作の模式図1点です。画像検索から取得した参考画像ではありません。</em></p>
+</section>
+</div><nav class="article-return" aria-label="ホームへの案内"><a href="../../">← ホームに戻る</a></nav></article></main>
+  <footer class="site-footer"><div class="footer-inner"><p class="copyright"><span aria-hidden="true">©</span> Jun-ichi Nakashima</p></div></footer>
+</body>
+</html>

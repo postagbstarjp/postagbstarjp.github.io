@@ -1,0 +1,17 @@
+/* Article-only additions; shared site design remains unchanged. */
+.mhd-article .article-body { overflow-wrap: anywhere; }
+.mhd-article .research-figure { margin-bottom: 2.8rem; }
+.mhd-article .research-figure img { max-width: 100%; height: auto; }
+.mhd-article .schematic-figure { max-width: 43rem; margin-inline: auto; }
+.mhd-article .schematic-figure > a { width: min(100%, 340px); margin-inline: auto; background: transparent; }
+.mhd-article .research-figure figcaption { font-size: .875rem; color: #4e595d; }
+.mhd-article .conditions-scroll { max-width: 100%; overflow-x: auto; margin: 0 auto 2rem; }
+.mhd-article table { width: 100%; min-width: 620px; border-collapse: collapse; font-size: .875rem; line-height: 1.8; }
+.mhd-article caption { text-align: left; margin-bottom: 1rem; }
+.mhd-article th, .mhd-article td { padding: .8rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.mhd-article thead { background: var(--paper-deep); }
+.mhd-article th:first-child { width: 20%; }
+.mhd-article .references { max-width: 43rem; margin: 0 auto 2rem; padding-left: 1.5rem; }
+.mhd-article .references li { margin-bottom: 1rem; }
+.mhd-article code { font-size: .9em; }
+.mhd-article .equation { text-align: center; font-family: var(--sans); font-size: 1.1rem; }
