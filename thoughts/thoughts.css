@@ -1,0 +1,116 @@
+/* Personal essays. Shared site typography, colors, header and footer are inherited. */
+.thoughts-page .thoughts-main {
+  width: min(880px, calc(100% - 96px));
+  margin-inline: auto;
+}
+.thoughts-breadcrumb {
+  margin: 26px 0 32px;
+  color: var(--muted);
+  font: 0.76rem/1.8 var(--sans);
+}
+.thoughts-breadcrumb a,
+.thoughts-return a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.thoughts-breadcrumb a:is(:hover, :focus-visible),
+.thoughts-return a:is(:hover, :focus-visible) { text-decoration: underline; }
+.thoughts-breadcrumb span[aria-hidden] { padding: 0 0.5rem; }
+.thoughts-masthead {
+  padding: 36px 0 42px;
+  border-bottom: 3px double var(--accent);
+}
+.thoughts-masthead .eyebrow,
+.thoughts-article-header .eyebrow { margin-bottom: 16px; }
+.thoughts-masthead h1 {
+  font-size: clamp(2.1rem, 4vw, 3rem);
+  font-weight: 500;
+  line-height: 1.5;
+}
+.thoughts-masthead > p:last-child {
+  max-width: 41rem;
+  margin: 22px 0 0;
+  line-height: 2.05;
+}
+.thoughts-entries { padding: 4px 0 20px; }
+.thoughts-entry { padding: 30px 0 35px; border-bottom: 1px solid var(--line); }
+.thoughts-meta {
+  margin: 0 0 11px;
+  color: var(--muted);
+  font: 0.75rem/1.8 var(--sans);
+}
+.thoughts-entry h2 {
+  margin: 0 0 14px;
+  color: var(--accent);
+  font-size: clamp(1.28rem, 2.3vw, 1.63rem);
+  font-weight: 500;
+  line-height: 1.65;
+  letter-spacing: 0.025em;
+}
+.thoughts-entry h2 a { color: inherit; text-decoration: none; }
+.thoughts-entry h2 a:is(:hover, :focus-visible) { text-decoration: underline; }
+.thoughts-entry > p:not(.thoughts-meta):not(.thoughts-read) { max-width: 43rem; margin-bottom: 15px; }
+.thoughts-read { margin: 0; color: var(--accent); font: 0.84rem/1.8 var(--sans); }
+.thoughts-read a { color: inherit; }
+.thoughts-article-header { padding: 28px 0 35px; border-bottom: 1px solid var(--line); }
+.thoughts-article-header h1 {
+  max-width: 47rem;
+  font-size: clamp(1.8rem, 3.4vw, 2.55rem);
+  line-height: 1.58;
+  letter-spacing: 0.035em;
+  font-weight: 500;
+  text-wrap: pretty;
+}
+.thoughts-prose {
+  max-width: 43rem;
+  margin: 44px auto 0;
+  font-size: 1.04rem;
+  line-height: 2.13;
+  letter-spacing: 0.025em;
+  overflow-wrap: break-word;
+}
+.thoughts-prose p { margin: 0 0 1.6em; }
+.thoughts-sources {
+  max-width: 43rem;
+  margin: 48px auto 0;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+.thoughts-sources h2 {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font: 0.82rem/1.75 var(--sans);
+  font-weight: 600;
+  letter-spacing: .06em;
+}
+.thoughts-sources ul { margin: 0; padding-left: 1.3em; }
+.thoughts-sources li {
+  padding: 3px 0;
+  color: var(--muted);
+  font: 0.79rem/1.85 var(--sans);
+  overflow-wrap: anywhere;
+}
+.thoughts-return {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  margin: 45px 0 52px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  font: 0.82rem/1.9 var(--sans);
+}
+@media (max-width: 600px) {
+  .thoughts-page .thoughts-main { width: calc(100% - 40px); }
+  .thoughts-breadcrumb { margin: 18px 0 22px; }
+  .thoughts-masthead { padding: 18px 0 28px; }
+  .thoughts-article-header { padding: 15px 0 27px; }
+  .thoughts-prose { margin-top: 30px; font-size: 1rem; line-height: 2.04; }
+  .thoughts-prose p { margin-bottom: 1.48em; }
+  .thoughts-sources { margin-top: 36px; }
+  .thoughts-entry { padding: 25px 0 28px; }
+}
+@media print {
+  .thoughts-page .thoughts-main { width: 100%; }
+  .thoughts-prose { max-width: none; }
+  .thoughts-return { display: none; }
+}
