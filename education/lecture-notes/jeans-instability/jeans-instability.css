@@ -1,0 +1,104 @@
+/* Lecture note styles derived from approved offline HTML prototype.
+ * Page-specific selectors only. Keep the site's global styles.css intact.
+ */
+body.lecture-note-page{margin:0;background:var(--paper);color:var(--ink);font:16px/1.95 var(--serif);text-rendering:optimizeLegibility}
+body.lecture-note-page main a{color:var(--accent);text-underline-offset:.25em}
+body.lecture-note-page main a:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+body.lecture-note-page .hero{max-width:1184px;margin:0 auto;padding:64px 48px 62px;border-bottom:1px solid var(--line)}
+body.lecture-note-page .kicker{font:12px/1.6 var(--sans);letter-spacing:.13em;text-transform:uppercase;color:var(--accent);margin:0 0 22px}
+body.lecture-note-page .hero h1{font:500 clamp(32px,4.4vw,53px)/1.42 var(--serif);letter-spacing:.06em;margin:0 0 15px}
+body.lecture-note-page .subtitle{font-size:clamp(15px,2vw,20px);color:var(--muted);letter-spacing:.04em;margin:0}
+body.lecture-note-page .layout{display:grid;grid-template-columns:255px minmax(0,1fr);gap:70px;max-width:1280px;margin:0 auto;padding:47px 48px 88px;align-items:start}
+body.lecture-note-page .sidebar{position:sticky;top:26px;max-height:calc(100vh - 40px);overflow:auto;padding:6px 0 22px;border-top:1px solid var(--line);font-family:var(--sans);scrollbar-color:#b6c4bd transparent;scrollbar-width:thin}
+body.lecture-note-page .sidebar>p{font-size:12px;letter-spacing:.1em;color:var(--muted);margin:12px 0 17px}
+body.lecture-note-page .toc-item{display:grid;grid-template-columns:29px 1fr;gap:7px;padding:8px 0;text-decoration:none;color:#3f5455;font-size:12px;line-height:1.65;border-bottom:1px solid #e6e6df}
+body.lecture-note-page .toc-item:hover{background:#edece5}
+body.lecture-note-page .toc-no{font-family:Georgia,serif;color:#8a9995;font-variant-numeric:tabular-nums}
+body.lecture-note-page .article{min-width:0;max-width:790px}
+body.lecture-note-page .article>h2.chapter-title{font:500 clamp(23px,2.2vw,29px)/1.55 var(--serif);letter-spacing:.03em;margin:68px 0 28px;padding:12px 0 13px;border-bottom:1px solid var(--line);display:flex;gap:14px;align-items:baseline}
+body.lecture-note-page .article>h2.chapter-title:first-child{margin-top:3px}
+body.lecture-note-page .chapter-number{font:normal 15px/1.5 Georgia,serif;color:var(--accent)}
+body.lecture-note-page .article h3.subsection-title{font:500 21px/1.55 var(--serif);border-left:3px solid #78908b;padding-left:14px;margin:48px 0 19px}
+body.lecture-note-page .article .paragraph-title{font:600 16px/1.6 var(--sans);color:var(--accent);margin:30px 0 16px}
+body.lecture-note-page .article p{margin:0 0 20px;text-align:justify;overflow-wrap:anywhere}
+body.lecture-note-page .article strong{font-weight:700;color:#263a3b}
+body.lecture-note-page .article ol, body.lecture-note-page .article ul{padding-left:1.7em;margin:0 0 28px}
+body.lecture-note-page .article li{margin:0 0 12px;padding-left:3px}
+body.lecture-note-page .article li p{margin:0}
+body.lecture-note-page .article .math.inline{white-space:nowrap}
+body.lecture-note-page .article .math.display{display:block;overflow-x:auto;overflow-y:hidden;padding:4px 5px 6px;margin:23px 0;font-size:1.07em;scrollbar-width:thin}
+body.lecture-note-page .article mjx-container[display="true"]{margin:0!important;max-width:100%}
+body.lecture-note-page .equation-line{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;scroll-margin-top:35px;margin:22px 0 23px}
+body.lecture-note-page .equation-line .math.display{margin:0;min-width:0}
+body.lecture-note-page .equation-number{font:13px/1.3 Georgia,serif;color:var(--muted);white-space:nowrap}
+body.lecture-note-page .equation-ref{white-space:nowrap}
+body.lecture-note-page .derivbox, body.lecture-note-page .takehome, body.lecture-note-page .warnbox, body.lecture-note-page .summarybox{margin:32px 0;padding:24px 26px;border-left:3px solid var(--accent);background:#f0f4ef;position:relative}
+body.lecture-note-page .derivbox:before, body.lecture-note-page .takehome:before, body.lecture-note-page .warnbox:before, body.lecture-note-page .summarybox:before{display:block;position:relative;margin:0 0 16px;font:600 12px/1.5 var(--sans);letter-spacing:.09em;color:var(--accent);color:#4e7557}
+body.lecture-note-page .derivbox:before{content:"式の導出"}
+body.lecture-note-page .takehome:before{content:"要点"}
+body.lecture-note-page .warnbox:before{content:"定義・近似に関する注意";color:#915547}
+body.lecture-note-page .summarybox:before{content:"物理的帰結"}
+body.lecture-note-page .derivbox{background:#f4f7f4;border-color:#6c9384}
+body.lecture-note-page .takehome{background:#eaf1f0;border-color:#355c68}
+body.lecture-note-page .warnbox{background:#faf1ed;border-color:#ad776c}
+body.lecture-note-page .summarybox{background:#edf4ec;border-color:#6a926f}
+body.lecture-note-page .derivbox p:last-child, body.lecture-note-page .takehome p:last-child, body.lecture-note-page .warnbox p:last-child, body.lecture-note-page .summarybox p:last-child{margin-bottom:0}
+body.lecture-note-page .science-figure{margin:31px 0 36px;padding:16px;border:1px solid var(--line);background:#fffefa}
+body.lecture-note-page .science-figure-img{width:100%;height:auto;display:block;object-fit:contain}
+body.lecture-note-page .science-figure figcaption, body.lecture-note-page .process-figure figcaption{margin-top:14px;font:13px/1.8 var(--sans);color:#596967}
+body.lecture-note-page .article table{width:100%;border-collapse:collapse;font:14px/1.6 var(--sans);margin:15px 0 25px}
+body.lecture-note-page .article caption{caption-side:top;text-align:left;color:var(--muted);padding-bottom:0.6em}
+body.lecture-note-page .article th, body.lecture-note-page .article td{padding:11px 11px;border-bottom:1px solid #cfd5cd;vertical-align:top;text-align:left;overflow-wrap:break-word}
+body.lecture-note-page .article thead th{border-top:2px solid #81908c;background:#eeeee7;color:#334a4b}
+body.lecture-note-page .article tbody tr:nth-child(even){background:#f1f0e9}
+body.lecture-note-page .article .table, body.lecture-note-page .article .table-scroll{overflow-x:auto;max-width:100%;margin:31px 0 36px}
+body.lecture-note-page .article .table>p{font:13px var(--sans);color:var(--muted)}
+body.lecture-note-page .process-figure{margin:29px 0;padding:25px 18px;border:1px solid var(--line);background:#fffefa}
+body.lecture-note-page .process-flow{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;text-align:center;font:13px/1.7 var(--sans)}
+body.lecture-note-page .process-step{padding:8px 11px;border:1px solid #bac9c3;background:#eef5ef;border-radius:4px}
+body.lecture-note-page .process-step:first-child{background:#e9eef5;border-color:#bac9d7}
+body.lecture-note-page .process-step:last-child{background:#f7eceb;border-color:#dcbeba}
+body.lecture-note-page .process-arrow{color:#687c79;font:20px/1 sans-serif}
+body.lecture-note-page .references-title{font:500 25px/1.55 var(--serif);border-top:1px solid var(--line);padding-top:22px;margin:70px 0 22px;scroll-margin-top:36px}
+body.lecture-note-page .reference-list{list-style-type:decimal;padding-left:1.5em}
+body.lecture-note-page .reference-list li{margin-bottom:12px;font:14px/1.7 var(--sans)}
+@media  (max-width:1000px){body.lecture-note-page .layout{gap:32px;grid-template-columns:215px minmax(0,1fr);padding:32px 30px 70px}
+body.lecture-note-page .hero{padding-left:30px;padding-right:30px}}
+@media  (max-width:800px){body.lecture-note-page .layout{display:block;max-width:800px;padding:22px 22px 65px}
+body.lecture-note-page .sidebar{position:static;max-height:260px;overflow:auto;padding:9px 15px;margin:0 0 40px;border:1px solid var(--line);background:#faf9f4}
+body.lecture-note-page .sidebar>p{margin:0 0 10px}
+body.lecture-note-page .toc-item{padding:5px 0}
+body.lecture-note-page .hero{padding:46px 22px 40px}
+body.lecture-note-page .article>h2.chapter-title{margin-top:56px}}
+@media  (max-width:560px){body.lecture-note-page{font-size:15px;line-height:1.9}
+body.lecture-note-page .hero h1{font-size:30px}
+body.lecture-note-page .hero{padding-top:40px}
+body.lecture-note-page .subtitle{font-size:16px}
+body.lecture-note-page .article h3.subsection-title{font-size:18px}
+body.lecture-note-page .article>h2.chapter-title{font-size:22px}
+body.lecture-note-page .derivbox, body.lecture-note-page .takehome, body.lecture-note-page .warnbox, body.lecture-note-page .summarybox{padding:18px 13px;margin:25px 0}
+body.lecture-note-page .article .math.display{font-size:1em}
+body.lecture-note-page .equation-number{font-size:11px}
+body.lecture-note-page .equation-line{gap:6px}
+body.lecture-note-page .science-figure{padding:8px}
+body.lecture-note-page .process-flow{flex-direction:column}
+body.lecture-note-page .process-arrow{transform:rotate(90deg)}
+body.lecture-note-page .article .table, body.lecture-note-page .article .table-scroll{margin-left:0;margin-right:0}}
+@media  print{body.lecture-note-page .sidebar{display:none}
+body.lecture-note-page .layout{display:block;padding-top:18px}
+body.lecture-note-page .article{max-width:none}
+body.lecture-note-page .hero{padding:20px 35px}
+body.lecture-note-page .article .math.display{overflow:visible}}
+
+/* Site integration: the reference prototype was a standalone document. */
+body.lecture-note-page main.lecture-note-main {width:100%;max-width:none;margin-inline:auto;}
+body.lecture-note-page .lecture-note-breadcrumb {max-width:1184px;margin:0 auto;padding:20px 48px 0;font:12px/1.7 var(--sans);color:var(--muted)}
+body.lecture-note-page .lecture-note-breadcrumb a {color:var(--accent);text-decoration:none}
+body.lecture-note-page .lecture-note-breadcrumb a:is(:hover,:focus-visible) {text-decoration:underline}
+body.lecture-note-page .lecture-note-article-return {max-width:1184px;margin:0 auto 28px;padding:0 48px;font:13px/1.8 var(--sans)}
+body.lecture-note-page .lecture-note-article-return a {color:var(--accent);text-decoration:none}
+body.lecture-note-page .lecture-note-article-return a:is(:hover,:focus-visible) {text-decoration:underline}
+body.lecture-note-page .article .reference-block h2.references-title {display:block}
+@media(max-width:1000px) {body.lecture-note-page .lecture-note-breadcrumb,body.lecture-note-page .lecture-note-article-return {padding-left:30px;padding-right:30px}}
+@media(max-width:800px) {body.lecture-note-page .lecture-note-breadcrumb,body.lecture-note-page .lecture-note-article-return {padding-left:22px;padding-right:22px}}
+@media(prefers-reduced-motion:reduce) {html:has(body.lecture-note-page) {scroll-behavior:auto}}
