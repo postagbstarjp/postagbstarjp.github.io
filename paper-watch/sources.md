@@ -190,8 +190,10 @@
 ### 銀河の名前を探す先に、論文の「議論」を集める
 
 - Nolan Koblischke, Jo Bovy（2026）, *Extracting Published Discussions of 13,616 Galaxies with Language Models*。[arXiv:2611.13118v1](https://arxiv.org/abs/2611.13118v1)（投稿：2026年11月9日、UTC）。WASP 2026受理（arXiv著者コメント）。
-- 採用：[原著 Figure 1 の右上部分](https://arxiv.org/html/2611.13118v1#S0.F1)。原著図1の右上にある著者らのサービスが生成した要約欄のみ採用。§4が出典として挙げるDESI Legacy Imaging Surveys DR10、Pan-STARRS、DSS2の銀河画像、および下段の第三者論文の引用文はすべて掲載範囲外。原著に他の番号付き図はない。 [arXiv v1の版別表示](https://arxiv.org/abs/2611.13118v1)は[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-- 加工と掲載先：原著図の右上の要約欄を切り出し、可逆WebPに変換。664 × 276 px、`galaxywiki-llm-literature/images/literature-summary.webp`。記事の図キャプションに著者、年、図番号、原著とライセンスへのリンク、加工内容を表示。
+- 採用：[原著 Figure 1 の一部](https://arxiv.org/html/2611.13118v1#S0.F1)。提供された切り出し画像に基づき、左の銀河一覧、中央のNGC 4650A拡大図、右の生成要約欄と引用例を掲載。[arXiv v1の版別表示](https://arxiv.org/abs/2611.13118v1)は[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
+- 天体画像：[GalaxyWiki公式画像台帳](https://github.com/NolanKoblischke/galaxywiki-paper/blob/main/site/data/entities.json)で図中16天体を照合。CDS/Aladin経由のDESI Legacy Imaging Surveys DR10（中央のNGC 4650Aを含む9天体、[指定クレジットとCC BY 4.0](https://www.legacysurvey.org/acknowledgment/#usage-of-images-from-the-sky-viewer)）、Pan-STARRS1 DR1（6天体、[STScIの公開表示・複製許諾](https://registry.opendata.aws/mast-panstarrs/)）、[DSS2カラー合成](https://doi.org/10.26093/cds/aladin/ht9n-7r)（NGC 4945、[MASTの科学・教育・非営利用途の条件](https://archive.stsci.edu/publishing/data-use)に従いDSS2部分は[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)）。記事と一覧の図注に各サーベイのクレジットを表示。
+- 右下の短い引用は[Ordenes-Briceño et al.（arXiv:1511.05166）](https://arxiv.org/abs/1511.05166)の要旨が出典。文献要約から原文へたどる機能を示す引用例で、図中の引用符と出典表記を保持し、記事の図注から原文にもリンク。
+- 加工と掲載先：提供された切り出しPNGを追加の切り出しや縮小をせず可逆WebPに変換。2000 × 660 px、`galaxywiki-llm-literature/images/literature-summary.webp`。
 - 原著照合：概要と手法・結果で156,006本、18,641本、44,332件、13,616銀河を照合。原文照合と天体の同定精度を区別し、抽出条件は3文以上とした。
 
 ### 伴星がいても、星の脈動は変わらないのか
