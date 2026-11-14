@@ -1371,7 +1371,6 @@ h1 span[lang="en"] {
 }
 .home-page .home-note-entry:first-child { padding-left: 0; }
 .home-page .home-note-entry + .home-note-entry {
-  padding-right: 0;
   border-left: 1px solid var(--line);
 }
 .home-page .home-note-meta {
