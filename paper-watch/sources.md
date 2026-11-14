@@ -175,7 +175,7 @@
 
 ### 恒星のスペクトルを、三次元の大気から計算する
 
-- Richard Hoppe, Maria Bergemann, Philipp Eitner, Ãke Nordlund, Jorrit Leenaarts, Andrius Popovas, Nicholas Storm（2026）, *The OpenMULTI3D stellar analysis package. A 3D non-LTE spectrum synthesis code for AFGKM-type stars within the DISPATCH framework*。[arXiv:2611.09370v1](https://arxiv.org/abs/2611.09370v1)（投稿：2026年11月6日、UTC）。A&A掲載受理（arXiv著者コメント）。
+- Richard Hoppe, Maria Bergemann, Philipp Eitner, Åke Nordlund, Jorrit Leenaarts, Andrius Popovas, Nicholas Storm（2026）, *The OpenMULTI3D stellar analysis package. A 3D non-LTE spectrum synthesis code for AFGKM-type stars within the DISPATCH framework*。[arXiv:2611.09370v1](https://arxiv.org/abs/2611.09370v1)（投稿：2026年11月6日、UTC）。A&A掲載受理（arXiv著者コメント）。
 - 採用：[原著 Figure 4](https://arxiv.org/html/2611.09370v1#S3.F4)。著者による合成スペクトルの比較。MARCSとM3DISは計算モデルの出典。図・キャプションに第三者図版の転載表示はない。 [arXiv v1の版別表示](https://arxiv.org/abs/2611.09370v1)は[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
 - 加工と掲載先：原著HTMLの図ファイルを無改変で使用。971 × 1091 px、`openmulti3d-stellar-spectra/images/balmer-lines.svg`。記事の図キャプションに著者、年、図番号、原著とライセンスへのリンク、加工内容を表示。
 - 原著照合：原著のコード解説と図4・5でDISPATCH、AFGKM型、金属欠乏赤色巨星のバルマー線と時間変動の計算を照合。
@@ -185,7 +185,7 @@
 - Gracyn Jewett, Mukremin Kilic, Pierre Bergeron, Alex Gleason, Warren R. Brown, Manuel Barrientos, Matthew J. Green, Simon Blouin, Vikram S. Dhillon, Stuart Littlefair（2026）, *Constraining the Merger Fraction and the Upper Mass Limit of Ultramassive White Dwarfs*。[arXiv:2611.08736v1](https://arxiv.org/abs/2611.08736v1)（投稿：2026年11月5日、UTC）。ApJ掲載受理（arXiv著者コメント）。
 - 採用：[原著 Figure 13](https://arxiv.org/html/2611.08736v1#S6.F13)。著者が今回の観測、先行標本、連星進化の予測を一つの図に描いたもの。キャプションの先行文献はデータ・モデルの出典であり、図・キャプションに第三者図版の転載表示はない。 [arXiv v1の版別表示](https://arxiv.org/abs/2611.08736v1)は[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
 - 加工と掲載先：原著HTMLの図ファイルを無改変で使用。576 × 384 px、`ultramassive-white-dwarf-mergers/images/merger-fraction.svg`。記事の図キャプションに著者、年、図番号、原著とライセンスへのリンク、加工内容を表示。
-- 原著照合：概要・標本選定・合体割合の節および図13で、293候補、未分類259天体の97%の分光追観測、53%（−6/+7ポイント）、中心組成に応じた最大質量約1.33～1.35太陽質量を照合。
+- 原著照合：概要・標本選定・合体割合の節および図13で、293候補、未分類259天体の97%の分光追観測、実効温度11,000 K以上を基準とする高温・大質量標本のうち、1.3太陽質量を超える60天体の合体起源割合53%（−6/+7ポイント、表4・§VI.1）、中心組成に応じた最大質量約1.33～1.35太陽質量を照合。
 
 ### 銀河の名前を探す先に、論文の「議論」を集める
 
