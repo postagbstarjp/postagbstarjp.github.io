@@ -1,0 +1,703 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="天文学ノート。星間ガスの重力不安定（ジーンズ不安定）を、理想気体、力の比較、線形解析、等温・断熱収縮の順に数式と図で解説します。">
+  <title>重力不安定（ジーンズ不安定）｜天文学ノート｜中島淳一</title>
+  <link rel="canonical" href="https://postagbstarjp.github.io/notes/jeans-instability/">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="./jeans-instability.css">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:true,macros:{bm:['\\boldsymbol{#1}',1]}},svg:{fontCache:'local'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+  <script defer src="./vendor/mathjax/tex-svg-full.js"></script>
+</head>
+<body class="astronomy-note-page">
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="site-name" href="../../" aria-label="中島淳一 ホーム"><span lang="ja">中島淳一</span><span lang="en">Jun-ichi Nakashima</span></a>
+      <p class="site-description" lang="en">Astronomy, notes &amp; essays</p>
+    </div>
+  </header>
+  <main id="main" tabindex="-1" class="astronomy-note-main">
+    <nav class="astronomy-note-breadcrumb" aria-label="現在の位置"><a href="../../">ホーム</a> / 天文学ノート</nav>
+<header class="hero" id="top"><p class="kicker">天文学ノート</p>
+<h1>重力不安定（ジーンズ不安定）</h1><p class="subtitle">星間ガスの自己重力・圧力支持と星形成</p>
+</header>
+<div class="layout"><nav aria-label="目次" class="sidebar"><p aria-hidden="true">目次</p><a class="toc-item" href="#intro"><span class="toc-no">·</span><span>はじめに</span></a>
+<a class="toc-item" href="#chapter-01"><span class="toc-no">01</span><span>星間ガスから星が形成されるまで</span></a>
+<a class="toc-item" href="#chapter-02"><span class="toc-no">02</span><span>球状のガス領域というモデル</span></a>
+<a class="toc-item" href="#chapter-03"><span class="toc-no">03</span><span>理想気体の状態方程式と平均分子量</span></a>
+<a class="toc-item" href="#chapter-04"><span class="toc-no">04</span><span>重力と圧力勾配力の比較</span></a>
+<a class="toc-item" href="#chapter-05"><span class="toc-no">05</span><span>ジーンズ半径とジーンズ質量の概算</span></a>
+<a class="toc-item" href="#chapter-06"><span class="toc-no">06</span><span>音速を使ったジーンズ条件の表現</span></a>
+<a class="toc-item" href="#chapter-07"><span class="toc-no">07</span><span>密度ゆらぎの線形解析（発展事項）</span></a>
+<a class="toc-item" href="#chapter-08"><span class="toc-no">08</span><span>星間ガスの代表的なスケール</span></a>
+<a class="toc-item" href="#chapter-09"><span class="toc-no">09</span><span>等温収縮とガス雲の分裂</span></a>
+<a class="toc-item" href="#chapter-10"><span class="toc-no">10</span><span>断熱圧縮による温度上昇</span></a>
+<a class="toc-item" href="#chapter-11"><span class="toc-no">11</span><span>断熱段階におけるジーンズ質量の変化</span></a>
+<a class="toc-item" href="#closing"><span class="toc-no">·</span><span>おわりに</span></a><a class="toc-item" href="#references"><span class="toc-no">·</span><span>参考文献</span></a></nav>
+<article aria-label="ジーンズ不安定の天文学ノート本文" class="article" id="note-content"><h2 class="chapter-unnumbered chapter-title" id="intro">はじめに</h2>
+<p>星間ガスの一部が周囲より高密度になると，自己重力はガスを引き寄せ，圧力は密度のむらを押し広げる．この二つの作用の競争によって，ガス塊が重力収縮を始めるかどうかが決まる．臨界的な長さと質量の目安を与えるのがジーンズ半径とジーンズ質量である．本稿では，ガスの状態方程式から重力不安定の条件を導き，密度ゆらぎの線形解析を確認し，収縮に伴うガス雲の分裂までを一つながりに説明する．</p>
+<h2 class="chapter-title" id="chapter-01"><span aria-hidden="true" class="chapter-number">01</span>星間ガスから星が形成されるまで</h2>
+<p>星間ガスの典型的な密度はおよそ <span class="math display">\[\rho_{\rm
+ISM}\sim 10^{-23}\,\mathrm{g\,cm^{-3}},\]</span>
+一方，太陽の平均密度はおよそ <span class="math display">\[\rho_\odot
+\sim 1\,\mathrm{g\,cm^{-3}}\]</span>
+である．したがって，星間ガスから恒星を作るには，概略として <span class="math display">\[\frac{\rho_\odot}{\rho_{\rm ISM}}\sim
+10^{23}\]</span>
+という途方もない密度上昇が必要になる．この密度上昇の出発点となる機構が，重力不安定である．</p>
+<p>この過程の物理的な見通しは，次のように整理できる．</p>
+<ol>
+<li><p>星間ガスの一部，半径 <span class="math inline">\(R\)</span>，質量
+<span class="math inline">\(M\)</span> の領域を考える．</p></li>
+<li><p>内向きの自己重力と，外向きの圧力勾配力を比較する．<strong>圧力勾配</strong>とは，場所によって圧力が変わることであり，その圧力差がガスを動かす力を生む．</p></li>
+<li><p><strong>理想気体の状態方程式</strong>は，気体の圧力 <span class="math inline">\(P\)</span>，密度 <span class="math inline">\(\rho\)</span>，温度 <span class="math inline">\(T\)</span>
+を結ぶ関係式である．この関係を使い，圧力勾配力の見積もりに現れる <span class="math inline">\(P/\rho\)</span> を温度や音速 <span class="math inline">\(c_s\)</span> で表す．ここで <span class="math inline">\(c_s\)</span>
+は，ガス中を小さな密度変化が伝わる速さ（以下では等温音速）である．</p></li>
+<li><p>収縮が始まる臨界スケールとして，ジーンズ半径 <span class="math inline">\(R_J\)</span> とジーンズ質量 <span class="math inline">\(M_J\)</span> を導く．</p></li>
+<li><p>先ほどの力の比較は「およその大きさ」を見積もっただけであり，数値係数や「いつ乱れが成長するか」は確定しない．そこで<strong>線形解析</strong>を導入し，弱い密度のむらが実際に増幅するかどうかを判定する．詳しい計算法よりも，<strong>概算をより明確な判定基準にするための方法</strong>と理解すればよい．</p></li>
+<li><p>星形成では，初期の等温収縮では分裂が進み，後の断熱収縮では分裂が止まりやすくなることを理解する．</p></li>
+</ol>
+<h2 class="chapter-title" id="chapter-02"><span aria-hidden="true" class="chapter-number">02</span>球状のガス領域というモデル</h2>
+<p>周囲に比べて局所的に高密度となった，半径 <span class="math inline">\(R\)</span>，質量 <span class="math inline">\(M\)</span> の球状ガス領域を考える．領域内の密度
+<span class="math inline">\(\rho\)</span> と温度 <span class="math inline">\(T\)</span>
+を代表値で近似する．圧力勾配力はこの領域と周囲との圧力の差から生じる．</p>
+<figure class="science-figure" id="fig:gasforces">
+<img alt="球状ガス領域における中心向きの自己重力と外向きの圧力勾配力の模式図" class="science-figure-img" decoding="async" height="819" loading="lazy" src="./images/gasforces_replacement.png" width="2048"/>
+<figcaption>自己重力と圧力勾配力の模式図．<strong>左：</strong>自己重力は各方向から中心向き．<strong>右：</strong>中心部の圧力が周囲より高いとき，圧力勾配力は外向き．<span class="math inline">\(R\)</span>
+は中心から表面までの<strong>長さ</strong>を線分で表す（ベクトル矢印ではない）．<strong>注意：</strong>完全に一様な背景では
+<span class="math inline">\(\nabla P=0\)</span>
+であり，右側は圧力のむらが生じた場合の模式図である．</figcaption>
+</figure>
+<p>この球の質量は，密度が一様なら </p><div class="equation-line" id="eq:sphere-mass"><div class="equation-body"><span class="math display">\[M=\frac{4}{3}\pi R^3\rho
+\]</span></div><span class="equation-number">(2.1)</span></div><p> である．この式は後で，<span class="math inline">\(M\)</span> を <span class="math inline">\(R\)</span> と <span class="math inline">\(\rho\)</span> で書き換えるために使う．</p>
+<h2 class="chapter-title" id="chapter-03"><span aria-hidden="true" class="chapter-number">03</span>理想気体の状態方程式と平均分子量</h2>
+<p>圧力と密度・温度を結ぶ状態方程式は </p><div class="equation-line" id="eq:eos"><div class="equation-body"><span class="math display">\[P=\frac{{\mathcal{R}_g}}{\bar{\mu}}\rho
+T
+\]</span></div><span class="equation-number">(3.1)</span></div><p> である．これは星間ガスの圧力 <span class="math inline">\(P\)</span> を，質量密度 <span class="math inline">\(\rho\)</span> と温度 <span class="math inline">\(T\)</span>
+で表した理想気体の状態方程式である．</p>
+<h3 class="paragraph-title" id="記号の定義">記号の定義</h3>
+<ul>
+<li><p><span class="math inline">\(P\)</span>：<strong>圧力</strong>（単位面積に働く力；単位は
+<span class="math inline">\(\mathrm{Pa}\)</span> または <span class="math inline">\(\mathrm{dyn\,cm^{-2}}\)</span>）．圧力そのものと，<strong>場所による圧力の差が生む正味の力</strong>は区別する（詳しくは第4節）．</p></li>
+<li><p><span class="math inline">\(\rho\)</span>：ガスの質量密度．</p></li>
+<li><p><span class="math inline">\(T\)</span>：絶対温度．</p></li>
+<li><p><span class="math inline">\(\bar{\mu}\)</span>：<strong>平均分子量</strong>（無次元）．ガスを構成する<strong>自由粒子1個あたりの平均質量</strong>
+<span class="math inline">\(\langle m\rangle\)</span>
+を，<strong>水素原子質量 <span class="math inline">\(m_{\rm H}\)</span>
+を単位として</strong>表した量で， <span class="math display">\[\bar{\mu}\equiv \frac{\langle m\rangle}{m_{\rm
+H}},
+\qquad
+\langle m\rangle=\bar{\mu}m_{\rm H}\]</span>
+と定義する．「平均分子量」という慣用名だが，<strong>分子だけの質量の平均とは限らない</strong>．ここでいう粒子とは，気体中で独立に熱運動し圧力に寄与する単位で，水素分子
+<span class="math inline">\(\mathrm{H_2}\)</span>，原子 <span class="math inline">\(\mathrm{H}\)</span>，ヘリウム原子，イオン，電子などを含む．たとえば純粋な中性水素原子ガスなら
+<span class="math inline">\(\bar{\mu}\simeq1\)</span>，純粋な <span class="math inline">\(\mathrm{H_2}\)</span> ガスなら <span class="math inline">\(\bar{\mu}\simeq2\)</span>
+となる．実際の分子雲ではヘリウムも含むため，およそ <span class="math inline">\(\bar{\mu}\simeq2.3\)</span>
+を使うことが多い．</p></li>
+<li><p><span class="math inline">\({\mathcal{R}_g}\)</span>：<strong>水素原子質量を基準にした比気体定数</strong>で，
+<span class="math display">\[{\mathcal{R}_g}\equiv\frac{k_{\rm
+B}}{m_{\rm H}}\]</span> と定義する．<span class="math inline">\(k_{\rm
+B}\)</span> はボルツマン定数，<span class="math inline">\(m_{\rm
+H}\)</span> は水素原子の質量である．<span class="math inline">\(k_{\rm
+B}\)</span> は「粒子1個あたり」の圧力と温度の換算係数（単位 <span class="math inline">\(\mathrm{J\,K^{-1}}\)</span>），それを <span class="math inline">\(m_{\rm H}\)</span> で割った <span class="math inline">\({\mathcal{R}_g}\)</span>
+は「水素原子1個分の質量あたり」に換算した係数である．単位は<strong>SI単位系なら</strong>
+<span class="math inline">\(\mathrm{J\,kg^{-1}\,K^{-1}}\)</span>，<strong>cgs単位系なら</strong>
+<span class="math inline">\(\mathrm{erg\,g^{-1}\,K^{-1}}\)</span>．数値もそれぞれの単位系で変わる．<strong>水素だけでできた気体のみに使えるという意味ではない</strong>．実際の混合ガスでは
+<span class="math inline">\({\mathcal{R}_g}/\bar\mu\)</span>
+を使う．<strong>普遍気体定数 <span class="math inline">\(R_{\rm
+u}\)</span> との違い</strong>は下で定義する．</p></li>
+</ul>
+<p>平均分子量 <span class="math inline">\(\bar\mu\)</span>
+の具体的な計算を確認する．混合気体を構成する粒子の種類を <span class="math inline">\(i\)</span> とし，種類 <span class="math inline">\(i\)</span> の<strong>粒子1個の質量を <span class="math inline">\(m_i\)</span>，個数を <span class="math inline">\(N_i\)</span></strong> と書く．すると， <span class="math display">\[\begin{aligned}
+\text{全粒子の合計質量}\;&amp;=\sum_i N_i m_i,\\
+\text{全粒子数}\;&amp;=\sum_i N_i,\\
+\text{粒子1個の平均質量}\quad \langle m\rangle&amp;=\frac{\sum_i N_i
+m_i}{\sum_i N_i},\\
+\text{平均分子量}\quad\bar\mu&amp;=\frac{\langle m\rangle}{m_{\rm H}}
+=\frac{\sum_i N_i m_i}{m_{\rm H}\sum_i N_i}.
+\end{aligned}\]</span>
+ここで求めたいのは<strong>「一粒子あたりの平均質量」</strong>であるため，全粒子の質量の合計を全粒子数で割る．たとえば，質量
+<span class="math inline">\(m_A\)</span> の粒子が2個と質量 <span class="math inline">\(m_B\)</span>
+の粒子が1個なら，3個の粒子の平均質量は <span class="math inline">\((2m_A+m_B)/3\)</span> となる．<span class="math inline">\(\bar\mu\)</span>
+はこの平均質量を水素原子の質量で割った<strong>無次元の比</strong>である．</p>
+<p>混合ガスの状態方程式で使う比気体定数は <span class="math inline">\({\mathcal{R}_g}/\bar\mu=k_{\rm
+B}/\langle m\rangle\)</span> となる．粒子1個あたりの係数 <span class="math inline">\(k_{\rm B}\)</span>
+を，粒子1個あたりの<strong>平均質量</strong> <span class="math inline">\(\langle m\rangle\)</span>
+で割るので，単位質量あたりの比例係数へ変わる．混合比や電離度が変われば
+<span class="math inline">\(\bar\mu\)</span> も変わる．</p>
+<h3 class="subsection-title" id="chapter-03-sub-01">気体分子運動論から状態方程式へ</h3>
+<p>この式は，大学初年級の熱力学・統計力学で扱う<strong>理想気体の状態方程式</strong>と同じ内容である．理想気体とは，粒子の大きさと粒子間相互作用を，気体の圧力を考える際に無視できるほど希薄な気体のモデルである．</p>
+<p>まず，粒子の総数を <span class="math inline">\(N\)</span>，体積を
+<span class="math inline">\(V\)</span> とすると，理想気体では </p><div class="equation-line"><div class="equation-body"><span class="math display">\[PV=Nk_{\rm B}T\]</span></div><span class="equation-number">(3.2)</span></div><p> が成り立つ．ここで <span class="math inline">\(N\)</span>
+は「分子数」と呼んでもよい場合があるが，それは気体が分子だけからなるときに限られる．たとえば純粋な
+<span class="math inline">\(\mathrm{H_2}\)</span> ガスなら <span class="math inline">\(N\)</span>
+は分子数，一方，中性水素原子ガスなら原子数である．混合・電離ガスでは，<span class="math inline">\(N\)</span>
+は<strong>すべての独立した自由粒子の個数の合計</strong>であり，イオンと電子をそれぞれ数える．</p>
+<h4 class="paragraph-title" id="運動論から-pvnk_rm-bt-を確かめる">運動論から <span class="math inline">\(PV=Nk_{\rm B}T\)</span> を確かめる</h4>
+<p>ここでは<strong>熱平衡にある非相対論的・古典的な理想気体</strong>を最初から仮定する．まず粒子が壁との間を自由飛行して壁に弾性衝突する理想化を考え，速度分布は特定の方向に偏らないものとする．壁にぶつかる粒子の運動量変化から圧力を求め，最後に温度を導入する．
+<strong>並進運動</strong>は，粒子の重心が空間の <span class="math inline">\(x,y,z\)</span>
+方向に移動する運動である（分子の回転や振動とは区別する）．まず容器の壁への衝突だけから圧力を求める．辺の長さ
+<span class="math inline">\(L\)</span> の立方体の中を，質量 <span class="math inline">\(m\)</span>
+の粒子が弾性衝突しながら運動すると考える．</p>
+<p><span class="math inline">\(x\)</span>
+に垂直な壁への1回の衝突で，粒子の <span class="math inline">\(x\)</span>
+方向の運動量は <span class="math inline">\(mv_x\)</span> から <span class="math inline">\(-mv_x\)</span>
+に変わる．壁が受け取る運動量の大きさは <span class="math inline">\(2m|v_x|\)</span>．同じ壁へ次に戻るまでの時間は
+<span class="math inline">\(2L/|v_x|\)</span>
+だから，<strong>単位時間あたりの運動量（＝平均の力）</strong>は <span class="math display">\[F_x=\frac{2m|v_x|}{2L/|v_x|}=\frac{mv_x^2}{L}.\]</span>
+この値を <span class="math inline">\(N\)</span>
+個の粒子について足す．圧力は<strong>壁が受ける全力を面積で割ったもの</strong>であるから，
+<span class="math display">\[\begin{aligned}
+P &amp;= \frac{F_{\text{全}}}{A}
+   =\frac{1}{L^2}\sum_{j=1}^{N}\frac{m v_{x,j}^2}{L}\\
+  &amp;=\frac{m}{L^3}\sum_{j=1}^{N}v_{x,j}^2
+   =\frac{Nm}{L^3}\left(\frac{1}{N}\sum_{j=1}^N v_{x,j}^2\right)\\
+  &amp;=\frac{Nm}{V}\langle v_x^2\rangle,
+\end{aligned}\]</span> ここで <span class="math inline">\(V=L^3\)</span>，<span class="math inline">\(\langle v_x^2\rangle\equiv N^{-1}\sum_j
+v_{x,j}^2\)</span> である．速度の二乗には <span class="math display">\[v^2=v_x^2+v_y^2+v_z^2\]</span>
+が成り立つ．気体に特定の運動方向がないなら各方向の平均は同じなので，
+<span class="math display">\[\langle v_x^2\rangle=\langle
+v_y^2\rangle=\langle v_z^2\rangle,
+\quad \langle v^2\rangle=3\langle v_x^2\rangle.\]</span> したがって，
+</p><div class="equation-line"><div class="equation-body"><span class="math display">\[P=\frac{Nm}{3V}\langle v^2\rangle.\]</span></div><span class="equation-number">(3.3)</span></div><p>
+この式は<strong>質量・速度・粒子数から圧力を求める式</strong>であり，まだ温度は登場していない．<span class="math inline">\(\langle\ \rangle\)</span>
+は粒子全体の平均を表す．壁が受ける力を面積で割るから「圧力」になるのである．</p>
+<p>次に，この<strong>古典理想気体</strong>を熱平衡状態に置いて温度と運動エネルギーを結ぶ．<strong>熱平衡</strong>とは，粒子間の衝突・エネルギー交換が進み，温度や速度分布などの巨視的な量が時間的に変わらなくなった状態である．「古典的」とは量子統計の効果を無視できる条件をいう（単に光速より遅いという意味ではない）．</p>
+<p><strong>エネルギー等分配則</strong>は，非相対論的な古典気体の熱平衡で，エネルギーが二乗の形をとる独立な運動成分には平均
+<span class="math inline">\(k_{\rm B}T/2\)</span>
+ずつが割り当てられるという結果である．これはボルツマン因子 <span class="math inline">\(e^{-E/(k_{\rm B}T)}\)</span>
+に従う速度分布から求められる．例えば <span class="math inline">\(x\)</span> 方向なら，<span class="math inline">\(E_x=mv_x^2/2\)</span> であり，正規分布の積分から
+<span class="math inline">\(\langle E_x\rangle=k_{\rm B}T/2\)</span>
+となる．<span class="math inline">\(x,y,z\)</span> の3方向を足すと，
+<span class="math display">\[\frac{1}{2}m\langle
+v_x^2\rangle=\frac{1}{2}k_{\rm B}T,
+\qquad
+\frac{1}{2}m\langle v^2\rangle=\frac{3}{2}k_{\rm B}T.\]</span>
+したがって <span class="math display">\[P=\frac{1}{3}\frac{N}{V}m\langle
+v^2\rangle
+=\frac{1}{3}\frac{N}{V}(3k_{\rm B}T)
+=\frac{N}{V}k_{\rm B}T,\]</span> 両辺に <span class="math inline">\(V\)</span> を掛けると <span class="math inline">\(PV=Nk_{\rm B}T\)</span>
+が得られる．ここでの<strong>重心の並進運動</strong>とは，分子全体（複数の原子からなる分子であればその重心）が空間を移動する運動である．分子内部の回転や振動とは異なり，壁への並進運動量の輸送が圧力のもとになる．</p>
+<p><strong>混合気体の場合：</strong> 気体の種類を <span class="math inline">\(i\)</span>
+とすると，今導いた理想気体の状態方程式を<strong>各種類に一つずつ適用</strong>できるので，<span class="math inline">\(P_i=(N_i/V)k_{\rm B}T=n_i k_{\rm
+B}T\)</span>．全圧は各成分の分圧の和（ダルトンの法則）だから， <span class="math display">\[P=\sum_i P_i=\left(\sum_i n_i\right)k_{\rm
+B}T=nk_{\rm B}T.\]</span>
+つまり粒子の種類が複数でも，<strong>数えるのは自由粒子の総数</strong>である．</p>
+<h4 class="paragraph-title" id="粒子数密度の記号-n">粒子数密度の記号 <span class="math inline">\(n\)</span></h4>
+<p>直前で導いた <span class="math inline">\(PV=Nk_{\rm
+B}T\)</span>（上の式）の<strong>両辺を体積 <span class="math inline">\(V\)</span> で割る</strong>と <span class="math display">\[P=\frac{N}{V}k_{\rm B}T.\]</span>
+ここで<strong>粒子数密度</strong>を </p><div class="equation-line"><div class="equation-body"><span class="math display">\[n\equiv\frac{N}{V}\qquad [n]=\mathrm{m^{-3}}\
+\text{または}\ \mathrm{cm^{-3}}\]</span></div><span class="equation-number">(3.4)</span></div><p> と定義すれば， </p><div class="equation-line"><div class="equation-body"><span class="math display">\[P=nk_{\rm B}T\]</span></div><span class="equation-number">(3.5)</span></div><p> となる．天体物理では記号
+<span class="math inline">\(n\)</span>
+を<strong>単位体積あたりの自由粒子数</strong>に使うことが多い．モル表示の理想気体の式
+<span class="math inline">\(PV=n_{\rm mol}R_{\rm u}T\)</span>
+にある<strong>モル数</strong> <span class="math inline">\(n_{\rm
+mol}\)</span> とは意味も単位も異なる．</p>
+<h4 class="paragraph-title" id="種類の気体定数の対応">3種類の気体定数の対応</h4>
+<p><strong>理想気体の状態方程式のモル表示</strong> </p><div class="equation-line"><div class="equation-body"><span class="math display">\[PV=n_{\rm mol}R_{\rm u}T\]</span></div><span class="equation-number">(3.6)</span></div><p>
+も同じ理想気体の状態方程式である．<strong>1 mol は約 <span class="math inline">\(6.022\times10^{23}\)</span>
+個の粒子</strong>を含み，これを表すのがアボガドロ定数 <span class="math inline">\(N_{\rm A}\)</span> である．モル数を <span class="math inline">\(n_{\rm mol}\)</span> と書くと， <span class="math display">\[N=n_{\rm mol}N_{\rm A},\qquad N_{\rm
+A}\simeq6.022\times10^{23}\,\mathrm{mol^{-1}}.\]</span> もとの <span class="math inline">\(PV=Nk_{\rm B}T\)</span> に代入すると， <span class="math display">\[PV=n_{\rm mol}(N_{\rm A}k_{\rm B})T.\]</span>
+括弧内を<strong>普遍気体定数 <span class="math inline">\(R_{\rm
+u}\)</span></strong> と呼ぶ： <span class="math display">\[\boxed{R_{\rm
+u}\equiv N_{\rm A}k_{\rm B}\simeq
+8.314\,\mathrm{J\,mol^{-1}\,K^{-1}}.}\]</span> このように，<span class="math inline">\(R_{\rm u}\)</span>
+は<strong>突然の仮定ではなく，粒子数表示をモル数表示に直したときの係数</strong>である．
+「<strong>普遍気体定数</strong>」の<strong>普遍</strong>とは，理想気体として扱える限り<strong>気体の種類に依存しない，1モルあたりの定数</strong>という意味である．</p>
+<p>ボルツマン定数 <span class="math inline">\(k_{\rm
+B}=1.380649\times10^{-23}\,\mathrm{J\,K^{-1}}\)</span>
+は，温度を<strong>粒子1個あたりのエネルギーの尺度</strong>に直す係数である．したがって，<strong>理想気体の状態方程式の文脈では「1粒子あたりの気体定数」と解釈することもできる</strong>．ただし
+<span class="math inline">\(k_{\rm B}\)</span>
+は気体に限らない普遍的な物理定数である．</p>
+<p><span class="math inline">\(k_{\rm B}\)</span> を水素原子1個の質量
+<span class="math inline">\(m_{\rm
+H}\simeq1.6735\times10^{-27}\,\mathrm{kg}\)</span>
+で割ると，粒子1個を数える代わりに<strong>単位質量あたり</strong>で数える換算係数になる：
+<span class="math display">\[{\mathcal{R}_g}\equiv
+\frac{k_{\rm B}}{m_{\rm H}}
+\simeq8.25\times10^3\,\mathrm{J\,kg^{-1}\,K^{-1}}.\]</span>
+実際の混合ガスでは粒子1個の平均質量が <span class="math inline">\(\bar\mu m_{\rm H}\)</span>
+なので，その比気体定数は <span class="math inline">\({\mathcal{R}_g}/\bar\mu\)</span>
+となる．したがって <span class="math inline">\(k_{\rm
+B}\)</span>（1粒子基準），<span class="math inline">\(R_{\rm
+u}\)</span>（1モル基準），<span class="math inline">\({\mathcal{R}_g}\)</span>（水素原子質量基準）は，<strong>同じ関係を別の基準で書いた係数</strong>である．</p>
+<p>次に，平均粒子質量を </p><div class="equation-line"><div class="equation-body"><span class="math display">\[\langle
+m\rangle=\bar{\mu}m_{\rm H}\]</span></div><span class="equation-number">(3.7)</span></div><p> と書く．ここで <span class="math inline">\(m_{\rm H}\)</span> は水素原子の質量，<span class="math inline">\(\bar{\mu}\)</span>
+は上で定義した無次元の平均分子量である．すると質量密度は </p><div class="equation-line"><div class="equation-body"><span class="math display">\[\rho=n\langle m\rangle=n\bar{\mu}m_{\rm
+H}\]</span></div><span class="equation-number">(3.8)</span></div><p> であり，したがって </p><div class="equation-line"><div class="equation-body"><span class="math display">\[n=\frac{\rho}{\bar{\mu}m_{\rm H}}\]</span></div><span class="equation-number">(3.9)</span></div><p>
+となる．これを <span class="math inline">\(P=nk_{\rm B}T\)</span>
+に代入すると， </p><div class="equation-line"><div class="equation-body"><span class="math display">\[P=\frac{k_{\rm
+B}}{\bar{\mu}m_{\rm H}}\rho T\]</span></div><span class="equation-number">(3.10)</span></div><p> となる．ここで </p><div class="equation-line"><div class="equation-body"><span class="math display">\[{\mathcal{R}_g}\equiv \frac{k_{\rm
+B}}{m_{\rm H}}\]</span></div><span class="equation-number">(3.11)</span></div><p> と置けば，式<a class="equation-ref" href="#eq:eos">(3.1)</a>が得られる．</p>
+<h4 class="paragraph-title" id="状態方程式の物理的意味">状態方程式の物理的意味</h4>
+<p><span class="math display">\[P=\frac{{\mathcal{R}_g}}{\bar{\mu}}\rho
+T
+=\frac{k_{\rm B}}{\bar{\mu}m_{\rm H}}\rho T.\]</span>
+星間ガスの圧力は，密度が高いほど，また温度が高いほど大きくなる．同じ質量密度とは，例えば
+<span class="math inline">\(1\,\mathrm{cm^3}\)</span>
+に含まれるガスの総質量を固定した比較である．軽い粒子で構成すれば粒子の数は多くなり，重い粒子で構成すれば少なくなる．<span class="math display">\[n=\frac{\rho}{\bar\mu m_{\rm H}},\qquad P=nk_{\rm
+B}T.\]</span> したがって <span class="math inline">\(\rho\)</span> と
+<span class="math inline">\(T\)</span> を固定して <span class="math inline">\(\bar\mu\)</span> を2倍にすると，<span class="math inline">\(n\)</span> は半分となり，<span class="math inline">\(P\)</span>
+も半分になる．これは異なる組成の気体を比べていることに相当する．重力不安定では，この圧力の空間的な差が重力による収縮に抵抗する．</p>
+<h2 class="chapter-title" id="chapter-04"><span aria-hidden="true" class="chapter-number">04</span>重力と圧力勾配力の比較</h2>
+<p>半径 <span class="math inline">\(R\)</span>
+の領域が重力収縮するかどうかは，内向きの自己重力と外向きの圧力勾配力の競争で決まる．ここでは，単位体積あたりの力を概算して比較している．</p>
+<h3 class="subsection-title" id="chapter-04-sub-01">重力の強さ</h3>
+<p>半径 <span class="math inline">\(R\)</span> の領域に質量 <span class="math inline">\(M\)</span> が含まれているとき，距離 <span class="math inline">\(R\)</span> 程度の場所での重力加速度は </p><div class="equation-line"><div class="equation-body"><span class="math display">\[g\sim \frac{GM}{R^2}\]</span></div><span class="equation-number">(4.1)</span></div><p>
+である．単位体積あたりの質量は <span class="math inline">\(\rho\)</span>
+なので，単位体積あたりの重力は </p><div class="equation-line"><div class="equation-body"><span class="math display">\[\rho g \sim
+\frac{GM\rho}{R^2}\]</span></div><span class="equation-number">(4.2)</span></div><p> となる．</p>
+<h3 class="subsection-title" id="chapter-04-sub-02">圧力勾配力の強さ</h3>
+<p>圧力が存在していても，四方から<strong>同じ圧力</strong>で押される小さなガス部分に正味の力はない．重要なのは<strong>小さなガス部分の両側にかかる圧力の違い</strong>である．</p>
+<p>断面積 <span class="math inline">\(A\)</span>，厚さ <span class="math inline">\(\Delta x\)</span>
+の小さなガス部分を考える．左面の圧力を <span class="math inline">\(P(x)\)</span>，右面の圧力を <span class="math inline">\(P(x+\Delta x)\)</span> とすると，<span class="math inline">\(x\)</span> 方向の正味の力は <span class="math display">\[F_x=P(x)A-P(x+\Delta x)A.\]</span> ここで <span class="math inline">\(\partial P/\partial x\)</span> は<strong><span class="math inline">\(x\)</span>
+を少し変えたときの圧力の変化率</strong>を表す偏微分である．微分の定義（一次のテイラー展開）から
+<span class="math display">\[P(x+\Delta x)\simeq P(x)+\frac{\partial
+P}{\partial x}\Delta x,\]</span> したがって <span class="math display">\[F_x\simeq P(x)A-\left[P(x)+\frac{\partial
+P}{\partial x}\Delta x\right]A
+=-A\Delta x\frac{\partial P}{\partial x}.\]</span> 体積 <span class="math inline">\(A\Delta x\)</span> で割れば <span class="math display">\[\frac{F_x}{A\Delta x}=-\frac{\partial P}{\partial
+x}.\]</span> 3次元では同様の式を各方向についてまとめて </p><div class="equation-line"><div class="equation-body"><span class="math display">\[\bm f_{P}=-\nabla P,
+\qquad
+\nabla P=\left(\frac{\partial P}{\partial x},\frac{\partial P}{\partial
+y},\frac{\partial P}{\partial z}\right)\]</span></div><span class="equation-number">(4.3)</span></div><p> と書く．<span class="math inline">\(\nabla\)</span>（ナブラ）は<strong>空間方向の微分をまとめた記号</strong>，<span class="math inline">\(\bm f_P\)</span>
+は<strong>単位体積あたりの力</strong>である．<span class="math inline">\(-\)</span>
+は圧力の高い側から低い側へ押されることを示す．単位も <span class="math display">\[[\nabla
+P]=\frac{\mathrm{Pa}}{\mathrm{m}}=\frac{\mathrm{N}}{\mathrm{m^3}}\]</span>
+である．圧力 <span class="math inline">\(1\,\mathrm{Pa}=1\,\mathrm{N/m^2}\)</span>
+は<strong>力／面積</strong>だから，さらに距離 <span class="math inline">\(\mathrm{m}\)</span> で割ると <span class="math inline">\(\mathrm{N/m^3}\)</span>（力／体積）になる．</p>
+<p>半径 <span class="math inline">\(R\)</span> 程度の距離で圧力が <span class="math inline">\(\Delta P\)</span>
+だけ変化するなら，代表的な圧力勾配は <span class="math inline">\(|\nabla
+P|\sim\Delta P/R\)</span>
+である．さらに，その圧力差の大きさを代表的な圧力 <span class="math inline">\(P\)</span> と同程度（<span class="math inline">\(\Delta P\sim P\)</span>）と見積もって </p><div class="equation-line"><div class="equation-body"><span class="math display">\[|\nabla P|\sim \frac{\Delta
+P}{R}\sim\frac{P}{R}\]</span></div><span class="equation-number">(4.4)</span></div><p> とする．これは <span class="math inline">\(R\)</span>
+の範囲の<strong>平均圧力</strong>ではなく，<strong>その距離での圧力変化率の大きさの見積もり</strong>である．圧力が完全に一定なら
+<span class="math inline">\(\Delta P=0\)</span>
+で，圧力勾配力もゼロになる．</p>
+<h4 class="paragraph-title" id="二つの力の比較">二つの力の比較</h4>
+<p>重力については，質量 <span class="math inline">\(M\)</span>
+が作る加速度 <span class="math inline">\(GM/R^2\)</span>
+に単位体積あたりの質量 <span class="math inline">\(\rho\)</span>
+をかける．圧力については，代表的な圧力変化 <span class="math inline">\(\Delta P\sim P\)</span> を長さ <span class="math inline">\(R\)</span> で割る．このようにして得た <span class="math inline">\(GM\rho/R^2\)</span> と <span class="math inline">\(P/R\)</span>
+は，いずれも単位体積あたりの力なので直接比較できる．</p>
+<p>この概算で重力が圧力勾配力を上回ることは，収縮しやすい領域の目安になる．オーダーの比較として，
+</p><div class="equation-line"><div class="equation-body"><span class="math display">\[\frac{GM\rho}{R^2}&gt;\frac{P}{R}\]</span></div><span class="equation-number">(4.5)</span></div><p>
+すなわち </p><div class="equation-line"><div class="equation-body"><span class="math display">\[\frac{GM}{R}&gt;\frac{P}{\rho}\]</span></div><span class="equation-number">(4.6)</span></div><p>
+を重力不安定の概算的な条件と考える．</p>
+<p>状態方程式をもう一度書くと， <span class="math display">\[P=\frac{{\mathcal{R}_g}}{\bar\mu}\rho
+T.\]</span> この両辺を <span class="math inline">\(\rho\)</span>
+で割れば， </p><div class="equation-line"><div class="equation-body"><span class="math display">\[\frac{P}{\rho}=\frac{{\mathcal{R}_g}}{\bar{\mu}}T\]</span></div><span class="equation-number">(4.7)</span></div><p>
+であるから， </p><div class="equation-line" id="eq:gravity-threshold"><div class="equation-body"><span class="math display">\[\frac{GM}{R}&gt;\frac{P}{\rho}=\frac{{\mathcal{R}_g}}{\bar{\mu}}T
+\]</span></div><span class="equation-number">(4.8)</span></div><p> となる．</p>
+<p>状態方程式 <span class="math display">\[P=\frac{{\mathcal{R}_g}}{\bar\mu}\rho
+T\]</span> を <span class="math inline">\(\rho\)</span> で割ると <span class="math inline">\(P/\rho=({\mathcal{R}_g}/\bar\mu)T\)</span>
+が得られる．温度が高いほどこの値は大きくなり，圧力による支持が強くなる．</p>
+<h2 class="chapter-title" id="chapter-05"><span aria-hidden="true" class="chapter-number">05</span>ジーンズ半径とジーンズ質量の概算</h2>
+<p>重力と圧力の比較条件、および球状領域の質量は，それぞれ <span class="math display">\[\frac{GM}{R}&gt;\frac{P}{\rho}=\frac{{\mathcal{R}_g}T}{\bar\mu},\qquad
+M=\frac{4}{3}\pi R^3\rho.\]</span>
+これらを組み合わせ，ちょうど重力と圧力が釣り合う<strong>概算の境目</strong>から臨界半径・質量を求める．</p>
+<div class="derivbox">
+<p>式<a class="equation-ref" href="#eq:gravity-threshold">(4.8)</a>の境界条件を等号で書くと，
+</p><div class="equation-line"><div class="equation-body"><span class="math display">\[\frac{GM}{R}=\frac{{\mathcal{R}_g}}{\bar{\mu}}T\]</span></div><span class="equation-number">(5.1)</span></div><p>
+である．ここに </p><div class="equation-line"><div class="equation-body"><span class="math display">\[M=\frac{4}{3}\pi
+R^3\rho\]</span></div><span class="equation-number">(5.2)</span></div><p> を代入すると， </p><div class="equation-line"><div class="equation-body"><span class="math display">\[\begin{aligned}
+\frac{G}{R}\left(\frac{4}{3}\pi
+R^3\rho\right)&amp;=\frac{{\mathcal{R}_g}}{\bar{\mu}}T,\\
+\frac{4}{3}\pi G\rho
+R^2&amp;=\frac{{\mathcal{R}_g}}{\bar{\mu}}T.
+\end{aligned}\]</span></div><span class="equation-number">(5.3–5.4)</span></div><p>
+係数を1のオーダーで評価する概算では，臨界半径の代表スケールを </p><div class="equation-line" id="eq:rj-order"><div class="equation-body"><span class="math display">\[R_J=\left(\frac{{\mathcal{R}_g}T}{4\pi
+G\bar{\mu}\rho}\right)^{1/2}
+\]</span></div><span class="equation-number">(5.5)</span></div><p> と表す．</p>
+</div>
+<p><strong>係数についての検算：</strong>上の等号を<strong>文字通り</strong>解くと
+<span class="math display">\[R_{\rm
+crit}=\left(\frac{3{\mathcal{R}_g}T}{4\pi
+G\bar\mu\rho}\right)^{1/2}\]</span> となり，上の概算的な <span class="math inline">\(R_J\)</span> とは <span class="math inline">\(\sqrt{3}\)</span> だけ異なる．出発点が <span class="math inline">\(\sim\)</span>
+による力の<strong>オーダー評価</strong>であるため，数値係数まで厳密に定まるわけではない．以下でも，臨界スケールの温度・密度依存性を中心に考える．</p>
+<p>この <span class="math inline">\(R_J\)</span>
+を概算的なジーンズ半径と呼ぶ．<span class="math inline">\(R_J\)</span>
+と同程度以上のスケールでは，自己重力が圧力支持に勝ちやすくなる．ただし，ここでの閾値の数値係数はオーダー評価からは確定しない．</p>
+<p>ジーンズ質量は，半径 <span class="math inline">\(R_J\)</span>
+の球の中に含まれる質量として定義される．</p>
+<div class="derivbox">
+<div class="equation-line"><div class="equation-body"><span class="math display">\[\begin{aligned}
+M_J&amp;=\frac{4}{3}\pi R_J^3\rho \\
+&amp;=\frac{4}{3}\pi\rho\left(\frac{{\mathcal{R}_g}T}{4\pi
+G\bar{\mu}\rho}\right)^{3/2}.
+\end{aligned}\]</span></div><span class="equation-number">(5.6–5.7)</span></div><p> これを整理すると， </p><div class="equation-line" id="eq:mj-order"><div class="equation-body"><span class="math display">\[M_J=\left(\frac{{\mathcal{R}_g}^3T^3}{36\pi
+G^3\bar{\mu}^3\rho}\right)^{1/2}
+\]</span></div><span class="equation-number">(5.8)</span></div><p> となる．</p>
+</div>
+<div class="takehome">
+<p>ジーンズ質量の最も重要な依存性は </p><div class="equation-line"><div class="equation-body"><span class="math display">\[M_J\propto T^{3/2}\rho^{-1/2}\]</span></div><span class="equation-number">(5.9)</span></div><p>
+である．高温ガスは圧力が強いため，大きな質量でないと崩壊できない．高密度ガスは重力が強いため，小さな質量でも崩壊できる．</p>
+</div>
+<h2 class="chapter-title" id="chapter-06"><span aria-hidden="true" class="chapter-number">06</span>音速を使ったジーンズ条件の表現</h2>
+<p>ここでは， </p><div class="equation-line"><div class="equation-body"><span class="math display">\[c_s^2=\frac{{\mathcal{R}_g}T}{\bar{\mu}}\]</span></div><span class="equation-number">(6.1)</span></div><p>
+で定義されるガスの音速 <span class="math inline">\(c_s\)</span>
+を用いて，ジーンズ半径とジーンズ質量をよりすっきり書いている．</p>
+<h3 class="subsection-title" id="chapter-06-sub-01">音速と圧力による復元力</h3>
+<p><strong>音波の伝播：</strong>ガスの一部を少し圧縮すると，そこだけ密度と圧力が増える．隣の領域より圧力が高くなるので，周囲を押して次の場所を圧縮する．この連鎖が音波である．<strong>密度が少し変わったとき，圧力がどれだけ増えるか</strong>が，音波の速さを決める．</p>
+<p>流体の連続の式と運動方程式を，重力を無視して微小な変化について整理すると，密度のむらは
+<span class="math display">\[\frac{\partial^2\delta\rho}{\partial t^2}
+=\left(\frac{\partial P}{\partial\rho}\right)_{\rm path}
+\nabla^2\delta\rho\]</span>
+という波動方程式に従う．通常の波動方程式の係数は「伝播速度の二乗」なので，
+</p><div class="equation-line"><div class="equation-body"><span class="math display">\[c_s^2=\left(\frac{\partial
+P}{\partial\rho}\right)_{\rm path}\]</span></div><span class="equation-number">(6.2)</span></div><p> である．下付きの <span class="math inline">\(\mathrm{path}\)</span>
+は，その小さな圧縮が等温か断熱かなどの<strong>熱的条件</strong>を指定することを意味する．</p>
+<p>ここでは，放射冷却により小さな圧縮がほぼ等温で進むとする．状態方程式<a class="equation-ref" href="#eq:eos">(3.1)</a>を再び書くと， <span class="math display">\[P=\frac{{\mathcal{R}_g}}{\bar{\mu}}\rho
+T.\]</span> なので， </p><div class="equation-line"><div class="equation-body"><span class="math display">\[\left(\frac{\partial
+P}{\partial
+\rho}\right)_T=\frac{{\mathcal{R}_g}T}{\bar{\mu}}.\]</span></div><span class="equation-number">(6.3)</span></div><p>
+したがって， </p><div class="equation-line"><div class="equation-body"><span class="math display">\[c_s^2=\frac{{\mathcal{R}_g}T}{\bar{\mu}}=\frac{P}{\rho}\]</span></div><span class="equation-number">(6.4)</span></div><p>
+となる．</p>
+<div class="warnbox">
+<p>ここで使っているのは<strong>等温音速</strong> <span class="math inline">\(c_{\rm iso}^2=(\partial
+P/\partial\rho)_T=P/\rho\)</span> である．断熱音速なら <span class="math display">\[c_{\rm ad}^2=\left(\frac{\partial
+P}{\partial\rho}\right)_S
+=\gamma\frac{P}{\rho},\qquad \gamma\equiv\frac{C_P}{C_V}&gt;1\]</span>
+となる．<span class="math inline">\(\gamma\)</span>
+は<strong>定圧比熱と定積比熱の比</strong>（比熱比）であり，第10.1節で詳しく扱う．「断熱」とは，圧縮しても周囲と熱をやり取りしないという意味である．星間雲の初期収縮では放射冷却が効くため，等温近似がよく使われる．</p>
+</div>
+<h3 class="subsection-title" id="chapter-06-sub-02">ジーンズ半径・質量の音速表示</h3>
+<p>概算的なジーンズ半径は， <span class="math display">\[R_J=\left(\frac{{\mathcal{R}_g}T}{4\pi
+G\bar\mu\rho}\right)^{1/2}.\]</span> この式の分数は <span class="math display">\[\frac{{\mathcal{R}_g}T}{4\pi
+G\bar\mu\rho}
+=\frac{1}{4\pi
+G\rho}\underbrace{\left(\frac{{\mathcal{R}_g}T}{\bar\mu}\right)}_{c_s^2}\]</span>
+と分けて考える．<strong>分子だけを見るのではなく，<span class="math inline">\({\mathcal{R}_g}T/\bar\mu\)</span>
+というまとまり</strong>を <span class="math inline">\(c_s^2\)</span>
+に置き換えると， </p><div class="equation-line" id="eq:rj-sound"><div class="equation-body"><span class="math display">\[R_J=\left(\frac{c_s^2}{4\pi G\rho}\right)^{1/2}
+\]</span></div><span class="equation-number">(6.5)</span></div><p> となる．</p>
+<p>ジーンズ質量の概算式は， <span class="math display">\[M_J=\left(\frac{{\mathcal{R}_g}^3T^3}{36\pi
+G^3\bar\mu^3\rho}\right)^{1/2}.\]</span> ここでは，<span class="math inline">\({\mathcal{R}_g}^3T^3/\bar\mu^3\)</span>
+が <span class="math inline">\({\mathcal{R}_g}T/\bar\mu\)</span>
+の3乗であることを用いる： </p><div class="equation-line"><div class="equation-body"><span class="math display">\[\frac{{\mathcal{R}_g}^3T^3}{\bar{\mu}^3}=\left(\frac{{\mathcal{R}_g}T}{\bar{\mu}}\right)^3=(c_s^2)^3=c_s^6\]</span></div><span class="equation-number">(6.6)</span></div><p>
+なので， </p><div class="equation-line" id="eq:mj-sound"><div class="equation-body"><span class="math display">\[M_J=\left(\frac{c_s^6}{36\pi
+G^3\rho}\right)^{1/2}
+\]</span></div><span class="equation-number">(6.7)</span></div><p> となる．</p>
+<h4 class="paragraph-title" id="音速のべき乗と質量の依存性">音速のべき乗と質量の依存性</h4>
+<p><span class="math inline">\(M_J\)</span> は <span class="math inline">\(T^{3/2}\)</span> に比例する．一方，<span class="math inline">\(c_s^2\propto T\)</span> なので，<span class="math inline">\(T^3\propto c_s^6\)</span>
+となる．質量の式で平方根を取れば，結局 <span class="math display">\[M_J\propto c_s^3\rho^{-1/2}\]</span>
+という依存性が得られる．</p>
+<h2 class="chapter-title" id="chapter-07"><span aria-hidden="true" class="chapter-number">07</span>密度ゆらぎの線形解析（発展事項）</h2>
+<p>ここまでの導出は，半径 <span class="math inline">\(R\)</span>
+のガス塊を想像した概算である．一方，より定量的な線形解析では，一様なガスに小さな密度ゆらぎを与え，そのゆらぎが時間とともに成長するかどうかを流体方程式から調べる方法である．</p>
+<h3 class="subsection-title" id="chapter-07-sub-01">小さな密度ゆらぎを与える</h3>
+<p><strong>一様背景</strong>とは，まずガスの密度・圧力が<strong>場所によらず同じ</strong>で，巨視的には静止しているという出発状態のこと．この仮想的な状態に小さなむらを加え，その<strong>差分だけ</strong>の成長を調べる．（無限一様な自己重力場の背景重力は，局所的なゆらぎの解析で差し引いて扱う．）
+</p><div class="equation-line"><div class="equation-body"><span class="math display">\[\rho=\rho_0,
+\qquad
+P=P_0,
+\qquad
+\boldsymbol{v}=0\]</span></div><span class="equation-number">(7.1)</span></div><p> に，微小なゆらぎ </p><div class="equation-line"><div class="equation-body"><span class="math display">\[\rho=\rho_0+\delta\rho,
+\qquad
+P=P_0+\delta P,
+\qquad
+\boldsymbol{v}=\delta\boldsymbol{v}\]</span></div><span class="equation-number">(7.2)</span></div><p> を加える．ここで <span class="math inline">\(\delta\rho\)</span>
+などは十分小さいと仮定し，<span class="math inline">\(\delta\rho\,\delta\boldsymbol{v}\)</span>
+のような二次以上の項を捨てる．これが線形化である．</p>
+<p>使う基本方程式は次の3つである．<strong>詳しい解法より，どの物理法則を使っているか</strong>を押さえればよい．
+</p><div class="equation-line"><div class="equation-body"><span class="math display">\[\begin{aligned}
+\frac{\partial\rho}{\partial t}+\nabla\cdot(\rho\boldsymbol{v})&amp;=0,
+&amp;&amp;\text{（連続の式：質量保存）}\\
+\frac{\partial\boldsymbol{v}}{\partial t}+
+(\boldsymbol{v}\cdot\nabla)\boldsymbol{v}&amp;=-\frac{1}{\rho}\nabla P-\nabla\Phi,
+&amp;&amp;\text{（運動方程式：圧力＋重力）}\\
+\nabla^2\Phi&amp;=4\pi G\rho,
+&amp;&amp;\text{（ポアソン方程式：密度が重力を作る）}
+\end{aligned}\]</span></div><span class="equation-number">(7.3–7.5)</span></div><p> ここで <span class="math inline">\(\Phi\)</span>
+は重力ポテンシャルで，<span class="math inline">\(-\nabla\Phi\)</span>
+は重力加速度である．</p>
+<p>圧力のむらを密度のむらで書けるのは，<strong>状態方程式</strong>があるからである．等温気体では
+<span class="math inline">\(P=({\mathcal{R}_g}T/\bar\mu)\rho\)</span>
+なので，わずかな変化についても </p><div class="equation-line"><div class="equation-body"><span class="math display">\[\delta
+P=\left(\frac{\partial P}{\partial\rho}\right)_T\delta\rho
+=c_s^2\delta\rho\]</span></div><span class="equation-number">(7.6)</span></div><p>
+が成り立つ．これは<strong>密度が1%増えれば（等温なら）圧力も1%増える</strong>という関係である．</p>
+<p>小さな密度のむらは，まず<strong>サインカーブのような波</strong>として分解して考えることができる：
+</p><div class="equation-line"><div class="equation-body"><span class="math display">\[\delta\rho(\bm x,t)\propto
+\operatorname{Re}\!\left[e^{i(\boldsymbol{k}\cdot\boldsymbol{x}-\omega
+t)}\right].\]</span></div><span class="equation-number">(7.7)</span></div><p> ここで <span class="math inline">\(\boldsymbol{x}\)</span>
+は位置ベクトル，<span class="math inline">\(t\)</span> は時間，<span class="math inline">\(i\)</span> は虚数単位，<span class="math inline">\(\boldsymbol{k}\)</span>
+は波数ベクトル（波の進む向きと細かさ），<span class="math inline">\(k=|\boldsymbol{k}|\)</span>，<span class="math inline">\(\lambda=2\pi/k\)</span> は波長，<span class="math inline">\(\omega\)</span> は角振動数である．<span class="math inline">\(\operatorname{Re}\)</span>
+は複素数の<strong>実部</strong>で，<span class="math inline">\(\omega\)</span> が実数なら <span class="math inline">\(\cos(\boldsymbol{k}\cdot\boldsymbol{x}-\omega t)\)</span>
+という通常の振動である．不安定時には <span class="math inline">\(\omega\)</span>
+が虚数となるので，振幅の指数的増加を表せる．</p>
+<p>3つの方程式を小さいゆらぎについて整理し，速度・重力ポテンシャルのむらを消去すると，密度のむらだけの式が得られる：
+<span class="math display">\[\frac{\partial^2\delta\rho}{\partial t^2}
+=c_s^2\nabla^2\delta\rho+4\pi G\rho_0\delta\rho.\]</span>
+<strong>途中の計算の要点：</strong>連続の式の時間微分に運動方程式を代入し，<span class="math inline">\(\nabla^2\delta\Phi=4\pi G\delta\rho\)</span>
+を使う．上の波形に対しては <span class="math inline">\(\partial_t^2\mapsto-\omega^2\)</span>，<span class="math inline">\(\nabla^2\mapsto-k^2\)</span> なので， <span class="math display">\[-\omega^2\delta\rho
+=-c_s^2k^2\delta\rho+4\pi G\rho_0\delta\rho,\]</span> したがって </p><div class="equation-line"><div class="equation-body"><span class="math display">\[\omega^2=c_s^2k^2-4\pi G\rho_0.\]</span></div><span class="equation-number">(7.8)</span></div><p>
+これを<strong>分散関係</strong>という．分散関係とは，<strong>波の空間スケール（波数
+<span class="math inline">\(k\)</span>）と，時間的な変化（<span class="math inline">\(\omega\)</span>）を結ぶ式</strong>である．</p>
+<div class="summarybox">
+<p><span class="math inline">\(c_s^2k^2\)</span>
+は圧力による復元の働きで，密度の高い部分を押し広げて元に戻そうとする．一方，<span class="math inline">\(4\pi G\rho_0\)</span>
+は自己重力による増幅の働きである．<strong>少し密度が高い場所は，周囲のガスをより強く引き寄せる．するとさらに密度が上がり，引力も強まる</strong>という正のフィードバックが起こる．このため重力はむらを大きくする方向に働く．</p>
+</div>
+<h3 class="subsection-title" id="chapter-07-sub-02">ゆらぎが振動する条件と成長する条件</h3>
+<p>判断の出発点は，密度のむらが <span class="math inline">\(e^{-i\omega
+t}\)</span> の形で時間変化することにある：</p>
+<ul>
+<li><p><span class="math inline">\(\omega^2&gt;0\)</span>：<span class="math inline">\(\omega\)</span> は実数にできる．<span class="math inline">\(e^{-i\omega t}\)</span> の実部は <span class="math inline">\(\cos\omega t\)</span>
+だから，密度のむらは<strong>大きくならずに振動する</strong>（線形的に安定）．</p></li>
+<li><p><span class="math inline">\(\omega^2&lt;0\)</span>：<span class="math inline">\(\omega=\pm i s\)</span> と書ける（<span class="math inline">\(s&gt;0\)</span>）．すると <span class="math inline">\(e^{-i\omega t}=e^{\pm st}\)</span> となり，<span class="math inline">\(e^{st}\)</span>
+という<strong>時間とともに増大する解</strong>が現れる（不安定）．</p></li>
+</ul>
+<p><strong>境目</strong>は，振動を表す正の値と増大を表す負の値の切り替わりであるから
+<span class="math inline">\(\omega^2=0\)</span> と置く．</p>
+<p>境界条件は <span class="math inline">\(\omega^2=0\)</span> なので，
+</p><div class="equation-line"><div class="equation-body"><span class="math display">\[k_J^2=\frac{4\pi G\rho_0}{c_s^2}\]</span></div><span class="equation-number">(7.9)</span></div><p>
+が得られる．波数 <span class="math inline">\(k\)</span>
+が小さい，すなわち波長が長いゆらぎほど，圧力勾配が弱く，重力で成長しやすい．</p>
+<h3 class="subsection-title" id="chapter-07-sub-03">臨界波長・臨界質量と係数の扱い</h3>
+<p>まず分散関係の境目から <span class="math display">\[k_J^2=\frac{4\pi
+G\rho_0}{c_s^2}
+\quad\Longrightarrow\quad
+\lambda_J\equiv\frac{2\pi}{k_J}
+=\left(\frac{\pi c_s^2}{G\rho_0}\right)^{1/2}.\]</span>
+これが<strong>通常のジーンズ波長</strong>であり，波長 <span class="math inline">\(\lambda&gt;\lambda_J\)</span>
+のむらが成長する．さらに，「波長 <span class="math inline">\(\lambda_J\)</span>
+を直径とする球」の質量を取る標準的な定義なら， <span class="math display">\[M_{J,\mathrm{std}}\equiv\frac{4\pi}{3}\rho_0\left(\frac{\lambda_J}{2}\right)^3
+=\frac{\pi^{5/2}}{6}\frac{c_s^3}{G^{3/2}\rho_0^{1/2}}.\]</span>
+ここまでは<strong>分散関係から数学的に追える結果</strong>である．</p>
+<p>一方，ジーンズ半径・質量の数値係数は，どの長さを「半径」と呼び，どの体積に対応する質量を採用するかに依存する．異なる係数の表記を使う場合にも，
+extbf<span>半径と質量を同じ幾何学的領域に対応させる</span>必要がある．ここでは上の分散関係から得た
+<span class="math inline">\(\lambda_J\)</span>
+と，それを直径とする球の質量 <span class="math inline">\(M_{J,\mathrm{std}}\)</span>
+を，一貫した定義として用いる．温度・音速・密度への依存性は </p><div class="equation-line"><div class="equation-body"><span class="math display">\[R_J\propto c_s\rho_0^{-1/2},\qquad M_J\propto
+c_s^3\rho_0^{-1/2}\]</span></div><span class="equation-number">(7.10)</span></div><p> となる．</p>
+<div class="warnbox">
+<p>線形解析から一貫して求められる臨界波長は <span class="math inline">\(\lambda_J=(\pi c_s^2/G\rho_0)^{1/2}\)</span>
+である．その半波長を半径とする球の質量を <span class="math inline">\(M_J=(4\pi/3)\rho_0(\lambda_J/2)^3\)</span>
+と定義すれば，数値係数は上で導いた値に定まる．他の規約を採用する場合には，長さと質量の対応を明記する．</p>
+</div>
+<h2 class="chapter-title" id="chapter-08"><span aria-hidden="true" class="chapter-number">08</span>星間ガスの代表的なスケール</h2>
+<p>具体例として，二つのガス条件でジーンズ波長と質量を計算する．数密度
+<span class="math inline">\(n\)</span>
+はすべての自由粒子の数密度とし，質量密度は <span class="math inline">\(\rho=n\bar\mu m_{\rm H}\)</span>
+とする．下表は両方とも <span class="math inline">\(T=100\,\mathrm{K}\)</span>
+を仮定した<strong>数値例</strong>であり，分子ガスの行は比較的高温の例に相当する．</p>
+<div class="table-scroll" id="tab:jeans-scales">
+<table>
+<caption>統一した定義から求めたジーンズ波長とジーンズ質量の数値例．</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">ガス条件</th>
+<th style="text-align: center;"><span class="math inline">\(n\)</span>
+(<span class="math inline">\(\mathrm{cm^{-3}}\)</span>)</th>
+<th style="text-align: center;"><span class="math inline">\(T\)</span>
+(<span class="math inline">\(\mathrm{K}\)</span>)</th>
+<th style="text-align: center;"><span class="math inline">\(\bar\mu\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\lambda_J\)</span> (pc)</th>
+<th style="text-align: center;"><span class="math inline">\(M_{J,\mathrm{std}}\)</span> (<span class="math inline">\({M_\odot}\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\mathrm{H\,I}\)</span> ガス</td>
+<td style="text-align: center;"><span class="math inline">\(10^2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(100\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1.30\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(12\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2.9\times10^3\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">分子ガス（高温例）</td>
+<td style="text-align: center;"><span class="math inline">\(10^4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(100\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2.33\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0.67\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(9.1\times10^1\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>これらの条件ではジーンズ質量は恒星一個の質量より大きい．したがって，重力不安定を起こしたガス雲は，収縮の途中でより小さな塊に分かれる余地がある．実際の分裂の進み方は，冷却やガスの運動状態にも依存する．</p>
+<h2 class="chapter-title" id="chapter-09"><span aria-hidden="true" class="chapter-number">09</span>等温収縮とガス雲の分裂</h2>
+<p>最初に <span class="math inline">\(10^3\,{M_\odot}\)</span>
+程度のガス雲が収縮を始めるとする．収縮により密度は上がる．ただし初期段階ではガスは希薄で，放射に対して透明であるため，赤外線などによる放射冷却が効く．そのため温度はほとんど上がらず，等温的に収縮する．</p>
+<p>温度一定なら，式<a class="equation-ref" href="#eq:mj-order">(5.8)</a>の依存性から </p><div class="equation-line" id="eq:mj-isothermal"><div class="equation-body"><span class="math display">\[M_J\propto \rho^{-1/2}
+\]</span></div><span class="equation-number">(9.1)</span></div><p>
+である．つまり，密度が上がるほどジーンズ質量は小さくなる．</p>
+<div class="takehome">
+<p>等温収縮では，密度が上がるほど <span class="math inline">\(M_J\)</span>
+が小さくなる．したがって，最初の大きなガス塊は，より小さな塊へ分裂しやすくなる．これが
+fragmentation の基本的な理由である．</p>
+</div>
+<figure aria-label="巨大なガス雲が等温収縮し、ジーンズ質量が低下して分裂へ進む模式図" class="process-figure"><div class="process-flow">
+<span class="process-step">巨大なガス雲</span><span aria-hidden="true" class="process-arrow">→</span>
+<span class="process-step">等温収縮</span><span aria-hidden="true" class="process-arrow">→</span>
+<span class="process-step"><span class="math inline">\(M_J\)</span> 低下</span><span aria-hidden="true" class="process-arrow">→</span>
+<span class="process-step">分裂</span>
+</div><figcaption>密度上昇によって臨界質量が小さくなり、より小さい塊も重力不安定になる。</figcaption></figure>
+<p>重力不安定を引き起こす引金としては，星間雲同士の衝突，<span class="math inline">\(\mathrm{H\,II}\)</span>領域の境界での圧縮，超新星爆発の衝撃波，銀河渦状腕のポテンシャルなどが考えられる．共通しているのは，何らかの仕組みでガス密度を高め，局所的に重力不安定を起こしやすくする点である．</p>
+<h2 class="chapter-title" id="chapter-10"><span aria-hidden="true" class="chapter-number">10</span>断熱圧縮による温度上昇</h2>
+<p>収縮が進むと，分裂片の密度が十分高くなり，放射に対して不透明になる．すると圧縮で生じた熱を外へ逃がしにくくなり，収縮は<strong>断熱的</strong>になる．これは<strong>ガスを押し縮めても，生じた熱を十分に外へ逃がせない</strong>状態をいう．</p>
+<p>ここで登場する <span class="math inline">\(\gamma\)</span>
+は<strong>比熱比</strong>である： <span class="math display">\[\gamma\equiv\frac{C_P}{C_V},\qquad
+C_P:\ \text{圧力一定で温めるときの熱容量},\quad
+C_V:\ \text{体積一定で温めるときの熱容量}.\]</span>
+（詳しくは次の小節で説明する．）断熱変化では，温度と密度の間に </p><div class="equation-line" id="eq:adiabatic-law"><div class="equation-body"><span class="math display">\[T\propto \rho^{\gamma-1}
+\]</span></div><span class="equation-number">(10.1)</span></div><p> が成り立つ．</p>
+<div class="derivbox">
+<p>断熱とは <span class="math inline">\(\delta
+Q=0\)</span>（熱の出入りがない）ことである．気体が外へ <span class="math inline">\(P\,dV\)</span> だけ仕事をするなら，第一法則は
+<span class="math inline">\(\delta
+Q=dU+P\,dV=0\)</span>．一定量の理想気体では <span class="math inline">\(dU=C_V\,dT\)</span> だから， <span class="math display">\[C_V\,dT+P\,dV=0.\]</span> 理想気体の状態方程式
+<span class="math inline">\(PV=n_{\rm mol}R_{\rm u}T\)</span>（再掲）と
+<span class="math inline">\(C_P-C_V=n_{\rm mol}R_{\rm u}\)</span>
+を使うと， <span class="math display">\[\frac{dT}{T}=-(\gamma-1)\frac{dV}{V},\qquad
+\gamma\equiv\frac{C_P}{C_V}.\]</span> 積分して <span class="math inline">\(TV^{\gamma-1}=\mathrm{constant}\)</span>，さらに
+<span class="math inline">\(P\propto T/V\)</span> より </p><div class="equation-line"><div class="equation-body"><span class="math display">\[PV^\gamma=\mathrm{constant}\]</span></div><span class="equation-number">(10.2)</span></div><p>
+が得られる．（<span class="math inline">\(C_P,C_V\)</span>
+は一定と近似する．）一定質量のガス塊では <span class="math inline">\(\rho=M/V\)</span> なので，<span class="math inline">\(V\propto \rho^{-1}\)</span> である．したがって，
+</p><div class="equation-line"><div class="equation-body"><span class="math display">\[P(\rho^{-1})^\gamma=\mathrm{constant}\]</span></div><span class="equation-number">(10.3)</span></div><p>
+より， </p><div class="equation-line"><div class="equation-body"><span class="math display">\[P\propto \rho^\gamma\]</span></div><span class="equation-number">(10.4)</span></div><p>
+となる．一方，理想気体では <span class="math inline">\(P\propto \rho
+T\)</span> なので， </p><div class="equation-line"><div class="equation-body"><span class="math display">\[T\propto
+\frac{P}{\rho}\propto \rho^{\gamma-1}\]</span></div><span class="equation-number">(10.5)</span></div><p> が得られる．</p>
+</div>
+<h3 class="subsection-title" id="chapter-10-sub-01">定圧熱容量と定積熱容量</h3>
+<p>比熱比の定義は </p><div class="equation-line"><div class="equation-body"><span class="math display">\[\gamma=\frac{C_P}{C_V}.\]</span></div><span class="equation-number">(10.6)</span></div><p>
+どちらも，<strong>同じ質量（または同じ物質量）のガスの温度を1
+K上げるのに必要な熱量</strong>を表す．添字の <span class="math inline">\(P\)</span> は圧力一定，<span class="math inline">\(V\)</span> は体積一定の意味である．</p>
+<ul>
+<li><p><strong>定積熱容量 <span class="math inline">\(C_V\)</span>：</strong>
+固い容器で体積を変えずに温める場合．ガスは膨張できないため，外部に体積仕事をしない．加えた熱は内部エネルギーを増やすのに使われる．</p></li>
+<li><p><strong>定圧熱容量 <span class="math inline">\(C_P\)</span>：</strong>
+例えば動くピストンを一定の外圧で押さえて温める場合．温度上昇とともにガスは膨張し，ピストンを押し上げる仕事も行う．したがって同じ温度上昇には定積の場合より多くの熱が必要になる．</p></li>
+</ul>
+<p>理想気体1 molについて，第一法則 <span class="math inline">\(\delta
+Q=dU+P\,dV\)</span> と <span class="math inline">\(PV=R_{\rm
+u}T\)</span> から <span class="math display">\[C_P-C_V=R_{\rm
+u}&gt;0,\qquad \gamma=\frac{C_P}{C_V}&gt;1\]</span>
+が得られる．同じ単位（どちらもモル熱容量，またはどちらも比熱）を使って比を取る．</p>
+<div class="center table-scroll">
+<table>
+<caption>気体の種類と代表的な比熱比</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">気体の種類</th>
+<th style="text-align: left;">主な自由度</th>
+<th style="text-align: left;">代表的な比熱比 <span class="math inline">\(\gamma\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">単原子気体</td>
+<td style="text-align: left;">並進運動</td>
+<td style="text-align: left;"><span class="math inline">\(5/3\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">二原子分子気体</td>
+<td style="text-align: left;">並進運動＋回転運動</td>
+<td style="text-align: left;"><span class="math inline">\(7/5\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">等温的な実効状態</td>
+<td style="text-align: left;">冷却が十分強い</td>
+<td style="text-align: left;"><span class="math inline">\(\gamma_{\rm
+eff}\simeq 1\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>自由度の意味：</strong>
+並進運動は分子（または原子）の重心が3方向に動くこと，回転運動は二原子分子が向きを変えることをいう．内部エネルギーを蓄える自由度が多いほど，温度上昇に必要な
+<span class="math inline">\(C_V\)</span> が大きくなるため，<span class="math inline">\(\gamma=1+R_{\rm u}/C_V\)</span>
+は小さくなる．通常の非相対論的単原子気体は <span class="math inline">\(\gamma=5/3\)</span>，回転が有効な二原子分子気体は
+<span class="math inline">\(7/5\)</span>
+である（温度によって励起可能な自由度は変わる）．</p>
+<p><strong>「等温的な実効状態，<span class="math inline">\(\gamma_{\rm
+eff}\simeq1\)</span>」の意味：</strong>
+これは<strong>物質固有の断熱比熱比が1になる</strong>という意味ではない．放射冷却によって収縮中も
+<span class="math inline">\(T\simeq\mathrm{const.}\)</span> なら <span class="math inline">\(P\propto\rho\)</span> となるので，<span class="math inline">\(\gamma_{\rm eff}\equiv d\ln
+P/d\ln\rho\simeq1\)</span>
+と<strong>状態変化の傾き</strong>を表すことができる．つまり断熱比熱比
+<span class="math inline">\(\gamma\)</span> と実効指数 <span class="math inline">\(\gamma_{\rm eff}\)</span> は区別する．</p>
+<div class="warnbox">
+<p>二原子分子気体では回転自由度が有効な温度領域で <span class="math inline">\(\gamma=7/5\)</span> を用いる．単原子気体では <span class="math inline">\(\gamma=5/3\)</span>
+となる．これらは気体の内部自由度に対応する値である．</p>
+</div>
+<h2 class="chapter-title" id="chapter-11"><span aria-hidden="true" class="chapter-number">11</span>断熱段階におけるジーンズ質量の変化</h2>
+<p>ジーンズ質量の密度・温度依存性と断熱関係を組み合わせる．
+ジーンズ質量の比例関係は， </p><div class="equation-line"><div class="equation-body"><span class="math display">\[M_J\propto
+T^{3/2}\rho^{-1/2}\]</span></div><span class="equation-number">(11.1)</span></div><p> 断熱関係は， </p><div class="equation-line"><div class="equation-body"><span class="math display">\[T\propto \rho^{\gamma-1}\]</span></div><span class="equation-number">(11.2)</span></div><p> なので， </p><div class="equation-line"><div class="equation-body"><span class="math display">\[\begin{aligned}
+T^{3/2}&amp;\propto \left(\rho^{\gamma-1}\right)^{3/2}\\
+&amp;=\rho^{\frac{3}{2}(\gamma-1)}.
+\end{aligned}\]</span></div><span class="equation-number">(11.3–11.4)</span></div><p> したがって， </p><div class="equation-line"><div class="equation-body"><span class="math display">\[\begin{aligned}
+M_J&amp;\propto T^{3/2}\rho^{-1/2}\\
+&amp;\propto \rho^{\frac{3}{2}(\gamma-1)}\rho^{-1/2}\\
+&amp;=\rho^{\frac{3\gamma-3}{2}-\frac{1}{2}}\\
+&amp;=\rho^{(3\gamma-4)/2}.
+\end{aligned}\]</span></div><span class="equation-number">(11.5–11.8)</span></div><p>
+断熱段階におけるジーンズ質量の密度依存性が得られる．</p>
+<p>単原子気体で <span class="math inline">\(\gamma=5/3\)</span>
+とすると， </p><div class="equation-line"><div class="equation-body"><span class="math display">\[\frac{3\gamma-4}{2}
+=\frac{3\cdot(5/3)-4}{2}
+=\frac{1}{2},\]</span></div><span class="equation-number">(11.9)</span></div><p> したがって </p><div class="equation-line" id="eq:mj-adiabatic"><div class="equation-body"><span class="math display">\[M_J\propto \rho^{1/2}
+\]</span></div><span class="equation-number">(11.10)</span></div><p> となる．</p>
+<div class="summarybox">
+<p>等温段階では <span class="math display">\[M_J\propto
+\rho^{-1/2}\]</span>
+なので，密度が上がるほど分裂しやすくなる．断熱段階では，単原子気体の場合
+<span class="math display">\[M_J\propto \rho^{1/2}\]</span>
+となり，密度が上がるほどむしろジーンズ質量が大きくなる．そのため，それ以上の分裂は起きにくくなり，分裂片は星へ向かう．</p>
+</div>
+<p>一般に </p><div class="equation-line"><div class="equation-body"><span class="math display">\[M_J\propto
+\rho^{(3\gamma-4)/2}\]</span></div><span class="equation-number">(11.11)</span></div><p>
+なので，<strong>この単純なジーンズ質量の見積もりでは</strong>，分裂が続くか止まりやすいかは
+<span class="math inline">\(\gamma=4/3\)</span>
+を境に変わる．現実の星形成では，乱流・磁場・回転・円盤なども分裂に影響するので，<span class="math inline">\(\gamma&gt;4/3\)</span>
+はあらゆる分裂を厳密に禁止する条件ではない．</p>
+<div class="center table-scroll">
+<table>
+<caption>断熱段階におけるジーンズ質量の密度依存性</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">条件</th>
+<th style="text-align: left;"><span class="math inline">\(M_J\)</span>
+の密度依存性</th>
+<th style="text-align: left;">物理的意味</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\gamma&lt;4/3\)</span></td>
+<td style="text-align: left;">密度上昇で <span class="math inline">\(M_J\)</span> が小さくなる</td>
+<td style="text-align: left;">分裂しやすい</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(\gamma=4/3\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(M_J\)</span>
+がほぼ一定</td>
+<td style="text-align: left;">境界的</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\gamma&gt;4/3\)</span></td>
+<td style="text-align: left;">密度上昇で <span class="math inline">\(M_J\)</span> が大きくなる</td>
+<td style="text-align: left;">分裂しにくい</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 class="chapter-unnumbered chapter-title" id="closing">おわりに</h2>
+<p>星間ガスの自己重力と圧力支持の競争は，ジーンズ半径・ジーンズ質量という特徴的なスケールを与える．初期の等温収縮では密度上昇とともにジーンズ質量が小さくなり，より小さなガス塊への分裂が起こりやすくなる．十分高密度になって断熱的な収縮に移ると温度上昇によってジーンズ質量が増大し，分裂が抑えられやすくなる．</p>
+<section class="reference-block" id="references"><h2 class="references-title" id="references-heading">参考文献</h2><ol class="reference-list"><li>福江 純『完全独習 現代の宇宙物理学』講談社（KS物理専門書），2015年．</li><li>S. W. Stahler and F. Palla, <em>The Formation of Stars</em>, Wiley-VCH, 2004.</li><li>C. F. McKee and E. C. Ostriker, “Theory of Star Formation,” <em>Annual Review of Astronomy and Astrophysics</em>, 45, 565–687 (2007).</li><li>F. Reif, <em>Fundamentals of Statistical and Thermal Physics</em>, McGraw-Hill, 1965.</li></ol></section>
+</article></div>
+    <nav class="astronomy-note-article-return" aria-label="ホームへの案内"><a href="../../">← ホームに戻る</a> <span aria-hidden="true">　·　</span> <a href="#top">ページ冒頭へ戻る ↑</a></nav>
+  </main>
+  <footer class="site-footer"><div class="footer-inner"><p class="copyright"><span aria-hidden="true">©</span> Jun-ichi Nakashima</p></div></footer>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "af9dc6af89aa4a5196e4b3d14166c4e8"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
