@@ -2,7 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://postagbstarjp.github.io/education/astronomical-data-analysis/</loc></url>
   <url><loc>https://postagbstarjp.github.io/education/astronomy-frontiers/</loc></url>
-  <url><loc>https://postagbstarjp.github.io/education/lecture-notes/jeans-instability/</loc></url>
   <url><loc>https://postagbstarjp.github.io/education/modern-astrophysics/</loc></url>
   <url><loc>https://postagbstarjp.github.io/education/radio-astronomy/</loc></url>
   <url><loc>https://postagbstarjp.github.io/</loc></url>
@@ -15,6 +14,7 @@
   <url><loc>https://postagbstarjp.github.io/research/research-program/</loc></url>
   <url><loc>https://postagbstarjp.github.io/research/sio-linewidth-agb-rsg/</loc></url>
   <url><loc>https://postagbstarjp.github.io/research/water-fountain-candidates/</loc></url>
+  <url><loc>https://postagbstarjp.github.io/notes/jeans-instability/</loc></url>
   <url><loc>https://postagbstarjp.github.io/paper-watch/</loc></url>
   <url><loc>https://postagbstarjp.github.io/paper-watch/shock-chromosphere-mass-transfer/</loc></url>
   <url><loc>https://postagbstarjp.github.io/paper-watch/ngc6302-pah-formation/</loc></url>
