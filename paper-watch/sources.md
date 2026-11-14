@@ -161,3 +161,75 @@
 - 公式実装：https://github.com/tnakazato/priism 、ASCL：https://ascl.net/2006.002 。
 - 関連：https://github.com/ikeda46/priism-selfcal 。
 - 成果はALMAアーカイブの円盤連続波画像の再解析。3次元分子線対応等は将来の取り組みとして区別。画像転載の個別条件を確定していないため、ニュース画像は複製せずリンクのみ。
+
+## 2026年11月14日公開の6記事
+
+確認日：2026年11月14日。図のライセンスはそれぞれの取得元に基づく。
+
+### 星の光をほどいて、失われる物質の量を測る
+
+- Hamidreza Mahani, Narges Rostami, Atefeh Javadi, Hedieh Abdollahi, Jacco Th. van Loon, Francisca Kemper, Alvaro Sanchez-Monge（2026）, *SEDust: A DUSTY-Based SED-Fitting Pipeline for Dust and Mass-Loss from AGB and LPV Stars*。[arXiv:2611.09086v1](https://arxiv.org/abs/2611.09086v1)（投稿：2026年11月6日、UTC）。ApJ掲載受理（arXiv著者コメント）。
+- 採用：[原著 Figure 2](https://arxiv.org/html/2611.09086v1#S3.F2)。著者による観測測光とモデルの比較図。図1の銀河写真は採用せず、図2のキャプション・図内に第三者図版のクレジットや転載表示はない。 [arXiv v1の版別表示](https://arxiv.org/abs/2611.09086v1)は[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
+- 加工と掲載先：原著HTMLの図ファイルを無改変で使用。1000 × 800 px、`sedust-agb-mass-loss/images/sed-fits.png`。記事の図キャプションに著者、年、図番号、原著とライセンスへのリンク、加工内容を表示。
+- 原著照合：§II–V・表3で1,610天体、8波長帯、合計率 (3.70 ± 1.16) × 10⁻³ 太陽質量/年、LPV法とDESKとの差、ガス対塵の比200を照合。
+
+### 恒星のスペクトルを、三次元の大気から計算する
+
+- Richard Hoppe, Maria Bergemann, Philipp Eitner, Ãke Nordlund, Jorrit Leenaarts, Andrius Popovas, Nicholas Storm（2026）, *The OpenMULTI3D stellar analysis package. A 3D non-LTE spectrum synthesis code for AFGKM-type stars within the DISPATCH framework*。[arXiv:2611.09370v1](https://arxiv.org/abs/2611.09370v1)（投稿：2026年11月6日、UTC）。A&A掲載受理（arXiv著者コメント）。
+- 採用：[原著 Figure 4](https://arxiv.org/html/2611.09370v1#S3.F4)。著者による合成スペクトルの比較。MARCSとM3DISは計算モデルの出典。図・キャプションに第三者図版の転載表示はない。 [arXiv v1の版別表示](https://arxiv.org/abs/2611.09370v1)は[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
+- 加工と掲載先：原著HTMLの図ファイルを無改変で使用。971 × 1091 px、`openmulti3d-stellar-spectra/images/balmer-lines.svg`。記事の図キャプションに著者、年、図番号、原著とライセンスへのリンク、加工内容を表示。
+- 原著照合：原著のコード解説と図4・5でDISPATCH、AFGKM型、金属欠乏赤色巨星のバルマー線と時間変動の計算を照合。
+
+### とても重い白色矮星は、どのように生まれたのか
+
+- Gracyn Jewett, Mukremin Kilic, Pierre Bergeron, Alex Gleason, Warren R. Brown, Manuel Barrientos, Matthew J. Green, Simon Blouin, Vikram S. Dhillon, Stuart Littlefair（2026）, *Constraining the Merger Fraction and the Upper Mass Limit of Ultramassive White Dwarfs*。[arXiv:2611.08736v1](https://arxiv.org/abs/2611.08736v1)（投稿：2026年11月5日、UTC）。ApJ掲載受理（arXiv著者コメント）。
+- 採用：[原著 Figure 13](https://arxiv.org/html/2611.08736v1#S6.F13)。著者が今回の観測、先行標本、連星進化の予測を一つの図に描いたもの。キャプションの先行文献はデータ・モデルの出典であり、図・キャプションに第三者図版の転載表示はない。 [arXiv v1の版別表示](https://arxiv.org/abs/2611.08736v1)は[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
+- 加工と掲載先：原著HTMLの図ファイルを無改変で使用。576 × 384 px、`ultramassive-white-dwarf-mergers/images/merger-fraction.svg`。記事の図キャプションに著者、年、図番号、原著とライセンスへのリンク、加工内容を表示。
+- 原著照合：概要・標本選定・合体割合の節および図13で、293候補、未分類259天体の97%の分光追観測、53%（−6/+7ポイント）、中心組成に応じた最大質量約1.33～1.35太陽質量を照合。
+
+### 銀河の名前を探す先に、論文の「議論」を集める
+
+- Nolan Koblischke, Jo Bovy（2026）, *Extracting Published Discussions of 13,616 Galaxies with Language Models*。[arXiv:2611.13118v1](https://arxiv.org/abs/2611.13118v1)（投稿：2026年11月9日、UTC）。WASP 2026受理（arXiv著者コメント）。
+- 採用：[原著 Figure 1 の右上部分](https://arxiv.org/html/2611.13118v1#S0.F1)。原著図1の右上にある著者らのサービスが生成した要約欄のみ採用。§4が出典として挙げるDESI Legacy Imaging Surveys DR10、Pan-STARRS、DSS2の銀河画像、および下段の第三者論文の引用文はすべて掲載範囲外。原著に他の番号付き図はない。 [arXiv v1の版別表示](https://arxiv.org/abs/2611.13118v1)は[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
+- 加工と掲載先：原著図の右上の要約欄を切り出し、可逆WebPに変換。664 × 276 px、`galaxywiki-llm-literature/images/literature-summary.webp`。記事の図キャプションに著者、年、図番号、原著とライセンスへのリンク、加工内容を表示。
+- 原著照合：概要と手法・結果で156,006本、18,641本、44,332件、13,616銀河を照合。原文照合と天体の同定精度を区別し、抽出条件は3文以上とした。
+
+### 伴星がいても、星の脈動は変わらないのか
+
+- Gabriel Tomassini, Andrea Chiavassa, Bernd Freytag, Eric Lagadec（2026）, *AGB Atmospheres in Binary Environments: A First Step with CO5BOLB*。[arXiv:2611.17125v1](https://arxiv.org/abs/2611.17125v1)（投稿：2026年11月12日、UTC）。プレプリント · A&A投稿（arXiv著者コメント）。
+- 採用：[原著 Figure 7](https://arxiv.org/html/2611.17125v1#S3.F7)。著者によるCO5BOLDシミュレーションの密度比。図・キャプションに第三者図版の転載表示はない。 [arXiv v1の版別表示](https://arxiv.org/abs/2611.17125v1)は[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
+- 加工と掲載先：原著HTMLの図ファイルを無改変で使用。482 × 611 px、`binary-agb-atmospheres-co5bold/images/density-anisotropy.svg`。記事の図キャプションに著者、年、図番号、原著とライセンスへのリンク、加工内容を表示。
+- 原著照合：概要・§2.5・§3.2・図7–9で、脈動と密度分布の違い、重い伴星モデルでの半径区間平均約5倍、伴星が計算領域外、コリオリ力と塵を含まない点を照合。
+
+### AIが書いた科学計算コードを、何によって正しいと判断するのか
+
+- Jo Bovy（2026）, *galpy with differentiable, accelerated backends: galactic dynamics in jax and PyTorch*。[arXiv:2611.14614v1](https://arxiv.org/abs/2611.14614v1)（投稿：2026年11月10日、UTC）。プレプリント · 査読・掲載状況は未確認。
+- 採用：[原著 Figure 8](https://arxiv.org/html/2611.14614v1#S10.F8)。原著の図7はニューラルネットによる逆変換。原稿の説明に対応する図8を採用。arXiv v1は[非独占配布ライセンス](https://arxiv.org/licenses/nonexclusive-distrib/1.0/)。図の取得元は [Jo Bovyの公式リポジトリに収録された図8のPDF](https://github.com/jobovy/galpy-backends/blob/61ff6e84423b9f685a221f91b96ff4b03f1a8cea/paper/figures/g9_variational_validity/g9_variational_validity.pdf)。ルートの[MIT License](https://github.com/jobovy/galpy-backends/blob/61ff6e84423b9f685a221f91b96ff4b03f1a8cea/LICENSE)とREADMEの適用範囲を確認。著者の計算結果を描いた図で、図・キャプションに第三者図版の転載表示はない。
+- 加工と掲載先：公式リポジトリの図PDFを288 dpiで描画し、可逆WebPに変換。2016 × 1498 px、`galpy-ai-coding-validation/images/variational-checks.webp`。記事の図キャプションに著者、年、図番号、原著とライセンスへのリンク、加工内容を表示。
+- 原著照合：概要・§II・付録Aと図8、著者リポジトリの図8キャプションで、速度比較の条件、NumPy互換性の例外、有限差分と変分方程式の差を照合。
+
+### galpyの図8に適用されるMITライセンス
+
+```text
+MIT License
+
+Copyright (c) 2026 Jo Bovy
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tomassiniらは星の大気を三次元で計算し、近くを回る伴星の重力による変化を調べた。今回のモデルでは脈動の周期や振幅の変化は小さい一方、ガスの密度には方向による違いが現れた。">
+  <title>伴星がいても、星の脈動は変わらないのか｜中島の研究ウォッチ｜中島淳一</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../paper-watch.css?v=figures-20261107">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+</head>
+<body class="research-page watch-page">
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header class="site-header"><div class="header-inner">
+    <a class="site-name" href="../../" aria-label="中島淳一 ホーム"><span lang="ja">中島淳一</span><span lang="en">Jun-ichi Nakashima</span></a>
+    <p class="site-description" lang="en">Astronomy, notes &amp; essays</p>
+  </div></header>
+  <main id="main" class="research-main" tabindex="-1">
+    <nav class="article-nav" aria-label="現在の位置"><a href="../../">ホーム</a><span aria-hidden="true"> / </span><a href="../">中島の研究ウォッチ</a><span aria-hidden="true"> / </span><span aria-current="page">AGB星・連星大気</span></nav>
+    <article aria-labelledby="article-title">
+      <header class="article-header">
+        <p class="eyebrow" lang="en">Research Watch</p>
+        <p class="article-date">記事公開：<time datetime="2026-11-14">2026年11月14日</time> · 他の研究者の論文紹介</p>
+        <h1 id="article-title">伴星がいても、星の脈動は変わらないのか</h1>
+        <p class="article-subtitle">三次元シミュレーションが描くAGB星大気の密度の偏り</p>
+        <p class="article-lead">年老いた星が、ゆっくりと明るくなったり暗くなったりする。AGB星と呼ばれる大きく冷たい星には、そのように脈動するものが数多くある。内部の対流や大気中を伝わる衝撃波によってガスが持ち上げられ、冷えた場所で塵ができる。塵が光の圧力を受けると、周囲のガスを伴って外へ流れ出す。星の晩年に起こる質量放出の基本的な姿である。</p>
+        <p class="paper-status">プレプリント · A&amp;A投稿（arXiv著者コメント）<br><a href="https://arxiv.org/abs/2611.17125v1">原著を読む</a></p>
+      </header>
+      <div class="article-body">
+        <section aria-labelledby="section-1">
+          <h2 id="section-1">伴星の重力を計算に組み込む</h2>
+          <p>ただ、観測される星周物質の形は、必ずしもきれいな球にはならない。渦巻きや弧、円盤のような構造が見つかることがある。その原因の一つとして考えられるのが、主星の近くを回る伴星の重力だ。では、伴星は星そのものの脈動まで変えてしまうのだろうか。それとも、脈動で動き始めたガスの分布に主として影響するのだろうか。</p>
+          <p>Tomassiniらは、AGB星の対流と脈動を三次元で計算する「CO5BOLD」を使って、この問題に取り組んだ。主星の重力場に、伴星の重力と連星の回転に対応する遠心力の効果を加え、伴星の質量を変えながら大気の動きを比べた。星の中と周囲で起きる複雑な振動を整理するため、特異値分解という数学的手法も使っている。</p>
+        </section>
+        <section aria-labelledby="section-3">
+          <h2 id="section-3">脈動と大気の密度に現れた違い</h2>
+          <p>結果には、印象的な対照が現れた。今回調べた条件では、脈動の代表的な周期や振幅、振動のまとまり具合は、伴星の質量を変えても大きくは変化しなかった。一方、大気の密度分布には明瞭な違いが生じた。伴星が存在する方向を結ぶ軸に沿ってガスが濃くなり、その偏りは伴星が重くなるほど強まる。最も大きな効果を示すモデルでは、軸方向とそれに直交する方向で、外側の大気の一定範囲で平均した密度がおよそ５倍異なった。</p>
+          <figure class="research-figure" id="figure-1">
+            <a href="./images/density-anisotropy.svg" aria-label="伴星の質量と大気密度の偏りの図を拡大"><img src="./images/density-anisotropy.svg" width="482" height="611" alt="星からの距離ごとに、連星軸方向と横方向のガス密度の比を比較したグラフ。曲線の色は伴星質量を表す。" loading="lazy" decoding="async"></a>
+            <figcaption><span class="figure-number">図1（原著 Figure 7）</span>横軸は星からの距離。縦軸は、方向ごとの密度比を単星モデルの値で割ったもの。上段は連星軸方向とその横方向、下段は軌道面内の二方向を比べている。1を上回ると単星モデルよりも連星軸方向への偏りが強い。<span class="figure-source">出典：Gabriel Tomassini, Andrea Chiavassa, Bernd Freytag, Eric Lagadec（2026）。<a href="https://arxiv.org/html/2611.17125v1#S3.F7">原著図・キャプション（arXiv v1）</a> · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>。原著HTMLの図ファイルを無改変で使用。日本語の解説は本サイトによる。</span></figcaption>
+            <p class="figure-zoom">図を選ぶと原寸画像を開けます。</p>
+          </figure>
+          <p>この違いは、星周物質の形を考えるうえで重要だ。星の内部で生まれる周期的な運動と、外側のガスがどちらに多く集まるかは、異なる物理過程に支配されている可能性がある。星の明るさの変動に大きな違いが見られなくても、大気の密度構造には伴星の影響が現れ得るのである。</p>
+          <p>もちろん、今回の計算には範囲がある。伴星は計算領域の外に置かれた点質量で、軌道は定常的な円運動として扱われた。コリオリ力は含まれておらず、ガスが伴星の周囲を回り込みながら遠くまで流れる様子は、今後の計算に委ねられる。また、今回のモデルはガスを扱う段階で、塵の形成と塵によって駆動される風を組み込んだ計算は次の課題だ。</p>
+          <p>それでも、質量放出の始まる領域に連星の重力がどのような偏りを刻むかを、星の脈動と切り分けて示した意義は大きい。星のごく近くに分布する分子ガスやSiOメーザーを観測するときにも、何が密度の形を決め、何がガスの周期的な運動を決めるのかという問いにつながる。</p>
+        </section>
+      </div>
+      <section class="paper-information" aria-labelledby="paper-title">
+        <p class="eyebrow" lang="en">Original paper</p>
+        <h2 id="paper-title">原著・出典情報</h2>
+        <p class="paper-name" lang="en">AGB Atmospheres in Binary Environments: A First Step with CO5BOLB</p>
+        <p class="paper-authors" lang="en">Gabriel Tomassini, Andrea Chiavassa, Bernd Freytag, Eric Lagadec</p>
+        <p>プレプリント · A&amp;A投稿（arXiv著者コメント）</p>
+        <p>使用版：arXiv:2611.17125v1（astro-ph.SR、投稿：2026年11月12日、UTC）</p>
+        <p><a href="https://arxiv.org/abs/2611.17125v1">原著の概要・書誌情報</a> · <a href="https://arxiv.org/html/2611.17125v1">原著本文（v1）</a></p>
+        <p>原著タイトルの「CO5BOLB」は原文どおり。数値計算コードの名称は「CO5BOLD」。</p>
+        <p class="paper-note">本文はarXiv v1に基づく他の研究者の論文紹介です。<a href="../sources.md">出典・図版の利用記録</a>。</p>
+      </section>
+      <nav class="article-return" aria-label="関連ページへの案内"><a href="../">← 中島の研究ウォッチ一覧</a><a href="../../">ホームへ戻る</a></nav>
+    </article>
+  </main>
+  <footer class="site-footer"><div class="footer-inner"><p class="copyright"><span aria-hidden="true">©</span> Jun-ichi Nakashima</p></div></footer>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "af9dc6af89aa4a5196e4b3d14166c4e8"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

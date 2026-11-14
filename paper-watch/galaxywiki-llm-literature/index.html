@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="KoblischkeとBovyは言語モデルで約15万6千本の天文学論文を調べ、4万4千件を超える議論を約1万4千個の銀河ごとに整理した。GalaxyWikiから議論や出典をたどることができる。">
+  <title>銀河の名前を探す先に、論文の「議論」を集める｜中島の研究ウォッチ｜中島淳一</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../paper-watch.css?v=figures-20261107">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+</head>
+<body class="research-page watch-page">
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header class="site-header"><div class="header-inner">
+    <a class="site-name" href="../../" aria-label="中島淳一 ホーム"><span lang="ja">中島淳一</span><span lang="en">Jun-ichi Nakashima</span></a>
+    <p class="site-description" lang="en">Astronomy, notes &amp; essays</p>
+  </div></header>
+  <main id="main" class="research-main" tabindex="-1">
+    <nav class="article-nav" aria-label="現在の位置"><a href="../../">ホーム</a><span aria-hidden="true"> / </span><a href="../">中島の研究ウォッチ</a><span aria-hidden="true"> / </span><span aria-current="page">銀河・AIと文献調査</span></nav>
+    <article aria-labelledby="article-title">
+      <header class="article-header">
+        <p class="eyebrow" lang="en">Research Watch</p>
+        <p class="article-date">記事公開：<time datetime="2026-11-14">2026年11月14日</time> · 他の研究者の論文紹介</p>
+        <h1 id="article-title">銀河の名前を探す先に、論文の「議論」を集める</h1>
+        <p class="article-subtitle">13,616個の銀河について、AIが文献の中身を整理したGalaxyWiki</p>
+        <p class="article-lead">ある銀河について、過去の研究者がどんなことを明らかにしたのかを知りたい。天文学者なら、何度も経験する文献調査である。天体名を検索すれば論文は見つかるが、名前が一度出てくるだけの論文もあるし、その天体を中心に詳しく論じた論文もある。両者を見分けるには、結局、本文を開いて読み進めることになる。</p>
+        <p class="paper-status">WASP 2026受理（arXiv著者コメント）<br><a href="https://arxiv.org/abs/2611.13118v1">原著を読む</a></p>
+      </header>
+      <div class="article-body">
+        <section aria-labelledby="section-1">
+          <h2 id="section-1">銀河について論じた箇所を集める</h2>
+          <p>KoblischkeとBovyが試みたのは、この手間のかかる作業を言語モデルに分担させることだった。対象はarXivの天文学分野に登録された約15万6000本の論文。AIエージェントが論文本文を調べ、個々の銀河について3文以上で実質的な議論がなされている箇所を探す。その部分の引用と短い要約を取り出し、元論文へのリンクとともに整理する。</p>
+          <p>ここで扱っているのは、銀河の数を数える作業より少し奥にある問題だ。たとえば論文中に「M51」という文字列が現れることと、「M51で観測された現象を、著者がどう解釈したか」を知ることには大きな距離がある。この研究は、その間を埋めようとしている。</p>
+          <p>著者らによれば、対象のうち1万8641本の論文から4万4332件の議論が抽出され、天球上の位置情報などを使って1万3616個の銀河にまとめられた。公開された「GalaxyWiki」では、銀河ごとに関連する論文の記述を確認し、原著へ移動できる。検索結果の一覧から、実際の議論を読む場所へと入口を近づけた仕組みである。</p>
+          <figure class="research-figure" id="figure-1">
+            <a href="./images/literature-summary.webp" aria-label="NGC 4650Aの文献要約の図を拡大"><img src="./images/literature-summary.webp" width="664" height="276" alt="GalaxyWikiが表示する銀河NGC 4650Aの英語の文献要約。記述に対応する出典が番号で付いている。" loading="lazy" decoding="async"></a>
+            <figcaption><span class="figure-number">図1（原著 Figure 1 部分）</span>GalaxyWikiが複数の論文をもとに生成した、極リング銀河NGC 4650Aの文献要約。青い番号は各記述の出典を示す。原著図1のうち、右上の要約欄を掲載した。<span class="figure-source">出典：Nolan Koblischke, Jo Bovy（2026）。<a href="https://arxiv.org/html/2611.13118v1#S0.F1">原著図・キャプション（arXiv v1）</a> · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>。原著図の右上の要約欄を切り出し、可逆WebPに変換。日本語の解説は本サイトによる。</span></figcaption>
+            <p class="figure-zoom">図を選ぶと原寸画像を開けます。</p>
+          </figure>
+        </section>
+        <section aria-labelledby="section-5">
+          <h2 id="section-5">引用の一致と銀河の同定を確かめる</h2>
+          <p>このようなデータベースで最も気になるのは、AIが何を正しい情報として結び付けたかである。銀河には別名があり、同じ略号が違う天体を指す場合もある。論文に記された位置と外部の天体データベースを照合する段階にも誤りが入り得る。抽出した文章が原著に存在することと、その内容が正しく要約され、正しい天体に対応付けられていることは、それぞれ独立に確かめる必要がある。</p>
+          <p>著者らは、原文引用との照合や人手による標本の確認など、検証の手順も設けた。一方、調査対象となった論文の範囲、１論文から拾う銀河の上限、別名や位置の解決方法によって、取りこぼしも生じる。公開件数は、研究チームが今回の条件で得た集計値として読むのが適切だ。</p>
+          <p>GalaxyWikiの着想は、銀河以外の天体にも広がる。あるメーザー源について、これまでに誰が何を観測し、どんな解釈を示してきたのか。名前の一覧に、研究の文脈まで結び付けられれば、文献データベースは研究者の記憶を支える道具へ近づいていく。</p>
+        </section>
+      </div>
+      <section class="paper-information" aria-labelledby="paper-title">
+        <p class="eyebrow" lang="en">Original paper</p>
+        <h2 id="paper-title">原著・出典情報</h2>
+        <p class="paper-name" lang="en">Extracting Published Discussions of 13,616 Galaxies with Language Models</p>
+        <p class="paper-authors" lang="en">Nolan Koblischke, Jo Bovy</p>
+        <p>WASP 2026受理（arXiv著者コメント）</p>
+        <p>使用版：arXiv:2611.13118v1（astro-ph.IM、投稿：2026年11月9日、UTC）</p>
+        <p><a href="https://arxiv.org/abs/2611.13118v1">原著の概要・書誌情報</a> · <a href="https://arxiv.org/html/2611.13118v1">原著本文（v1）</a></p>
+        <p class="paper-note">本文はarXiv v1に基づく他の研究者の論文紹介です。<a href="../sources.md">出典・図版の利用記録</a>。</p>
+      </section>
+      <nav class="article-return" aria-label="関連ページへの案内"><a href="../">← 中島の研究ウォッチ一覧</a><a href="../../">ホームへ戻る</a></nav>
+    </article>
+  </main>
+  <footer class="site-footer"><div class="footer-inner"><p class="copyright"><span aria-hidden="true">©</span> Jun-ichi Nakashima</p></div></footer>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "af9dc6af89aa4a5196e4b3d14166c4e8"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

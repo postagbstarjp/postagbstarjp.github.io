@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Bovyは銀河力学の計算ライブラリgalpyにGPU計算と自動微分を導入した。AIが実装したコードを、既存版との照合、共通テスト、独立した計算法によってどう検証したかを報告した。">
+  <title>AIが書いた科学計算コードを、何によって正しいと判断するのか｜中島の研究ウォッチ｜中島淳一</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../paper-watch.css?v=figures-20261107">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+</head>
+<body class="research-page watch-page">
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header class="site-header"><div class="header-inner">
+    <a class="site-name" href="../../" aria-label="中島淳一 ホーム"><span lang="ja">中島淳一</span><span lang="en">Jun-ichi Nakashima</span></a>
+    <p class="site-description" lang="en">Astronomy, notes &amp; essays</p>
+  </div></header>
+  <main id="main" class="research-main" tabindex="-1">
+    <nav class="article-nav" aria-label="現在の位置"><a href="../../">ホーム</a><span aria-hidden="true"> / </span><a href="../">中島の研究ウォッチ</a><span aria-hidden="true"> / </span><span aria-current="page">銀河力学・AIと検証</span></nav>
+    <article aria-labelledby="article-title">
+      <header class="article-header">
+        <p class="eyebrow" lang="en">Research Watch</p>
+        <p class="article-date">記事公開：<time datetime="2026-11-14">2026年11月14日</time> · 他の研究者の論文紹介</p>
+        <h1 id="article-title">AIが書いた科学計算コードを、何によって正しいと判断するのか</h1>
+        <p class="article-subtitle">galpyの高速化が示した、AIと研究者の新しい役割分担</p>
+        <p class="article-lead">コンピューターで星の軌道を計算する。最初に運動方程式を決め、その解を細かな時間刻みで求めていく。計算式そのものは昔から知られていても、それを速く、正確に、さまざまな条件で動くソフトウェアに仕上げるには、多くの手間がかかる。新しい計算基盤に対応させる場合は、性能だけでなく、結果が以前と同じ物理を表しているかも確かめなければならない。</p>
+        <p class="paper-status">プレプリント · 査読・掲載状況は未確認<br><a href="https://arxiv.org/abs/2611.14614v1">原著を読む</a></p>
+      </header>
+      <div class="article-body">
+        <section aria-labelledby="section-1">
+          <h2 id="section-1">GPUと自動微分に対応するgalpy</h2>
+          <p>銀河力学の研究で広く使われるPythonライブラリ「galpy」に、JAXとPyTorchを使う新しい計算経路が加わった。これにより、銀河の重力ポテンシャル、星の軌道、作用角変数などを、GPU上で計算したり、計算結果が入力の変化にどれほど敏感かを自動微分で求めたりできるようになる。大量の軌道をまとめて計算する場合など、著者が示した条件では、一つのCPUコアに対して10倍から最大10万倍程度の速度向上が得られた。</p>
+          <p>だが、この論文でさらに目を引くのは、その開発方法である。著者のJo Bovyは、新しい実装のコードのほぼすべてをAIコーディングエージェントが書いたと明記している。研究者は、何を実装するかを指示し、提出された変更を詳しくレビューし、数値計算の正しさを確かめる役割を担った。</p>
+        </section>
+        <section aria-labelledby="section-3">
+          <h2 id="section-3">独立した計算法で結果を確かめる</h2>
+          <p>ソースコードが生成されたことと、科学的に使えるものができたことの間には、長い検証工程がある。著者はその過程を論文に記録している。既存のNumPy経路の出力が、意図的に変更した一部を除いて以前の版とバイト単位で一致することを、多数の数値に対するチェックサムで点検する。新しい計算経路にも共通のテストを通し、許容誤差を揃えて比較する。さらに、軌道を初期条件で微分した結果を、変分方程式や有限差分計算で得られる結果と突き合わせ、独立の方法が同じ答えへ収束することを調べる。</p>
+          <figure class="research-figure" id="figure-1">
+            <a href="./images/variational-checks.webp" aria-label="星の軌道計算の数値検証の図を拡大"><img src="./images/variational-checks.webp" width="2016" height="1498" alt="星の軌道の感度計算を検証した4パネル。左下では、変分方程式と有限差分の差を刻み幅ごとに示す。" loading="lazy" decoding="async"></a>
+            <figcaption><span class="figure-number">図1（原著 Figure 8）</span>軌道が初期条件の変化にどう応答するかを調べた数値検証。左下のパネルでは、変分方程式で求めた結果と、初期条件を少しずらして軌道を計算し直す有限差分の結果を比較している。<span class="figure-source">出典：Jo Bovy（2026）。<a href="https://arxiv.org/html/2611.14614v1#S10.F8">原著図・キャプション（arXiv v1）</a> · <a href="https://github.com/jobovy/galpy-backends/blob/61ff6e84423b9f685a221f91b96ff4b03f1a8cea/paper/figures/g9_variational_validity/g9_variational_validity.pdf">著者配布の図ファイル</a> · <a href="../sources.md">著作権・許諾表示</a> · <a href="https://github.com/jobovy/galpy-backends/blob/61ff6e84423b9f685a221f91b96ff4b03f1a8cea/LICENSE">MIT License</a>。公式リポジトリの図PDFを288 dpiで描画し、可逆WebPに変換。日本語の解説は本サイトによる。</span></figcaption>
+            <p class="figure-zoom">図を選ぶと原寸画像を開けます。</p>
+          </figure>
+          <p>この図では、軌道計算の感度を複数の方法で計算し、差がどこまで小さくなるかを比べている。答えがもっともらしい形をしているという印象よりも、異なる計算法が同じ値を返すという検証が重要だ。図の左下の比較では、変分方程式の結果と中央差分の結果との差は、刻み幅を調整すると約１億分の１まで小さくなる。</p>
+          <p>もちろん、速度向上の数字は計算する問題の大きさやGPUの種類で変わる。AIが書いたコードが、どの課題にも自動的に適しているという話でもない。今回示されたのは、設計を明確にし、既存の実装を比較基準として残し、テストとレビューを積み上げれば、人間とAIが協力して大きな科学計算コードを更新できるという具体例である。</p>
+          <p>興味深いのは、人間の仕事が減ったというより、重心が移っていることだ。実装の細部を一行ずつ書く作業から、物理的な要求を定め、誤りを見つけられる検証方法を設計する作業へ。科学計算において何をもって「正しい」とするか。その基本的な問いが、AIを使うことで、むしろ以前より鮮明になっている。</p>
+        </section>
+      </div>
+      <section class="paper-information" aria-labelledby="paper-title">
+        <p class="eyebrow" lang="en">Original paper</p>
+        <h2 id="paper-title">原著・出典情報</h2>
+        <p class="paper-name" lang="en">galpy with differentiable, accelerated backends: galactic dynamics in jax and PyTorch</p>
+        <p class="paper-authors" lang="en">Jo Bovy</p>
+        <p>プレプリント · 査読・掲載状況は未確認</p>
+        <p>使用版：arXiv:2611.14614v1（astro-ph.IM、投稿：2026年11月10日、UTC）</p>
+        <p><a href="https://arxiv.org/abs/2611.14614v1">原著の概要・書誌情報</a> · <a href="https://arxiv.org/html/2611.14614v1">原著本文（v1）</a></p>
+        <p>関連プロジェクト：<a href="https://github.com/jobovy/galpy">galpy</a> · <a href="https://github.com/jobovy/galpy/tree/v2">galpy v2の開発ブランチ</a></p>
+        <p class="paper-note">本文はarXiv v1に基づく他の研究者の論文紹介です。<a href="../sources.md">出典・図版の利用記録</a>。</p>
+      </section>
+      <nav class="article-return" aria-label="関連ページへの案内"><a href="../">← 中島の研究ウォッチ一覧</a><a href="../../">ホームへ戻る</a></nav>
+    </article>
+  </main>
+  <footer class="site-footer"><div class="footer-inner"><p class="copyright"><span aria-hidden="true">©</span> Jun-ichi Nakashima</p></div></footer>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "af9dc6af89aa4a5196e4b3d14166c4e8"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
