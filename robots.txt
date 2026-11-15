@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://postagbstarjp.github.io/sitemap.xml
