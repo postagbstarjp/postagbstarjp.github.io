@@ -235,3 +235,37 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
+
+## 2026年11月21日追加の4記事
+
+確認日：2026年11月21日。4稿とも版別のarXiv概要ページのライセンス表示は[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。著者が作図した解析図について、使用した版とキャプションの権利表示を照合した。第三者の図を用いた箇所は元図の出版社版の条件も確認した。転載図はarXiv v1から取得した。日本語の解説と独自の説明図は本サイトによる。参照：[arXivのライセンス案内](https://info.arxiv.org/help/license/index.html)・[図版の再利用案内](https://info.arxiv.org/help/license/reuse.html)。
+
+### ミラ型変光星・銀河の距離
+
+- Chow-Choong Ngeow, Anupam Bhardwaj（2026）, *Calibrated Period-Luminosity Relations for Mira variables in the Large Magellanic Cloud in the Vera C. Rubin Observatory zy-band Photometric Systems*。使用版：[arXiv:2611.17628v1](https://arxiv.org/abs/2611.17628v1)（11月13日投稿、UTC）。Astronomical Journal（AJ）掲載受理（arXiv著者コメント）。
+- **採用・原著 Figure 3 左パネル** [mira-curves.png](./mira-rubin-zy-period-luminosity/images/mira-curves.png)。Chow-Choong Ngeow、Anupam Bhardwaj（2026）、[原著図・キャプション（arXiv v1）](https://arxiv.org/html/2611.17628v1#S3.F3)、[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。TeXソースの左パネルをPNGに変換。
+- **採用・原著 Figure 4** [mira-pl.png](./mira-rubin-zy-period-luminosity/images/mira-pl.png)。Chow-Choong Ngeow、Anupam Bhardwaj（2026）、[原著図・キャプション（arXiv v1）](https://arxiv.org/html/2611.17628v1#S5.F4)、[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。TeXソースの図をPNGに変換。 上段はOu & Ngeow（2022）の測光データと今回の選択標本を著者らが比較作図。
+- **採用・原著 Figure 5 左パネル** [mira-ngc.png](./mira-rubin-zy-period-luminosity/images/mira-ngc.png)。Chow-Choong Ngeow、Anupam Bhardwaj（2026）、[原著図・キャプション（arXiv v1）](https://arxiv.org/html/2611.17628v1#S5.F5)、[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。TeXソースの左パネルをPNGに変換。
+- **見送り・Figures 3・5の右パネル** 図3の右はDP2と合わない例、図5の右は文献の距離モジュラスを前提とする絶対等級の比較。各左パネルで測光と外挿の手順を説明するため省略。
+
+### 惑星状星雲・連星
+
+- Adam Mousley, David Jones, Matti Dorsch, Rajeev Manick, Roger Wesson, Nicole Reindl, Ana Escorza, Paulina Sowicka, Henri M. J. Boffin, Nicholas Chornay, Alexander Csukai, Jorge García-Rojas（2026）, *The long-period central star of planetary nebula MPAJ1508-6455*。使用版：[arXiv:2611.23019v1](https://arxiv.org/abs/2611.23019v1)（11月17日投稿、UTC）。Astronomy & Astrophysics（A&A）掲載受理（原稿記載の受理日：2026年11月14日）。
+- **採用・原著 Figure 6** [binary-rv.png](./mpaj1508-long-period-binary/images/binary-rv.png)。Adam Mousley ほか（2026）、[原著図・キャプション（arXiv v1）](https://arxiv.org/html/2611.23019v1#S5.F6)、[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。TeXソースの図をPNGに変換。
+- **採用・原著 Figure 7** [kiel.jpg](./mpaj1508-long-period-binary/images/kiel.jpg)。Adam Mousley ほか（2026）、[原著図・キャプション（arXiv v1）](https://arxiv.org/html/2611.23019v1#S5.F7)、[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。原著HTMLのJPEGを無改変で使用。 Miller Bertolami（2016）とHallほか（2013）の進化トラックを著者らが本天体の測定値と比較作図。
+- **見送り・Figure 1** 左は第三者による[POPIPlaNの星雲画像](https://www.eso.org/sci/publications/messenger/archive/no.148-jun12/messenger-no148-25-27.pdf)。該当画像の再利用条件の確認に至らず。**Figures 4・5** は著者作成の合成スペクトル・測光モデル比較で、軌道と質量推定に焦点を合わせるため見送り。
+
+### 長周期変光星・近赤外線
+
+- Hedieh Abdollahi, Mina Alizadeh, Fatemeh Nikzat, Atefeh Javadi, Yousefali Abedini, Jacco Th. van Loon（2026）, *A 15-year K-band view of long-period variables in the central region of M33*。使用版：[arXiv:2611.21793v1](https://arxiv.org/abs/2611.21793v1)（11月16日投稿、UTC）。BAO Conference 2026会議録原稿 · Communications of the Byurakan Astrophysical Observatory 投稿（arXiv著者コメント）。
+- **採用・独自作図** [zero-point.svg](./m33-15yr-kband-long-period-variables/images/zero-point.svg)。原著第3節の報告値による独自の説明図。 [報告値の出典](https://arxiv.org/pdf/2611.21793v1)。原図の抜粋・改変なし。
+- **採用・原著 Figure 2** [m33-light-curves.png](./m33-15yr-kband-long-period-variables/images/m33-light-curves.png)。Hedieh Abdollahi ほか（2026）、[原著図・キャプション（arXiv v1）](https://arxiv.org/pdf/2611.21793v1#page=3)、[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。会議録PDFの図領域をPNG化。軸、誤差棒、凡例を保持。 [元図：Mina Alizadeh ほか（2026）、MNRAS stag2094、Figure 6。](https://doi.org/10.1093/mnras/stag2094) 元図の出版社版にもCC BY 4.0の表示あり。
+- **採用・独自作図** [sample-counts.svg](./m33-15yr-kband-long-period-variables/images/sample-counts.svg)。原著第4・5節の集計値による独自の説明図。 [報告値の出典](https://arxiv.org/pdf/2611.21793v1)。原図の抜粋・改変なし。
+- **見送り・Figures 1・3** Figure 1はAlizadehほかのFigure 5から改変、Figure 3は同Figure 8由来。元図の[Oxford University Press掲載版](https://doi.org/10.1093/mnras/stag2094)はCC BY 4.0で、当該キャプションに個別の権利除外なし。分類の分母を示せる独自図を採用。元論文の[arXiv v1](https://arxiv.org/abs/2610.37591v1)はarXivの非独占的配布ライセンスであり、転載根拠には使用していない。
+
+### 赤色超巨星・超新星
+
+- Emma R. Beasor（2026）, *The Lives and Deaths of Red Supergiants*。使用版：[arXiv:2611.22233v1](https://arxiv.org/abs/2611.22233v1)（11月17日投稿、UTC）。招待総説 · Universe 特集号掲載受理（arXiv著者コメント）。
+- **採用・原著 Figure 2** [mass-loss.png](./red-supergiants-lives-deaths-review/images/mass-loss.png)。Emma R. Beasor（2026）、[原著図・キャプション（arXiv v1）](https://arxiv.org/html/2611.22233v1#S3.F2)、[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。原著HTMLのPNGを無改変で使用。 既報の処方をBeasorが評価・比較作図。
+- **採用・原著 Figure 4** [rsg-mass.png](./red-supergiants-lives-deaths-review/images/rsg-mass.png)。Emma R. Beasor（2026）、[原著図・キャプション（arXiv v1）](https://arxiv.org/html/2611.22233v1#S4.F4)、[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。総説HTMLのPNGを無改変で使用。Beasorによる改変図。 [改変元：Conor L. Ransome ほか（2024）、SN 2023ixf in Messier 101: The Twilight Years of the Progenitor as Seen by Pan-STARRS、The Astrophysical Journal 965, 93、原著 Figure 4。](https://doi.org/10.3847/1538-4357/ad2df7) 元図の出版社版にもCC BY 4.0の表示あり。
+- **見送り・Figure 1** [MARCS](https://marcs.astro.uu.se/)の合成スペクトルを用いた図。配布元の案内でモデルへの出典要件は確認したが、第三者のモデル出力に関する再利用条件を特定できず。**Figure 3** はBeasor・Smith・Jencson（2025）からの改変でSN 2025phtを追加。[ApJ出版社版の大学リポジトリ](https://researchonline.ljmu.ac.uk/id/eprint/28826/)にCC BY 4.0の表示があり、元論文の[arXiv v1](https://arxiv.org/html/2410.14027v1)は非独占的配布ライセンス。個々の仮定の違いを示すFigure 4を採用。Figure 4の元図は[ApJ出版社版PDF](https://par.nsf.gov/servlets/purl/10535663)の図とライセンス表示を確認した。
