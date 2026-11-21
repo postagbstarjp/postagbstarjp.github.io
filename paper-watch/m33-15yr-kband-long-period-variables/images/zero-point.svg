@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="306" viewBox="0 0 620 306" role="img" aria-labelledby="title desc">
+  <title id="title">Kバンド測光のゼロ点差</title>
+  <desc id="desc">UFTIを基準とする差。UISTはプラス0.005、WFCAMはマイナス0.096、UHSはプラス0.218等。</desc>
+  <rect width="620" height="306" fill="#f6f7fa"/>
+  <g font-family="system-ui, sans-serif" fill="#172a3b">
+    <text x="32" y="49" font-size="30" font-weight="700">UFTI基準の等級差</text>
+    <text x="32" y="86" font-size="23">82較正星の中央値 · 補正前</text>
+    <path d="M32 111h556 M32 165h556 M32 218h556 M32 272h556" stroke="#bac8d2"/>
+    <g font-size="27">
+      <text x="42" y="147">UIST</text><text x="575" y="147" text-anchor="end">+0.005 等</text>
+      <text x="42" y="201">WFCAM</text><text x="575" y="201" text-anchor="end">−0.096 等</text>
+      <text x="42" y="255">UHS</text><text x="575" y="255" text-anchor="end">+0.218 等</text>
+    </g>
+  </g>
+</svg>
