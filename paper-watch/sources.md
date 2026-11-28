@@ -269,3 +269,67 @@ SOFTWARE.
 - **採用・原著 Figure 2** [mass-loss.png](./red-supergiants-lives-deaths-review/images/mass-loss.png)。Emma R. Beasor（2026）、[原著図・キャプション（arXiv v1）](https://arxiv.org/html/2611.22233v1#S3.F2)、[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。原著HTMLのPNGを無改変で使用。 既報の処方をBeasorが評価・比較作図。
 - **採用・原著 Figure 4** [rsg-mass.png](./red-supergiants-lives-deaths-review/images/rsg-mass.png)。Emma R. Beasor（2026）、[原著図・キャプション（arXiv v1）](https://arxiv.org/html/2611.22233v1#S4.F4)、[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。総説HTMLのPNGを無改変で使用。Beasorによる改変図。 [改変元：Conor L. Ransome ほか（2024）、SN 2023ixf in Messier 101: The Twilight Years of the Progenitor as Seen by Pan-STARRS、The Astrophysical Journal 965, 93、原著 Figure 4。](https://doi.org/10.3847/1538-4357/ad2df7) 元図の出版社版にもCC BY 4.0の表示あり。
 - **見送り・Figure 1** [MARCS](https://marcs.astro.uu.se/)の合成スペクトルを用いた図。配布元の案内でモデルへの出典要件は確認したが、第三者のモデル出力に関する再利用条件を特定できず。**Figure 3** はBeasor・Smith・Jencson（2025）からの改変でSN 2025phtを追加。[ApJ出版社版の大学リポジトリ](https://researchonline.ljmu.ac.uk/id/eprint/28826/)にCC BY 4.0の表示があり、元論文の[arXiv v1](https://arxiv.org/html/2410.14027v1)は非独占的配布ライセンス。個々の仮定の違いを示すFigure 4を採用。Figure 4の元図は[ApJ出版社版PDF](https://par.nsf.gov/servlets/purl/10535663)の図とライセンス表示を確認した。
+
+## 2026年11月28日公開分
+
+原著図の転載なし。独自補助図のみ、原著図ではない旨を表示。原著PDFは配布しません。
+
+### リング星雲の高温ガスに潜む三水素陽イオン
+
+- David A. Neufeld, Paule Sonnentrucker, Joel D. Green (2026), *H₃⁺ forbidden rotational lines in a planetary nebula: JWST/MIRI detection in the Ring Nebula and ionization by the central star* — [原著](https://arxiv.org/abs/2611.31633v1)、[arXiv](https://arxiv.org/abs/2611.31633v1)。ApJ Letters掲載受理（概要の著者コメント）。
+- 原著図の転載なし。 独自補助図 `ring-nebula-h3-ion/images/h3-formation.webp`。基本的なイオン分子反応の独自模式図。Neufeldほか（2026）の観測画像や原著図ではありません。 掲載用に新規作成。
+- 原著照合：2026年11月28日。[arXiv v1全文](https://arxiv.org/html/2611.31633v1)（§II–IV・表1）。
+
+### 背景の電波源を使って、銀河の分子ガスを探す
+
+- S. A. Balashev, N. Gupta, H.-W. Chen, F. Combes, J. Kerp, H.-R. Klöckner, D. Kosenko, J.-K. Krogager, P. Noterdaeme (2026), *The MeerKAT absorption line survey: Galactic OH absorption at 18 cm* — [原著](https://arxiv.org/abs/2611.30357v1)、[arXiv](https://arxiv.org/abs/2611.30357v1)。MNRAS投稿（概要の著者コメント）。
+- 原著図の転載なし。
+- 原著照合：2026年11月28日。[arXiv v1全文](https://arxiv.org/html/2611.30357v1)（§2–3・表1–2・図7）。
+
+### 原始星の増光は、分子の組成にどれほど長く残るのか
+
+- Antoine Espagnet, Audrey Coutens, Pierre Marchand, Jean-Christophe Loison, Fernando Cruz-Sáenz de Miera, Valentine Wakelam (2026), *Modeling the chemical impacts of luminosity outbursts in protostellar envelopes* — [原著](https://arxiv.org/abs/2611.29474v1)、[arXiv](https://arxiv.org/abs/2611.29474v1)。A&A 2026年11月26日オンライン出版。[出版社版（DOI）](https://doi.org/10.1051/0004-6361/202659935)。
+- 原著図の転載なし。 独自補助図 `protostar-outburst-chemical-memory/images/outburst-timescales.webp`。Espagnetほか（2026）の公開概要に記載された時間尺度を独自に整理。観測データ・原著図の転載ではありません。 掲載用に新規作成。
+- 原著照合：2026年11月28日。[arXiv v1全文](https://arxiv.org/html/2611.29474v1)（§2–3・§5）。
+
+### 明るい超巨星のそばにある淡いガスや塵を撮る難しさ
+
+- Priyadarshini Gokuldass, Saida M. Caballero-Nieves, Alex Carciofi, Bruce Gendre, Tajan H. de Amorim, Keefe J. Kamp, Justyn Maund, N. Brice Orange, Maddalena Reggiani (2026), *Evaluating VLT SPHERE for Probing Diffuse Circumstellar Regions of Evolved Stars* — [原著](https://arxiv.org/abs/2611.28869v1)、[arXiv](https://arxiv.org/abs/2611.28869v1)。The Astronomical Journal掲載受理（概要の著者コメント）。
+- 原著図の転載なし。 独自補助図 `sphere-evolved-star-diffuse-emission/images/contrast-relative-halo.webp`。Gokuldassほか（2026）の図4のHD 74395の残留PSFハローに対する等級差から、10の（−0.4×等級差）乗を用いて独自に換算・作図。原著図ではありません。 掲載用に新規作成。
+- 原著照合：2026年11月28日。[arXiv v1全文](https://arxiv.org/html/2611.28869v1)（§II–IV・図4）。
+
+### 三つの星の間で物質が移動するとき
+
+- Alejandra Rosselli-Calderon, Morgan MacLeod, Enrico Ramirez-Ruiz (2026), *Time-variable tertiary mass transfer in hierarchical triple systems* — [原著](https://arxiv.org/abs/2611.28537v1)、[arXiv](https://arxiv.org/abs/2611.28537v1)。プレプリント・掲載状況未確認。
+- 原著図の転載なし。
+- 原著照合：2026年11月28日。[arXiv v1全文](https://arxiv.org/html/2611.28537v1)（§III–IV・図2・7）。
+
+### 天の川銀河のノルマ腕は、棒状構造が作る衝撃波なのか
+
+- Hillary Davis, Joss Bland-Hawthorn, Thor Tepper-García, Oscar Agertz, Elizabeth J. Iles (2026), *The nature of the Norma arm as a bar-driven star-forming shock front* — [原著](https://www.nature.com/articles/s41550-026-03010-5)、[arXiv](https://arxiv.org/abs/2610.38607v1)。Nature Astronomy 2026年11月20日オンライン出版；DOI 10.1038/s41550-026-03010-5。
+- 原著図の転載なし。
+- 原著照合：2026年11月28日。[arXiv v1全文](https://arxiv.org/html/2610.38607v1)（ノルマ腕の節・Methods・図5・6）。
+
+### ミラ型変光星に現れる、もう一つの長い周期
+
+- Yu. A. Fadeyev (2026), *Nonlinear models of Mira variables with long secondary periods* — [原著](https://arxiv.org/abs/2611.32117v1)、[arXiv](https://arxiv.org/abs/2611.32117v1)。Astronomy Letters掲載受理（概要の著者コメント）。
+- 原著図の転載なし。
+- 原著照合：2026年11月28日。[arXiv v1全文](https://arxiv.org/html/2611.32117v1)（§2–3・表1・図1–6）。
+
+### DG Tauの円盤とジェットを、赤外線スペクトルで読み分ける
+
+- Manuel Güdel, Péter Ábrahám, Till Kaeufer, Ágnes Kóspál, József Varga, Nicole Pawellek, Kamber Schwarz, Valentin Christiaens, Danny Gasman, Matthias Samland, Ewine F. van Dishoeck, Thomas Henning, Aditya M. Arabhavi, Alessio Caratti o Garatti, Pacôme Estève, Adrian Glauser, Göran Olofsson, Benoît Tabone, Göran Östlin (2026), *MINDS: The mid-infrared spectrum of the disk, jets, and winds of DG Tau* — [原著](https://arxiv.org/abs/2611.32856v1)、[arXiv](https://arxiv.org/abs/2611.32856v1)。A&A 2026年11月18日オンライン出版。[出版社版（DOI）](https://doi.org/10.1051/0004-6361/202660340)。
+- 原著図の転載なし。
+- 原著照合：2026年11月28日。[arXiv v1全文](https://arxiv.org/html/2611.32856v1)（円盤分子線・ジェット・衝撃モデルの各節）。
+
+### 銀河に残る古い星が、かつての伴星の組成を伝える
+
+- Guochao Yang, Sofya Alexeeva, Jingkun Zhao, Wako Aoki, Tatyana Sitnova, Xianhao Ye, Nian Liu, Qianfan Xing, Gang Zhao (2026), *Binary mass transfer fossil in the ancient GD-1 stellar stream* — [原著](https://arxiv.org/abs/2611.33658v1)、[arXiv](https://arxiv.org/abs/2611.33658v1)。ApJ Letters 2026年11月25日出版（1012, L28）。[出版社版（DOI）](https://doi.org/10.3847/2041-8213/aebf67)。
+- 原著図の転載なし。
+- 原著照合：2026年11月28日。[arXiv v1全文](https://arxiv.org/html/2611.33658v1)（元素組成・連星の証拠・元素合成モデルの各節・図3・6・7）。
+
+### 超新星の爆発と、その前に放出されたガスは同じ向きを持つのか
+
+- Xudong Wen, Yi Yang, Lifan Wang, J. Craig Wheeler, Alexei V. Filippenko, Justyn R. Maund, Mattia Bulla, Simon de Wet, Chris Ashall, Steve Schulze (2026), *Time-resolved Polarimetry of the Type Ibn Supernova 2025kzr Suggests a Possible Ejecta-CSM Misalignment* — [原著](https://arxiv.org/abs/2611.33657v1)、[arXiv](https://arxiv.org/abs/2611.33657v1)。プレプリント（arXiv著者コメントにApJ Lettersへの投稿に関する記載あり）。
+- 原著図の転載なし。
+- 原著照合：2026年11月28日。[arXiv v1全文](https://arxiv.org/html/2611.33657v1)（§II–V・付録A・図1・4）。
